@@ -29,6 +29,13 @@ GLOBAL_LIST_INIT(adv_explosive_recipes, list(
 	/datum/crafting_recipe/incendiaryrocket,
 	/datum/crafting_recipe/strongrocket))
 
+GLOBAL_LIST_INIT(minelaying_recipe, list(
+	/datum/crafting_recipe/explosive/shrapnelmine,
+	/datum/crafting_recipe/explosive/explomine,
+	/datum/crafting_recipe/explosive/stingmine,
+	/datum/crafting_recipe/explosive/pulsemine,
+	/datum/crafting_recipe/explosive/stunmine))
+
 GLOBAL_LIST_INIT(tier_three_parts, list(
 	/datum/crafting_recipe/pico_manip,
 	/datum/crafting_recipe/super_matter_bin,
@@ -88,7 +95,8 @@ GLOBAL_LIST_INIT(former_tribal_recipes, list(
 	/datum/crafting_recipe/greenambrosia,
 	/datum/crafting_recipe/food/pemmican,
 	/datum/crafting_recipe/tribal/bonebag,
-	/datum/crafting_recipe/warpaint))
+	/datum/crafting_recipe/warpaint,
+	/datum/crafting_recipe/horsecream_good))
 
 GLOBAL_LIST_INIT(rustwalkers_traditions_recipes, list(
 	/datum/crafting_recipe/tribalwar/rustwalkers/lightarmour,
@@ -181,8 +189,9 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/technophreak,
 		/datum/quirk/tribal_tech,
 		)
-	gain_text = span_notice("You remember the old ways of your tribe..")
-	lose_text = span_notice("You've forgotten the ways of your ancestors..")
+	gain_text = span_notice("You remember the old ways of your tribe.")
+	lose_text = span_notice("You've forgotten the ways of your ancestors...")
+	human_only = FALSE
 
 /datum/quirk/tribal/add()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -212,7 +221,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/optimist,
 		/datum/quirk/depression,
 		/datum/quirk/pessimist,
-		/datum/quirk/family_heirloom,
+		//datum/quirk/family_heirloom,
 		/datum/quirk/unstable,
 		/datum/quirk/empath,
 		)
@@ -269,12 +278,100 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		) //obese
 	mob_trait = TRAIT_FREERUNNING
 	gain_text = span_notice("You feel lithe on your feet! (Alt click walls to climb them!)")
-	lose_text = span_danger("You feel clumsy again.")
+	lose_text = span_danger("You don't seem to be able to jump as high as you used to.")
 	medical_record_text = "Patient scored highly on cardio tests."
+
+
+/datum/quirk/tackler
+	name = "Leaper"
+	desc = "You are able to leap short distances, and on occasion tackle others, albeit somewhat clumsly."
+	value = 14
+	category = "Movement Quirks"
+	mechanics = "You are able to jump short distances with throw enabled and an empty hand, hitting people will tackle them, leaning towards poor results for you."
+	conflicts = list(
+		/datum/quirk/clumsy,
+		/datum/quirk/overweight,
+		/datum/quirk/tacklerapex,
+		/datum/quirk/tackleradv
+	)
+	mob_trait = TRAIT_TACKLER
+	gain_text = span_notice("Your legs feel stronger.")
+	lose_text = span_danger("Your legs feel weaker.")
+	medical_record_text = "Patient's dexterity belies a good capacity for long distance jumping."
+
+/datum/quirk/tackler/add()
+	var/mob/living/carbon/human/H = quirk_holder
+	H.AddComponent(/datum/component/tackler/simple, \
+		stamina_cost = 30, \
+		base_knockdown = 0 SECONDS, \
+		range = 4, \
+		speed = 1, \
+		skill_mod = -1, \
+		min_distance = 0 \
+)
+
+
+
+/datum/quirk/tackleradv
+	name = "Advanced Leaper"
+	desc = "You are able to leap long distances with ease."
+	value = 22
+	category = "Movement Quirks"
+	mechanics = "You are able to jump long distances with throw enabled and an empty hand, though you can no longer tackle effectively."
+	conflicts = list(
+		/datum/quirk/clumsy,
+		/datum/quirk/overweight,
+		/datum/quirk/tacklerapex,
+		/datum/quirk/tackler
+	)
+	mob_trait = TRAIT_TACKLERADV
+	gain_text = span_notice("Your legs feel much stronger.")
+	lose_text = span_danger("Your legs feel much weaker.")
+	medical_record_text = "Patient's dexterity belies a strong capacity for incredibly long distance jumping."
+
+/datum/quirk/tackleradv/add()
+	var/mob/living/carbon/human/H = quirk_holder
+	H.AddComponent(/datum/component/tackler/simple, \
+		stamina_cost = 20, \
+		base_knockdown = 0 SECONDS, \
+		range = 7, \
+		speed = 2, \
+		skill_mod = -2, \
+		min_distance = 0 \
+)
+
+
+/datum/quirk/tacklerapex
+	name = "Apex Leap"
+	desc = "You are able to leap medium distances with ease, as well as being able to tackle people down, most of the time"
+	value = 32
+	category = "Movement Quirks"
+	mechanics = "You are able to jump medium distances with throw enabled and an empty hand, and effectively tackle others"
+	conflicts = list(
+		/datum/quirk/clumsy,
+		/datum/quirk/overweight,
+		/datum/quirk/tackler,
+		/datum/quirk/tackleradv
+	)
+	mob_trait = TRAIT_TACKLERAPEX
+	gain_text = span_notice("Your legs feel incredibly stronger.")
+	lose_text = span_danger("Your legs feel incredibly weaker.")
+	medical_record_text = "Patient's dexterity belies a strong capacity for street wide jumping."
+
+/datum/quirk/tacklerapex/add()
+	var/mob/living/carbon/human/H = quirk_holder
+	H.AddComponent(/datum/component/tackler/simple_dunkstrong, \
+		stamina_cost = 20, \
+		base_knockdown = 0 SECONDS, \
+		range = 5, \
+		speed = 1, \
+		skill_mod = 3, \
+		min_distance = 0 \
+)
 
 /datum/quirk/friendly
 	name = "Friendly"
-	desc = "You give the best hugs. When you're in the right mood your squeezes can cheer up those around you. Unless they don't, but that's okay. :)"
+	desc = "You give the best hugs. When you're in the right mood, your squeezes can cheer up those around you. Unless they don't, but that's okay. :)"
 	value = 14
 	category = "Emotional Quirks"
 	mechanics = "Your hugs give a bonus mood boost on top of the normal boost from hugging."
@@ -284,8 +381,8 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/pessimist,
 	) //apathetic, and the negative emotional quirks
 	mob_trait = TRAIT_FRIENDLY
-	gain_text = span_notice("You want to hug someone.")
-	lose_text = span_danger("You no longer feel compelled to hug others.")
+	gain_text = span_notice("You feel confident in your ability to comfort others.")
+	lose_text = span_danger("You no longer feel confident in your ability to comfort others.")
 	mood_quirk = TRUE
 	medical_record_text = "Patient demonstrates low-inhibitions for physical contact and well-developed arms. Requesting another doctor take over this case."
 
@@ -365,27 +462,31 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 
 /datum/quirk/musician
 	name = "Musician"
-	desc = "You can tune instruments to play melodies that clear certain negative effects and soothe the soul and even get one of your choice for free!"
+	desc = "You can tune instruments to play melodies that clear certain negative effects and can soothe the soul, you even get one of your instruments for free!"
 	value = 14
-	category = "Artsy Quirks"
+	category = "Lifepath Quirks"
 	mechanics = "You spawn with an instrument & tuner. If you use a tuned instrument then you apply a healing chem to those that hear it. Over time this healing chem can build up in thei system to create an even bigger healing effect. It even stacks with other musicians!"
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_MUSICIAN
 	gain_text = span_notice("You know everything about musical instruments.")
 	lose_text = span_danger("You forget how musical instruments work.")
 	medical_record_text = "Patient brain scans show a highly-developed auditory pathway."
+	human_only = FALSE
 
 /datum/quirk/musician/on_spawn()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	var/obj/item/choice_beacon/music/B = new(get_turf(H))
 	H.put_in_hands(B)
 	H.equip_to_slot_if_possible(B, SLOT_IN_BACKPACK)
 	var/obj/item/musicaltuner/musicaltuner = new(get_turf(H))
 	H.put_in_hands(musicaltuner)
 	H.equip_to_slot_if_possible(musicaltuner, SLOT_IN_BACKPACK)
-	H.regenerate_icons()
+	if(ishuman(quirk_holder))
+		H.regenerate_icons()
+	else
+		H.update_icons()
 
 /* //placeholder test concluded
 /datum/quirk/wizard
@@ -395,7 +496,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = ""
 	mechanics = ""
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_SWAMPWIZARD
 	gain_text = span_notice("You know everything about magic.")
@@ -415,9 +516,11 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = "Emotional Quirks"
 	mechanics = "You know, to the number, how much damage you've taken."
 	conflicts = list(
-	
-	) 
+
+	)
 	mob_trait = TRAIT_SELF_AWARE
+	gain_text = span_notice("You feel deeply aware of your body.")
+	lose_text = span_danger("You lose touch with yourself.")
 	medical_record_text = "Patient demonstrates an uncanny knack for self-diagnosis."
 
 /datum/quirk/skittish
@@ -427,9 +530,11 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = "Movement Quirks"
 	mechanics = "With ctrl + shift + click you can hop into lockers, dumpsters, and trash cans. Good for if you hear footsteps and want to not be seen."
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_SKITTISH
+	gain_text = span_notice("You feel like hiding all of a sudden.")
+	lose_text = span_danger("You feel comfortable with the world, so much for hiding.")
 	medical_record_text = "Patient demonstrates a high aversion to danger and has described hiding in containers out of fear."
 
 /datum/quirk/spiritual
@@ -439,21 +544,22 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = "Functional Quirks"
 	mechanics = "Your prayers trigger the same noise for admins that a preachers prayers would, meaning they're more likely to pay attention to them. That doesn't mean it will be positive attention though."
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_SPIRITUAL
 	gain_text = span_notice("You feel a little more faithful to the gods today.")
 	lose_text = span_danger("You feel less faithful in the gods.")
 	medical_record_text = "Patient reports a belief in a higher power."
+	human_only = FALSE
 
 /datum/quirk/tagger
 	name = "Tagger"
 	desc = "You're an experienced artist. Or, at least you know how to make every drop of paint count."
 	value = 0
-	category = "Artsy Quirks"
+	category = "Lifepath Quirks"
 	mechanics = "You get twice as many uses out of drawing supplies, like spray paint cans! Remember, we have a persistent painting system."
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_TAGGER
 	gain_text = span_notice("You know how to tag walls efficiently.")
@@ -479,11 +585,13 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/dumb,
 		/datum/quirk/luddite,
 		/datum/quirk/primitive,
-		
+
 		)
 	mob_trait = TRAIT_TECHNOPHREAK
 	gain_text = span_notice("Old-War rubble seems considerably more generous to you.")
 	lose_text = span_danger("Old-War rubble suddenly seems less generous to you.")
+	medical_record_text = "Patient appears to really enjoy dismantling old junk."
+	human_only = FALSE
 
 /datum/quirk/technophreak/add()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -512,12 +620,14 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = "Crafting Quirks"
 	mechanics = "You gain access to our weapon smithing system. A decent amount of recipes for things you can use, or sell!"
 	conflicts = list(
-		
+
 	)
 
 	mob_trait = TRAIT_WEAPONSMITH
 	gain_text = span_notice("You are adept at crafting makeshift weapons.")
-	lose_text = span_danger("You seem less adept at crafting makeshift weapons.")
+	lose_text = span_danger("You seem to have forgotten how to craft makeshift weapons...")
+	medical_record_text = "Patient appears to enjoy tinkering with custom guns."
+	human_only = FALSE
 
 /datum/quirk/gunsmith/add()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -544,18 +654,20 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_MASTERWORKSMITH
 	gain_text = span_notice("Your smithed weapons will now be of masterwork quality.")
 	lose_text = span_danger("You seem less adept at crafting masterworks.")
+	medical_record_text = "Patient appears to be a well renowned gunsmith."
+	human_only = FALSE
 
 /datum/quirk/voracious
 	name = "Bottomless Stomach"
 	desc = "Nothing gets between you and your food. You eat twice as fast as everyone else!"
 	value = 0
 	category = "Food Quirks"
-	mechanics = "You never feel full, so you can juuuuuust keep on eating. For better or worse."
+	mechanics = "You never feel full! You can keep on eating, and eating, and eating... For better or worse."
 	conflicts = list()
 	mob_trait = TRAIT_VORACIOUS
 	gain_text = span_notice("You feel HONGRY.")
 	lose_text = span_danger("You no longer feel HONGRY.")
-	medical_record_text = "Patient demonstrates a disturbing capacity for eating."
+	medical_record_text = "Patient demonstrates a disturbing capacity for eating. Please, make sure they don't eat my lunch again."
 
 /datum/quirk/bloodpressure
 	name = "Extra Blood"
@@ -586,12 +698,14 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = "Tech Quirks"
 	mechanics = "You gain access to tribal chemmasters to make potions and poisons."
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_MACHINE_SPIRITS
 	gain_text = span_notice("You are now able to use primitive technology.")
 	lose_text = span_danger("You are no longer able to use primitive technology.")
+	medical_record_text = "Patient appears to have a knack for bushcraft."
 	locked = TRUE
+	human_only = FALSE
 
 /datum/quirk/dna_whiz
 	name = "Dna Whiz"
@@ -606,16 +720,16 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/primitive,
 	)
 	mob_trait = TRAIT_DNAWHIZ
-	gain_text = span_notice("You know how plants work")
-	lose_text = span_danger("You forgot how plants work")
+	gain_text = span_notice("You know how plants work!")
+	lose_text = span_danger("You forgot how plants work... somehow.")
 
 
 /datum/quirk/night_vision
 	name = "Dark Vision - Minor"
-	desc = "You can see slightly more clearly in full darkness than most people by one more whole tile."
+	desc = "You can see a small distance around you in full darkness compared to most people by two whole tiles."
 	value = 22
 	category = "Vision Quirks"
-	mechanics = "You can see two more tiles in the dark than normal without a light source."
+	mechanics = "You can see two more tiles in the dark compared to others without a light source."
 	conflicts = list(
 		/datum/quirk/blindness,
 		/datum/quirk/night_vision_greater,
@@ -623,32 +737,36 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_NIGHT_VISION
 	gain_text = span_notice("The shadows seem a little less dark.")
 	lose_text = span_danger("Everything seems a little darker.")
-
-
+	medical_record_text = "Patient claims they can see in the dark."
+	human_only = FALSE
 
 /datum/quirk/night_vision/on_spawn()
-	var/mob/living/carbon/human/H = quirk_holder
-	H.update_sight()
+	quirk_holder.update_sight()
+
+/datum/quirk/night_vision/remove()
+	quirk_holder.update_sight()
 
 /datum/quirk/night_vision_greater
 	name = "Dark Vision - Greater"
-	desc = "You can see slightly more clearly in full darkness than most people by one more whole tile."
+	desc = "You can see a much further distance in full darkness compared to most people by four more whole tiles."
 	value = 44
 	category = "Vision Quirks"
-	mechanics = "You can see four more tiles in the dark than normal without a light source."
+	mechanics = "You can see four more tiles in the dark compared to others without a light source."
 	conflicts = list(
 		/datum/quirk/blindness,
 		/datum/quirk/night_vision,
 	)
 	mob_trait = TRAIT_NIGHT_VISION_GREATER
-	gain_text = span_notice("The shadows seem a little less dark.")
-	lose_text = span_danger("Everything seems a little darker.")
-
-
+	gain_text = span_notice("The shadows seem a a lot less dark.")
+	lose_text = span_danger("Everything seems a lot darker.")
+	medical_record_text = "Patient claims that they have night vision."
+	human_only = FALSE
 
 /datum/quirk/night_vision_greater/on_spawn()
-	var/mob/living/carbon/human/H = quirk_holder
-	H.update_sight()
+	quirk_holder.update_sight()
+
+/datum/quirk/night_vision_greater/remove()
+	quirk_holder.update_sight()
 
 /datum/quirk/nukalover
 	name = "Cola Fiend"
@@ -690,13 +808,15 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_TRAPPER
 	gain_text = span_notice("You learn the secrets of butchering!")
 	lose_text = span_danger("You forget how to slaughter animals.")
+	medical_record_text = "Patient often describes how they clean and skin animals."
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/bigleagues
 	name = "Melee - Big Leagues"
 	desc = "Swing for the fences! You deal even more additional damage with melee weapons."
 	value = 65
-	category = "Melee Combat"
+	category = "Melee Quirks"
 	mechanics = "You do an extra 10 damage with all melee attacks."
 	conflicts = list( //little leagues, and the negative quriks
 		/datum/quirk/nonviolent,
@@ -707,13 +827,15 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_BIG_LEAGUES
 	gain_text = span_notice("You feel like swinging for the fences!")
 	lose_text = span_danger("You feel like bunting.")
+	medical_record_text = "Patient appears to have incredible upper body strength."
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/littleleagues
 	name = "Melee - Little Leagues"
 	desc = "Swing for the outfield! You deal additional damage with melee weapons."
 	value = 32
-	category = "Melee Combat"
+	category = "Melee Quirks"
 	mechanics = "You do an extra 5 damage with all melee attacks."
 	conflicts = list(
 		/datum/quirk/nonviolent,
@@ -724,7 +846,9 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_LITTLE_LEAGUES
 	gain_text = span_notice("You feel like swinging for the outfield!")
 	lose_text = span_danger("You feel like skipping practice.")
+	medical_record_text = "Patient appears to have above average upper body strength."
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/chemwhiz
 	name = "Chem Whiz"
@@ -739,9 +863,11 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/primitive,
 	)
 	mob_trait = TRAIT_CHEMWHIZ
-	gain_text = span_notice("The mysteries of chemistry are revealed to you.")
-	lose_text = span_danger("You forget how the periodic table works.")
+	gain_text = span_notice("The mysteries of chemistry are revealed to you!")
+	lose_text = span_danger("You forget how water boils.")
+	medical_record_text = "Patient appears to use pharmaceutical labels for OTC drugs."
 	locked =  FALSE
+	human_only = FALSE
 
 /datum/quirk/chemwhiz/add()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -769,7 +895,8 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	)
 	mob_trait = TRAIT_PA_WEAR
 	gain_text = span_notice("You realize how to use Power Armor.")
-	lose_text = span_danger("You forget how Power Armor works.")
+	lose_text = span_danger("You forget how Power Armor works...")
+	medical_record_text = "Patient claims to wear a powerful suit of metal."
 	locked = FALSE
 
 /datum/quirk/hard_yards
@@ -785,8 +912,9 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/paraplegic,
 	)
 	mob_trait = TRAIT_HARD_YARDS
-	gain_text = span_notice("Rain or shine, nothing slows you down.")
-	lose_text = span_danger("You walk with a less sure gait, the ground seeming less firm somehow.")
+	gain_text = span_notice("Rain or shine, nothing slows you down!")
+	lose_text = span_danger("The world beneath your heels suddenly feels like its pinning you down...")
+	medical_record_text = "Patient describes going on hikes very often."
 	locked = FALSE
 
 /datum/quirk/soft_yards
@@ -804,7 +932,8 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	)
 	mob_trait = TRAIT_SOFT_YARDS
 	gain_text = span_notice("Rain or shine only slow you down a little.")
-	lose_text = span_danger("You walk with a less sure gait, the ground seeming less firm somehow.")
+	lose_text = span_danger("The world beneath your heels suddenly feels like tugging you down...")
+	medical_record_text = "Patient describes going on walks."
 	locked = FALSE
 
 /datum/quirk/lifegiver
@@ -819,10 +948,11 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/veryflimsy,
 	)
 	mob_trait = TRAIT_LIFEGIVER
-	gain_text = span_notice("You feel more healthy than usual.")
-	lose_text = span_danger("You feel less healthy than usual.")
+	gain_text = span_notice("You feel more durable.")
+	lose_text = span_danger("You feel flimsy once more.")
 	medical_record_text = "Patient has higher capacity for injury."
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/lifegiver/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -834,17 +964,18 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	desc = "You embody wellness to the MAX! Instantly gain +20 maximum Health."
 	value = 65
 	category = "Health Quirks"
-	mechanics = "You have +20 health. What this actually means is you need to take twengy more points of damage before you go into crit."
+	mechanics = "You have +20 health. What this actually means is you need to take 20 more points of damage before you go into crit."
 	conflicts = list(
 		/datum/quirk/lifegiver,
 		/datum/quirk/flimsy,
 		/datum/quirk/veryflimsy,
 	)
 	mob_trait = TRAIT_LIFEGIVERPLUS
-	gain_text = span_notice("You feel much more healthy than usual.")
-	lose_text = span_danger("You feel much less healthy than usual.")
-	medical_record_text = "Patient has much higher capacity for injury."
+	gain_text = span_notice("You feel incredibly durable.")
+	lose_text = span_danger("You feel noodly once more.")
+	medical_record_text = "Patient has shown a significantly higher capacity for injury."
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/lifegiverplus/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -865,6 +996,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_IRONFIST
 	gain_text = span_notice("Your fists feel furious!")
 	lose_text = span_danger("Your fists feel calm again.")
+	medical_record_text = "Patient has claimed to have accidentally break pencils when holding them."
 	locked = FALSE
 
 /datum/quirk/iron_fist/on_spawn()
@@ -877,7 +1009,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	desc = "You have MASSIVE fists of kung-fury! Even MORE increases unarmed damage."
 	value = 36
 	category = "Hand to Hand Quirks"
-	mechanics = "Your punches do 10 to 16 damage, yikes!"
+	mechanics = "Your punches do 10 to 16 damage, yeowch!"
 	conflicts = list(
 		/datum/quirk/nonviolent,
 		/datum/quirk/iron_fist,
@@ -886,6 +1018,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_STEELFIST
 	gain_text = span_notice("Your fists feel MASSIVELY furious!")
 	lose_text = span_danger("Your fists feel calm again, what a relief.")
+	medical_record_text = "Patient has accidentally destroyed the door handle to my office. A replacement is needed."
 	locked = FALSE
 
 /datum/quirk/steel_fist/on_spawn()
@@ -904,9 +1037,12 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/surgeryhigh
 	)
 	mob_trait = TRAIT_SURGERY_LOW
-	gain_text = span_notice("You feel yourself discovering the basics of the human body.")
-	lose_text = span_danger("You forget how to perform even the simplest surgery.")
+	gain_text = span_notice("You feel yourself discovering the basics of the body.")
+	lose_text = span_danger("You forget how to perform even the simplest of surgery.")
+	medical_record_text = "Patient exudes some knowlegde on operation sanitation procedures."
 	locked = FALSE
+	human_only = FALSE
+
 /datum/quirk/surgerymid
 	name = "Advanced Surgery"
 	desc = "You are a competent medical practicioner, capable of performing a larger array of surgeries."
@@ -918,25 +1054,28 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/surgerylow
 	)
 	mob_trait = TRAIT_SURGERY_MID
-	gain_text = span_notice("You feel yourself discovering the basics of the human body.")
-	lose_text = span_danger("You forget how to perform even the simplest surgery.")
+	gain_text = span_notice("You feel yourself discovering the inner workings of the body.")
+	lose_text = span_danger("You forget how to perform even the simplest of surgery.")
+	medical_record_text = "Patient is claimed to be an competent surgeon."
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/surgeryhigh
 	name = "Expert Surgery"
 	desc = "You are a well established surgeon. You can perform most, if not all, surgeries."
 	value = 66
 	category = "Medical Quirks"
-	mechanics = "You gain access to most surgeries, particularly expert wound tending surgeries"
+	mechanics = "You gain access to most surgeries, particularly expert wound tending surgeries."
 	conflicts = list(
 		/datum/quirk/surgerylow,
 		/datum/quirk/surgerymid
 	)
 	mob_trait = TRAIT_SURGERY_HIGH
-	gain_text = span_notice("You feel yourself discovering the basics of the human body.")
-	lose_text = span_danger("You forget how to perform even the simplest surgery.")
+	gain_text = span_notice("You feel yourself discovering everything about the body!")
+	lose_text = span_danger("You forget how to perform even the simplest of surgery.")
+	medical_record_text = "Patient is a renown surgeon."
 	locked = FALSE
-
+	human_only = FALSE
 
 /datum/quirk/explosive_crafting
 	name = "Explosives Crafting"
@@ -945,12 +1084,14 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = "Crafting Quirks"
 	mechanics = "You gain access to the recipes to make all sorts of explosives, including mines!"
 	conflicts = list( //dumb
-		
+
 	)
 	mob_trait = TRAIT_EXPLOSIVE_CRAFTING
 	gain_text = span_notice("You feel like you can make a bomb out of anything.")
 	lose_text = span_danger("You feel okay with the advancement of technology.")
+	medical_record_text = "Patient claims to enjoy making pipe bombs."
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/explosive_crafting/add()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -959,6 +1100,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	// I made the quirks add the same recipes as the trait books. Feel free to nerf this
 	H.mind.learned_recipes |= GLOB.basic_explosive_recipes
 	H.mind.learned_recipes |= GLOB.adv_explosive_recipes
+	H.mind.learned_recipes |= GLOB.minelaying_recipe
 
 /datum/quirk/explosive_crafting/remove()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -968,17 +1110,19 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 
 /datum/quirk/improved_heal
 	name = "Improved Innate Healing"
-	desc = "You have a deeper reservoir for innate healing, whether it's through magic, medical tending, or licking. check the neutral traits for these abilities."
+	desc = "You have a deeper reservoir for innate healing, whether it's through magic, medical tending, or licking. Check the neutral traits for these abilities."
 	value = 32
 	category = "Healer Quirks"
-	mechanics = "Your innate healing functions have 25 uses, instead of 5. They still regenerate at the same speed though."
+	mechanics = "Your innate healing functions now have 25 uses instead of only 5. They will still regenerate at the same speed though."
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_IMPROVED_HEALING
 	gain_text = span_notice("You feel well hydrated.")
 	lose_text = span_danger("You feel rather dry.")
+	medical_record_text = "Patient exudes a rather invigorating aura. Further study is required."
 	locked = FALSE
+	human_only = FALSE
 
 /*
 /datum/quirk/lick_bandage
@@ -988,7 +1132,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = ""
 	mechanics = ""
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_BANDAGE_TONGUE
 	gain_text = span_notice("Your mouth feels a bit gummy.")
@@ -1018,11 +1162,11 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = ""
 	mechanics = ""
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_ADVANCED_EXPLOSIVE_CRAFTING
 	gain_text = span_notice("You're on the no-fly list.'")
-	lose_text = "<span class='danger'>You feel like you're allowed to fly on planes again.</span>"
+	lose_text = span_danger("You feel like you're allowed to fly on planes again.")
 	locked = TRUE
 
 /datum/quirk/advanced_explosive_crafting/add()
@@ -1050,6 +1194,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_TRIBAL_TRAD
 	gain_text = span_notice("The mysteries of your ancestors are revealed to you.")
 	lose_text = span_danger("You forget how your ancestors have created their garments.")
+	medical_record_text = "Patient appears to mention their ancestors decorataive looks."
 	locked =  FALSE
 
 /datum/quirk/whitelegstraditions/on_spawn()
@@ -1057,7 +1202,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	var/obj/item/book/granter/trait/tribaltraditions/B = new(get_turf(H))
 	H.put_in_hands(B)
 
-/* 
+/*
 /datum/quirk/deadhorsestraditions
 	name = "Dead Horses traditions"
 	desc = "You remember how to make your peoples ancient garments after all this time."
@@ -1217,12 +1362,14 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = "Movement Quirks"
 	mechanics = "You are treated as being in harm intent at all times when it comes to people moving through your space."
 	conflicts = list( //health flimsy maybe? Maybe not though?  idk
-		
+
 	)
 	mob_trait = TRAIT_PUSHIMMUNE
 	gain_text = span_notice("You feel stronger than a brick wall.")
 	lose_text = span_danger("Your feel like you could get thrown down again.")
+	medical_record_text = "Patient appears to exude a personal space bubble."
 	locked =  FALSE
+	human_only = FALSE
 
 /* Removed due to lack of atmos lol ~TK
 /datum/quirk/heatresist
@@ -1232,7 +1379,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = ""
 	mechanics = ""
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_RESISTHEAT
 	gain_text = span_notice("It could be a little warmer in here.")
@@ -1246,7 +1393,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = ""
 	mechanics = ""
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_RESISTCOLD
 	gain_text = span_notice("It could be a little colder in here.")
@@ -1261,7 +1408,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = ""
 	mechanics = ""
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_RADIMMUNE
 	gain_text = span_notice("You've decided radiation just doesn't matter.")
@@ -1278,8 +1425,9 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/radimmunesorta,
 	)
 	mob_trait = TRAIT_75_RAD_RESIST
-	gain_text = span_notice("You've decided radiation just doesn't matter much.")
-	lose_text = span_danger("You no longer feel like you could roll around in a rad puddle for a while.")
+	gain_text = span_notice("You've decided that radiation is an afterthought.")
+	lose_text = span_danger("You feel like radiation is very important to you again.")
+	medical_record_text = "Patient appears to be incredibly resilient to a large amount of radiation. X-Ray scans near impossible."
 	locked =  FALSE
 
 /datum/quirk/radimmunesorta
@@ -1292,8 +1440,9 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/radimmuneish,
 	)
 	mob_trait = TRAIT_50_RAD_RESIST
-	gain_text = span_notice("You've decided radiation only kind of matters.")
+	gain_text = span_notice("You've decided radiation has a weaker effect on you.")
 	lose_text = span_danger("You no longer think you should hang out next to rad puddles.")
+	medical_record_text = "Patient appears to be resilient to some radiation. X-Ray scans are fuzzy. "
 	locked =  FALSE
 
 /datum/quirk/nohunger
@@ -1309,6 +1458,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_NOHUNGER
 	gain_text = span_notice("Your need for food has left you.")
 	lose_text = span_danger("GOD YOU WANT A BURGER SO BAD.")
+	medical_record_text = "Patient NEVER eats their food."
 	locked =  FALSE
 
 /*
@@ -1319,7 +1469,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	category = ""
 	mechanics = ""
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_PIERCEIMMUNE
 	gain_text = span_notice("Your skin feels way stronger.")
@@ -1329,30 +1479,32 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 
 /datum/quirk/quickercarry
 	name = "Quicker Carry"
-	desc = "You're real good at just scooping people up."
+	desc = "You're better than most people when it comes to carrying people!"
 	value = 14
 	category = "Medical Quirks"
-	mechanics = "When using the fireman carry (upgraded grab then drag the target onto yourself) you pick up at a faster pace."
+	mechanics = "When using the fireman carry, you lift people up at a faster rate."
 	conflicts = list(
 		/datum/quirk/quickcarry,
 	)
 	mob_trait = TRAIT_QUICKER_CARRY
-	gain_text = span_notice("You feel like a MASTER fireman!")
-	lose_text = span_danger("You're ability to carry folk seems massively diminished.")
+	gain_text = span_notice("You feel like a ACCEPTABLE fireman!")
+	lose_text = span_danger("You're ability to carry folk seems a bit diminished.")
+	medical_record_text = "Patient appears to drag people around on occasion."
 	locked =  FALSE
 
 /datum/quirk/quickcarry
 	name = "Quick Carry"
-	desc = "You're better than most at just scooping people up."
+	desc = "You're exceptionally good when it comes to carrying people!"
 	value = 18
 	category = "Medical Quirks"
-	mechanics = "When using the fireman carry (upgraded grab then drag the target onto yourself) you pick up at a REALLY fast pace."
+	mechanics = "When using the fireman carry, you lift people up onto your shoulders at an incredibly faster rate!"
 	conflicts = list(
 		/datum/quirk/quickercarry,
 	)
 	mob_trait = TRAIT_QUICK_CARRY
-	gain_text = span_notice("You feel like an ACCEPTABLE fireman!")
-	lose_text = span_danger("You're ability to carry folk seems a bit diminished.")
+	gain_text = span_notice("You feel like an MASTER fireman!")
+	lose_text = span_danger("You're ability to carry folk seems massively diminished.")
+	medical_record_text = "Patient appears to haul bodies around."
 	locked =  FALSE
 
 /datum/quirk/builder
@@ -1365,7 +1517,9 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_QUICK_BUILD
 	gain_text = span_notice("You could throw up a house if you wanted to!")
 	lose_text = span_danger("What's a two by four again?")
+	medical_record_text = "Patient made comments on the building's floorplan."
 	locked =  FALSE
+	human_only = FALSE
 
 /datum/quirk/grappler
 	name = "Trained Grappler"
@@ -1375,16 +1529,18 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mechanics = "Any grab that you do, even just shift clicking on people, is automatically an aggressive grab. Annoying for making trains of people to move in, but great for forcing a weapon out of someones hand."
 	conflicts = list()
 	mob_trait = TRAIT_STRONG_GRABBER
-	gain_text = span_notice("You could wrassle a deathclaw!!")
-	lose_text = span_danger("You no longer feel like you should wrestle deathclaws.")
+	gain_text = span_notice("You feel like you could wrestle a deathclaw!!!")
+	lose_text = span_danger("You no longer feel like you should wrestle deathclaws...")
+	medical_record_text = "Patient is apparently very good at gripping things."
 	locked =  FALSE
+	human_only = FALSE
 
 /datum/quirk/mastermartialartist
 	name = "Master Martial Artist"
-	desc = "Sometimes you hit so hard you're pretty sure they stop being human!"
+	desc = "You occasionally hit so hard that they don't even seem like themselves anymore!"
 	value = 32
 	category = "Hand to Hand Quirks"
-	mechanics = "Your punches, when you roll max damage, inflict clone damage instead ofnormal brute damage on people. Which is harder to heal and just generally somewhat devastating."
+	mechanics = "Your punches, when you roll max damage, inflict clone damage instead of normal brute damage on people. Which is harder to heal and generally somewhat devastating."
 	conflicts = list(
 		/datum/quirk/nonviolent,
 		/datum/quirk/noodle_fist,
@@ -1392,11 +1548,12 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_KI_VAMPIRE
 	gain_text = span_notice("They are already dead.")
 	lose_text = span_danger("Your fists no longer feel so powerful.")
+	medical_record_text = "Patient appears to have dense muscles in their fists."
 	locked =  FALSE
 
 /datum/quirk/surestrike
 	name = "Sure Strike"
-	desc = "Your technique for punching has been perfected! Your punches always do MAX damage!"
+	desc = "You've either trained for years, got a lucky mutation, or are naturally strong! Your punches always do MAX damage!"
 	value = 32
 	category = "Hand to Hand Quirks"
 	mechanics = "You ALWAYS punch for MAX damage."
@@ -1405,7 +1562,9 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/mastermartialartist,
 	)
 	mob_trait = TRAIT_PERFECT_ATTACKER
-	gain_text = span_notice("They are already dead.")
+	gain_text = span_notice("You feel like you can punch anything!")
+	lose_text = span_danger("Your fists seem to lose their punching finesse.")
+	medical_record_text = "Patient appears to have incredibly dense muscles in their fist."
 
 /datum/quirk/silentstep
 	name = "Silent Step"
@@ -1420,23 +1579,26 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	)
 	gain_text = span_notice("Your footsteps fade away.")
 	lose_text = span_danger("You're pretty sure that's the sound of your asscheeks clapping, but it might be footsteps.")
+	medical_record_text = "Patient appears to always walk on their toes."
 	locked =  FALSE
 
 /datum/quirk/deadeye
 	name = "Dead Eye"
-	desc = "You hit the shots you aim. No ifs, ands, or buts."
+	desc = "When you hit your target, you frequently hit your target's vital points more often than not."
 	value = 65
 	category = "Ranged Quirks"
-	mechanics = "Your accuracy never degrades from movement, firing, or anything else."
+	mechanics = "You have advantage on all random ranged damage rolls. (roll twice and take the highest)"
 	conflicts = list(
 		/datum/quirk/clumsy,
 		/datum/quirk/straightshooter,
 		/datum/quirk/poor_aim,
 	)
-	mob_trait = TRAIT_INSANE_AIM
+	mob_trait = TRAIT_CRIT_SHOT
 	gain_text = span_notice("Your aim is legendary, and you know it.")
-	lose_text = span_danger("Your aim could use some work...")
+	lose_text = span_danger("Your aim could use a lot more work...")
+	medical_record_text = "Patient flicked a fly out of the air using a toothpick."
 	locked =  FALSE
+	human_only = FALSE
 
 /datum/quirk/straightshooter
 	name = "Straight Shooter"
@@ -1451,12 +1613,14 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	)
 	mob_trait = TRAIT_NICE_SHOT
 	gain_text = span_notice("Your aim is amazing, and you know it.")
-	lose_text = span_danger("Your aim could use some work...")
+	lose_text = span_danger("Your aim could use a little more work...")
+	medical_record_text = "Patient repeatedly scores baskets in the trashcan."
 	locked =  FALSE
+	human_only = FALSE
 
 /datum/quirk/bowtrained
 	name = "Bow Trained"
-	desc = "You've trained quite a bit with bows of many types, and are pretty good with them for it."
+	desc = "You've trained quite a bit with bows of many types."
 	value = 14
 	category = "Ranged Quirks"
 	mechanics = "You don't need to press z to pull the string back on a bow, instead you can just spam click to fire rapidly."
@@ -1467,7 +1631,9 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_AUTO_DRAW
 	gain_text = span_notice("You feel like all that training with bows has paid off.")
 	lose_text = span_danger("Guns were always better...")
+	medical_record_text = "Patient shows aptitude for utilizing strings on sticks."
 	locked =  FALSE
+	human_only = FALSE
 
 /datum/quirk/masterrifleman
 	name = "Bolt Worker"
@@ -1482,7 +1648,27 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_FAST_PUMP
 	gain_text = span_notice("In a sudden haze you realize that the Mosin Nagant was Gods gift to mankind.")
 	lose_text = span_danger("After picking some 250 year old cosmoline out from under one of your nails you realize that... Uh, no, the Mosin Nagant is a piece of shit.")
+	medical_record_text = "Patient appears to really enjoy cranking bolts."
 	locked =  FALSE
+	human_only = FALSE
+
+/datum/quirk/wandproficient
+	name = "Magically Attuned"
+	desc = "You were either born with a natural inclination for magic or were taught its secrets."
+	value = 0
+	category = "Ranged Quirks"
+	mechanics = "You can use magical wands, staves, and other advanced magical items. However, magic has a cost -- your potential elsewhere is limited, and learning a martial art will sever your connection to magic."
+	conflicts = list(
+	/datum/quirk/deadeye,
+	/datum/quirk/mastermartialartist,
+	)
+
+	mob_trait = TRAIT_WAND_PROFICIENT
+	gain_text = span_notice("You feel magic flowing through your veins!")
+	lose_text = span_danger("The magic within you fades away.")
+	medical_record_text = "Patient exudes an unknown pattern on the monitor. Further analysis required."
+	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/playdead
 	name = "Play Dead"
@@ -1494,11 +1680,12 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_PLAY_DEAD
 	gain_text = span_notice("You feel confident at playing dead.")
 	lose_text = span_danger("You feel that laying down in a field of gunfire may not be such a good idea after all.")
+	medical_record_text = "Patient has failed heart monitoring tests multiple times."
 	locked =  FALSE
 
 /datum/quirk/ratfriend
 	name = "Beast Friend - Rats"
-	desc = "Rattos and wild mice outright ignore you now."
+	desc = "Rats and wild mice of all kind outright ignore you now."
 	value = 14
 	category = "Critter Quirks"
 	mechanics = "Rats and mice share their faction with you, meaning they won't do anything about you or care at all that you exist."
@@ -1508,14 +1695,16 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_BEASTFRIEND_RAT
 	gain_text = span_notice("Rats are friends!")
 	lose_text = span_danger("God of rats curses your name...") // Perhaps make killing related mobs lose the quirk?
+	medical_record_text = "Patient talks about rats a lot."
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/ratfriend/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.faction |= list("rat-friend")
 
 /datum/quirk/ratfriend/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(H)
 		H.faction -= list("rat-friend")
 
@@ -1532,6 +1721,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	mob_trait = TRAIT_BEASTMASTER_RAT
 	gain_text = span_notice("You feel like being a giant rat, that makes all of the rules!")
 	lose_text = span_danger("You've lost your rat crown...")
+	medical_record_text = "Patient REALLY loves to talk about rats."
 	locked = FALSE
 	var/obj/effect/proc_holder/mob_common/taming_mobs/rat/tame
 	var/obj/effect/proc_holder/mob_common/summon_backup/beastmaster/rat/gather
@@ -1574,32 +1764,35 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/crittermaster,
 	)
 	mob_trait = TRAIT_BEASTFRIEND_SMALLCRITTER
-	gain_text = span_notice("Some if not all wasteland critters doesn't seem to mind you now!")
-	lose_text = span_danger("You feel critters of wasteland wouldn't be so friendly with you anymore...")
+	gain_text = span_notice("Some of the wasteland critters don't seem to mind you now!")
+	lose_text = span_danger("You feel as if some of the critters in the wasteland grow hostile towards you...")
+	medical_record_text = "Patient seems to possess a calm aura."
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/critterfriend/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.faction |= list("critter-friend")
 
 /datum/quirk/critterfriend/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(H)
 		H.faction -= list("critter-friend")
 
 /datum/quirk/crittermaster
 	name = "Beast Master - Small Critters"
 	desc = "Whenever by psychic means or not, you gained ability to control roaches, most geckos and molerats (last ones will be initially hostile and needs to be tamed).\
-	<br>Taming will make them passive toward other players and tamed fauna. Young and adult nightstalkers can be also tamed, but not controlled."
+	<br>Taming will make them passive toward other players and tamed fauna. Young and adult nightstalkers can also be tamed, but not controlled."
 	value = 34
 	category = "Critter Quirks"
-	mechanics = "You can tame and order around roaches, geckos (not all of the full variety pack though) and molerats. While unable to attack players with them they're a great distraction for fighting other mobs with."
+	mechanics = "You can tame and order around roaches, geckos (not all of the full variety pack though) and molerats. While unable to attack players with them, they're a great distraction for fighting other mobs with."
 	conflicts = list(
 		/datum/quirk/critterfriend,
 	)
 	mob_trait = TRAIT_BEASTMASTER_SMALLCRITTER
-	gain_text = span_notice("You tapped to potentials of the critter horde!")
+	gain_text = span_notice("You tapped into the potential of the critter horde!")
 	lose_text = span_danger("Small critters refuse to obey your commands now.")
+	medical_record_text = "Patient claims to have a telepathic connection to animals. Sounds like crazy talk."
 	locked = FALSE
 	var/obj/effect/proc_holder/mob_common/taming_mobs/small_critter/tame
 	var/obj/effect/proc_holder/mob_common/summon_backup/beastmaster/small_critter/gather
@@ -1628,16 +1821,17 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 
 /datum/quirk/wildshape
 	name = "Wild Shape"
-	desc = "You've developed through some means the ability to adopt a lesser form. What it is was decided by yourself or mere circumstance, but you can transform back and forth at will."
+	desc = "You've developed through some means the ability to adopt a lesser form. What you become was decided by yourself or mere circumstance, but you can transform back and forth at will."
 	value = 15
 	category = "Mutant Quirks"
 	mechanics = "You gain the shapeshift spell and can cast it nearly at will! This allows you to transform into an animal and back again. Once you select a shape, it cannot be changed."
 	conflicts = list(
-		
+
 	)
 	mob_trait = TRAIT_WILDSHAPE
-	gain_text = span_notice("You tapped to potentials of the critter horde!")
-	lose_text = span_danger("Small critters refuse to obey your commands now.")
+	gain_text = span_notice("You feel as if your spirit animal is ready to come out and play!")
+	lose_text = span_danger("You no longer have any desires of changing at will.")
+	medical_record_text = "Patient appears to be wild, in some form or another."
 	locked = FALSE
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/wildshape
 
@@ -1655,40 +1849,47 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 
 /datum/quirk/zoomies
 	name = "Zoomies"
-	desc = "Physical prowess, mutation, or cybernetic enhancement, you can sprint a good deal longer than most folk. Just...don't run into things."
+	desc = "Physical prowess, mutation, or cybernetic enhancement, you can sprint a good deal longer than most folk. Justt don't run into things."
 	value = 14
 	category = "Movement Quirks"
-	mechanics = "Your stamina goes down slower when sprinting. Just don't run into anything or it will hurt more than normal."
+	mechanics = "You use 25% less stamina while sprinting! Just don't run into anything or it will hurt more than normal."
 	conflicts = list(
 		/datum/quirk/cantrun,
 		/datum/quirk/super_zoomies,
 	)
 	mob_trait = TRAIT_ZOOMIES
+	gain_text = span_notice("You feel all pumped up!")
+	lose_text = span_danger("You no longer have the zoomies...")
+	medical_record_text = "Patient is incredibly giddy, full of zoomies."
 
 /datum/quirk/super_zoomies
 	name = "Zoomies - Super"
-	desc = "Frenetic energy, densified leg-muscles, or cyber-organs, you can sprint way longer than most folk. Just...REALLY don't run into things."
+	desc = "Frenetic energy, densified leg-muscles, or cyber-organs, you can sprint way longer than most folk. Just... REALLY don't run into things. Seriously."
 	value = 28
 	category = "Movement Quirks"
-	mechanics = "Your stamina barely goes down when sprinting. Really be careful running into things, it could break your back."
+	mechanics = "You use 50% less stamina while sprinting! Seriously, though, be careful running into things, it could break your back."
 	conflicts = list(
 		/datum/quirk/cantrun,
 		/datum/quirk/zoomies,
 	)
 	mob_trait = TRAIT_SUPER_ZOOMIES
+	gain_text = span_notice("You feel SUPER pumped up!")
+	lose_text = span_danger("You no longer have the giga zoomies...")
+	medical_record_text = "Patient is full of way too much energy, and has not stopped running around my office as of writing."
 
 /datum/quirk/artifact_identify
 	name = "Artifact Hunter"
-	desc = "You have a keen eye for identifying magical otherworldly trash! You can identify artifacts with a glance."
+	desc = "You have a keen eye for identifying magical, otherworldly trash! You can identify artifacts at a glance."
 	value = 32
 	category = "Lifepath Quirks"
 	mechanics = "You have no wait time when it comes to identifying artifacts."
 	conflicts = list()
 	mob_trait = TRAIT_ARTIFACT_IDENTIFY
-	gain_text = span_notice("You feel perceptive!.")
-	lose_text = span_danger("You feel imperceptive.")
+	gain_text = span_notice("You feel perceptive towards ancient artifacts.")
+	lose_text = span_danger("You feel as if you lost the knack for identifying ancient objects.")
+	medical_record_text = "Patient claims to know about alien, or some form of ancient technology."
 	locked =  FALSE
-
+	human_only = FALSE
 
 /datum/quirk/armblader
 	name = "Arm Blader"
@@ -1696,18 +1897,25 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 
 	value = 32
 	category = "Mutant Quirks"
-	mechanics = "Your arm can turn into a horrible meat sword."
+	mechanics = "Your arm can turn into a horrible flesh blade."
 	conflicts = list()
 	mob_trait = TRAIT_ARMBLADE
+	gain_text = span_notice("You feel as your arm is heavier...")
+	lose_text = span_danger("Your arm feels lighter...")
+	medical_record_text = "Patient appears to possess a knife, somehow."
+	human_only = FALSE
 
 /datum/quirk/tentaclearm
 	name = "Arm Tentacle"
 	desc = "Through some genetic quirk you have access to horrifying arm tentacle to grab people and mobs with. Use *tentarm verb to summon it."
 	value = 32
 	category = "Mutant Quirks"
-	mechanics = "Your arm can turn into a horrible meat sword."
+	mechanics = "Your arm can turn into a horrible meat bludgeon."
 	conflicts = list()
 	mob_trait = TRAIT_ARMTENT
+	gain_text = span_notice("You feel as your arm is wriggling...")
+	lose_text = span_danger("Your arm feels lighter...")
+	medical_record_text = "Patient appears to possess a club, somehow."
 
 /datum/quirk/bigbiter
 	name = "Biter - Big"
@@ -1722,6 +1930,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/sabrebiter,
 	)
 	mob_trait = TRAIT_BIGBITE
+	gain_text = span_notice("Your bite strength feels like that of a gator!")
+	lose_text = span_danger("Your mouth feels incredibly sore.")
+	medical_record_text = "Patient appears to chew through bone like nothing."
+	human_only = FALSE
 
 /datum/quirk/fastbiter
 	name = "Biter - Fast"
@@ -1736,6 +1948,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/sabrebiter,
 	)
 	mob_trait = TRAIT_FASTBITE
+	gain_text = span_notice("Your mouth feels capable of nibbling a LOT!")
+	lose_text = span_danger("Your mouth feels all gunked up.")
+	medical_record_text = "Patient bites. A lot."
+	human_only = FALSE
 
 /datum/quirk/playbiter
 	name = "Biter - Pretend"
@@ -1750,10 +1966,14 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/sabrebiter,
 	)
 	mob_trait = TRAIT_PLAYBITE
+	gain_text = span_notice("Your feel your bite strength leave your jaw...")
+	lose_text = span_danger("Your bite strength returns!")
+	medical_record_text = "Patient has bit me before. It did not hurt."
+	human_only = FALSE
 
 /datum/quirk/spicybiter
 	name = "Biter - Venomous"
-	desc = "One way or another your *bite can put things on their butts."
+	desc = "One way or another your *bite can inject a strong paralytic venom of some kind!"
 	value = 22
 	category = "Biter Quirks"
 	mechanics = "Your bite does stamina damage to both players and mobs, but less brute damage overall."
@@ -1764,6 +1984,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/sabrebiter,
 	)
 	mob_trait = TRAIT_SPICYBITE
+	gain_text = span_notice("You feel your teeth secrete a viscous fluid.")
+	lose_text = span_danger("You no longer secrete venom.")
+	medical_record_text = "Patient has caused numbing in my arm. We really need a better way to test bites."
+	human_only = FALSE
 
 /datum/quirk/sabrebiter
 	name = "Biter - Sabre Toothed"
@@ -1778,6 +2002,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/spicybiter,
 	)
 	mob_trait = TRAIT_SABREBITE
+	gain_text = span_notice("Your teeth suddenly becomes incredibly large and heavy!")
+	lose_text = span_danger("Your teeth suddenly shrink and become light once more!")
+	medical_record_text = "Patient has incredibly large teeth."
+	human_only = FALSE
 
 /datum/quirk/bigclawer
 	name = "Clawer - Big"
@@ -1792,10 +2020,14 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/razorclaw,
 	)
 	mob_trait = TRAIT_BIGCLAW
+	gain_text = span_notice("You claws harden, they feel capable of through metal!")
+	lose_text = span_danger("Your claws soften.")
+	medical_record_text = "Patient is capable of shredding through a locker."
+	human_only = FALSE
 
 /datum/quirk/fastclawer
 	name = "Clawer - Fast"
-	desc = "Your claw swipes are nearly the speed of sound, your *claw attack his WAY faster."
+	desc = "Your claw swipes are nearly the speed of sound, your *claw attack hits WAY faster."
 	value = 22
 	category = "Clawer Quirks"
 	mechanics = "When using *claw your claws do less damage than normal, but with a faster attack speed."
@@ -1806,6 +2038,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/razorclaw,
 	)
 	mob_trait = TRAIT_FASTCLAW
+	gain_text = span_notice("Your claws feel very aerodynamic!")
+	lose_text = span_danger("You suddenly feel clumsy swinging your claws around...")
+	medical_record_text = "Patient claims to scratch at things. A lot."
+	human_only = FALSE
 
 /datum/quirk/playclaw
 	name = "Clawer - Pretend"
@@ -1820,6 +2056,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/razorclaw,
 	)
 	mob_trait = TRAIT_PLAYCLAW
+	gain_text = span_notice("Your claws feel almost like rubber!")
+	lose_text = span_danger("Your claws suddenly return to normal.")
+	medical_record_text = "Patient claims to be weak at scratching."
+	human_only = FALSE
 
 /datum/quirk/spicyclaw
 	name = "Clawer - Venomous"
@@ -1834,6 +2074,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/razorclaw,
 	)
 	mob_trait = TRAIT_SPICYCLAW
+	gain_text = span_notice("You feel a viscous fluid secrete from your claws!")
+	lose_text = span_danger("You no longer feel venom drip from your claws.")
+	medical_record_text = "Patient has momentarily numbed me after a bad handshake."
+	human_only = FALSE
 
 /datum/quirk/razorclaw
 	name = "Clawer - Razors"
@@ -1848,6 +2092,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/spicyclaw,
 	)
 	mob_trait = TRAIT_RAZORCLAW
+	gain_text = span_notice("RIP AND TEAR, your claws are now much stronger!")
+	lose_text = span_danger("You no longer feel like ripping anything up.")
+	medical_record_text = "Patient appears to enjoy clawing everything up."
+	human_only = FALSE
 
 //tail
 
@@ -1857,6 +2105,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	value = 22
 	category = "Tailer Quirks"
 	mob_trait = TRAIT_TAILSMASH
+	gain_text = span_notice("Your tail is suddenly much larger.")
+	lose_text = span_danger("Your tail is suddenly smaller.")
+	medical_record_text = "Patient has a large tail."
+	human_only = FALSE
 
 /datum/quirk/fasttail
 	name = "Tail - Whiplike"
@@ -1864,6 +2116,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	value = 22
 	category = "Tailer Quirks"
 	mob_trait = TRAIT_TAILWHIP
+	gain_text = span_notice("Your tail is now much lighter!")
+	lose_text = span_danger("Your tail feels heavy.")
+	medical_record_text = "Patient has a heavy tail."
+	human_only = FALSE
 
 /datum/quirk/playtail
 	name = "Tail - Playful"
@@ -1871,13 +2127,21 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	value = 0
 	category = "Tailer Quirks"
 	mob_trait = TRAIT_TAILPLAY
+	gain_text = span_notice("Your tail feels very soft and plush.")
+	lose_text = span_danger("Your tail feels rough and raggedy.")
+	medical_record_text = "Patient has a very soft tail."
+	human_only = FALSE
 
 /datum/quirk/spicytail
 	name = "Tail - Venomous"
-	desc = "One way or another your *tailer can put things on their butts."
+	desc = "One way or another your *tailer verb is capable of inflicting venomous attacks with your tail!"
 	value = 22
 	category = "Tailer Quirks"
 	mob_trait = TRAIT_TAILSPICY
+	gain_text = span_notice("Your tail secretes a viscous fluid.")
+	lose_text = span_danger("Your tail no longer produces venom.")
+	medical_record_text = "Patient appears to have a paralytic tail."
+	human_only = FALSE
 
 /datum/quirk/thagotail
 	name = "Tail - Thagomizer"
@@ -1885,6 +2149,40 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	value = 32
 	category = "Tailer Quirks"
 	mob_trait = TRAIT_TAILTHAGO
+	gain_text = span_notice("Your tail feels like a bludgeon!")
+	lose_text = span_danger("Your tail suddenly feels weak.")
+	medical_record_text = "Patient tripped me over with their tail this morning. Please be aware of it."
+	human_only = FALSE
+
+//Cantrips//
+/datum/quirk/shocking
+	name = "Shocking Grasp"
+	desc = "You know how to cast the shocking grasp cantrip"
+	value = 32
+	category = "Cantrips"
+	mechanics = "When using the *shocking emote, you summon a melee spell cantrip that strikes fast and delivers powerful shocks to your foes"
+	conflicts = list(
+		/datum/quirk/littleleagues,
+		/datum/quirk/bigleagues
+	)
+	mob_trait = TRAIT_SHOCKINGGRASP
+	gain_text = span_notice("You know how to cast shocking grasp!")
+	lose_text = span_danger("You no longer know how to cast shocking grasp!.")
+	human_only = FALSE
+
+//datum/quirk/booming
+	//name = "Booming Blade"
+	//desc = "You know how to cast the booming blade cantrip"
+	//value = 44
+	//category = "Cantrips"
+	//mechanics = "When using the *booming emote, you summon a magic sword able to tag foes for extra damage on the next hit."
+	//conflicts = list(
+		//datum/quirk/littleleagues,
+		//datum/quirk/bigleagues
+	//)
+	//mob_trait = TRAIT_BOOMING
+	//gain_text = span_notice("You know how to cast booming blade!")
+	//lose_text = span_danger("You no longer know how to cast booming blade!.")
 
 
 ///QUIRK PACKAGES/// QUACKAGES IF YOU WILL
@@ -1987,9 +2285,10 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		)
 	gain_text = span_notice("DAMN BRO YOU SWOLE!")
 	lose_text = span_notice("Maybe you could skip gym day...")
+	human_only = FALSE
 
 /datum/quirk/package/bruiser/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	ADD_TRAIT(H, TRAIT_BIG_LEAGUES, "Melee - Big Leagues")
 	ADD_TRAIT(H, TRAIT_LIFEGIVERPLUS, "Health - Tougher")
 
@@ -2000,18 +2299,93 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		REMOVE_TRAIT(H, TRAIT_BIG_LEAGUES, "Melee - Big Leagues")
 		REMOVE_TRAIT(H, TRAIT_LIFEGIVERPLUS, "Health - Tougher")
 
+/datum/quirk/package/parkour
+	name = "Rooftop Nomad"
+	desc = "You like parkour. Like, a lot a lot."
+	value = 70
+	category = "Quirk Packages"
+	mechanics = "Grants access to positive quirks Freerunning and Advanced Leaper!"
+	conflicts = list(
+		/datum/quirk/freerunning,
+		/datum/quirk/tackleradv,
+		/datum/quirk/slower,
+		/datum/quirk/slow,
+		/datum/quirk/clumsy,
+		/datum/quirk/cantrun,
+		/datum/quirk/overweight,
+		/datum/quirk/tacklerapex,
+		/datum/quirk/tackler
+		)
+	gain_text = span_notice("Hardcore parkour!")
+	lose_text = span_notice("Parkour's just not in style anymore...")
+
+/datum/quirk/package/parkour/add()
+	var/mob/living/carbon/human/H = quirk_holder
+	ADD_TRAIT(H, TRAIT_FREERUNNING, "Freerunning")
+	ADD_TRAIT(H, TRAIT_TACKLERADV, "Advanced Leaper")
+	H.AddComponent(/datum/component/tackler/simple, \
+		stamina_cost = 20, \
+		base_knockdown = 0 SECONDS, \
+		range = 7, \
+		speed = 2, \
+		skill_mod = -2, \
+		min_distance = 0 \
+)
+
+
+/datum/quirk/package/parkour/remove()
+	var/mob/living/carbon/human/H = quirk_holder
+	if(!QDELETED(H))
+		REMOVE_TRAIT(H, TRAIT_FREERUNNING, "Freerunning")
+		REMOVE_TRAIT(H, TRAIT_TACKLERADV, "Advanced Leaper")
+
+/datum/quirk/package/hvyhitter
+	name = "Heavy Hitter"
+	desc = "You're well practiced in hand to hand combat."
+	value = 80
+	category = "Quirk Packages"
+	mechanics = "Grants access to positive Sure Strike & Fists of Steel!"
+	conflicts = list(
+		/datum/quirk/steel_fist,
+		/datum/quirk/surestrike,
+		/datum/quirk/nonviolent,
+		/datum/quirk/iron_fist,
+		/datum/quirk/noodle_fist,
+		/datum/quirk/mastermartialartist
+		)
+	gain_text = span_notice("Your knuckles are calloused.")
+	lose_text = span_notice("Your hands feel soft again...")
+
+/datum/quirk/package/hvyhitter/add()
+	var/mob/living/carbon/human/H = quirk_holder
+	ADD_TRAIT(H, TRAIT_PERFECT_ATTACKER, "Sure Strike")
+	ADD_TRAIT(H, TRAIT_STEELFIST, "Fists of Steel")
+
+
+/datum/quirk/package/hvyhitter/remove()
+	var/mob/living/carbon/human/H = quirk_holder
+	if(!QDELETED(H))
+		REMOVE_TRAIT(H, TRAIT_PERFECT_ATTACKER, "Sure Strike")
+		REMOVE_TRAIT(H, TRAIT_STEELFIST, "Fists of Steel")
+
+/datum/quirk/package/hvyhitter/on_spawn()
+	var/mob/living/carbon/human/H = quirk_holder
+	H.dna.species.punchdamagelow = STEEL_FIST_PUNCH_DAMAGE_LOW
+	H.dna.species.punchdamagehigh = STEEL_FIST_PUNCH_DAMAGE_MAX
+
 /datum/quirk/package/Ranger
 	name = "Ranger"
 	desc = "Bow in hand, and rat in back pocket, the swamplands is your home."
 	value = 35
 	category = "Quirk Packages"
-	mechanics = "Grants access to positive Bow Trained & Beast Friends - Small Critters"
+	mechanics = "Grants access to positive quirks Bow Trained, and Beast Friends - Small Critters."
 	conflicts = list(
 		/datum/quirk/bowtrained,
 		/datum/quirk/critterfriend
 		)
 	gain_text = span_notice("These lands are your home.")
 	lose_text = span_notice("Where the heck am I????")
+	human_only = FALSE
 
 /datum/quirk/package/ranger/add()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -2037,6 +2411,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		)
 	gain_text = span_notice("Aim just behind behind the front leg...")
 	lose_text = span_notice(".223 is probably overkill for deer...")
+	human_only = FALSE
 
 /datum/quirk/package/hunter/add()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -2060,18 +2435,24 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		/datum/quirk/gunsmith,
 		/datum/quirk/masterworksmith,
 	)
+	human_only = FALSE
 
 /datum/quirk/package/legendarywepsm/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	ADD_TRAIT(H, TRAIT_MASTERWORKSMITH, "Weaponsmith - Masterwork")
 	ADD_TRAIT(H, TRAIT_WEAPONSMITH, "Weaponsmith - Basic")
-
+	if(!H.mind.learned_recipes)
+		H.mind.learned_recipes = list()
+	H.mind.learned_recipes |= GLOB.weaponcrafting_gun_recipes
+	H.mind.learned_recipes |= GLOB.weapons_of_texarkana
 
 /datum/quirk/package/legendarywepsm/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		REMOVE_TRAIT(H, TRAIT_MASTERWORKSMITH, "Weaponsmith - Masterwork")
 		REMOVE_TRAIT(H, TRAIT_WEAPONSMITH, "Weaponsmith - Basic")
+	if(H)
+		H.mind.learned_recipes -= GLOB.weaponcrafting_gun_recipes
 
 /datum/quirk/package/reformedtribal
 	name = "Reformed Tribal Chemist"
@@ -2090,6 +2471,9 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	var/mob/living/carbon/human/H = quirk_holder
 	ADD_TRAIT(H, TRAIT_MACHINE_SPIRITS, "Primitive Tech")
 	ADD_TRAIT(H, TRAIT_CHEMWHIZ, "Chem Whiz")
+	if(!H.mind.learned_recipes)
+		H.mind.learned_recipes = list()
+	H.mind.learned_recipes |= GLOB.chemwhiz_recipes
 
 
 /datum/quirk/package/reformedtribal/remove()
@@ -2097,6 +2481,8 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 	if(!QDELETED(H))
 		REMOVE_TRAIT(H, TRAIT_MACHINE_SPIRITS, "Primitive Tech")
 		REMOVE_TRAIT(H, TRAIT_CHEMWHIZ, "Chem Whiz")
+	if(H)
+		H.mind.learned_recipes -= GLOB.chemwhiz_recipes
 
 /datum/quirk/package/creatureofthewildsevi
 	name = "Creature of the Wilds - Eviscerator"
@@ -2125,7 +2511,7 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 
 /datum/quirk/package/creatureofthewildsspicy
 	name = "Creature of the Wilds - Venomous"
-	desc = "You are massively in tune with your wild side. Especially the part that lets you poison things with your fangs and claws"
+	desc = "You are massively in tune with your wild side. Especially the part that lets you poison things with your fangs and claws."
 	value = 53
 	category = "Quirk Packages"
 	mechanics = "Grants access to positive trait Spicy Claw & Spicy Biter."
@@ -2148,4 +2534,83 @@ GLOBAL_LIST_INIT(weapons_of_texarkana, list(
 		REMOVE_TRAIT(H, TRAIT_SPICYCLAW, "Clawer - Venomous")
 		REMOVE_TRAIT(H, TRAIT_SPICYBITE, "Biter - Venomous")
 
+/datum/quirk/package/creatureofthenightgreater
+	name = " Creature of the Night - Greater"
+	desc = "You are the prime definition of creature of the night, your dark vision and movement agility are greatly improved."
+	value = 100
+	category = "Quirk Packages"
+	mechanics = "Grants access to positive trait Dark Vision - Greater & Mobility - Wasteland Trekker."
+	conflicts = list(
+		/datum/quirk/hard_yards,
+		/datum/quirk/night_vision_greater,
+		/datum/quirk/package/creatureofthenightlesser
+		)
+	gain_text = span_notice("Your night hunting instincts enhance!")
+	lose_text = span_notice("Your night hunting instincts fade away.")
 
+/datum/quirk/package/creatureofthenightgreater/add()
+	var/mob/living/carbon/human/H = quirk_holder
+	ADD_TRAIT(H, TRAIT_NIGHT_VISION_GREATER, "Dark Vision - Greater")
+	ADD_TRAIT(H, TRAIT_HARD_YARDS, "Mobility - Wasteland Trekker")
+
+
+/datum/quirk/package/creatureofthenightgreater/remove()
+	var/mob/living/carbon/human/H = quirk_holder
+	if(!QDELETED(H))
+		REMOVE_TRAIT(H, TRAIT_NIGHT_VISION_GREATER, "Dark Vision - Greater")
+		REMOVE_TRAIT(H, TRAIT_HARD_YARDS, "Mobility - Wasteland Trekker")
+
+/datum/quirk/package/creatureofthenightlesser
+	name = "Creature of the Night - Lesser"
+	desc = "You are a creature of the night, your dark vision and movement agility are over the average."
+	value = 50
+	category = "Quirk Packages"
+	mechanics = "Grants access to positive trait Dark Vision - Minor & Mobility - Wasteland Wanderer."
+	conflicts = list(
+		/datum/quirk/night_vision,
+		/datum/quirk/soft_yards,
+		/datum/quirk/package/creatureofthenightgreater
+		)
+	gain_text = span_notice("You feel more attuned in darker places.")
+	lose_text = span_notice("Light and taking it slow aren't bad things afteral.")
+
+/datum/quirk/package/creatureofthenightlesser/add()
+	var/mob/living/carbon/human/H = quirk_holder
+	ADD_TRAIT(H, TRAIT_NIGHT_VISION, "Dark Vision - Minor")
+	ADD_TRAIT(H, TRAIT_SOFT_YARDS, "Mobility - Wasteland Wanderer")
+
+
+/datum/quirk/package/creatureofthenightlesser/remove()
+	var/mob/living/carbon/human/H = quirk_holder
+	if(!QDELETED(H))
+		REMOVE_TRAIT(H, TRAIT_NIGHT_VISION, "Dark Vision - Minor")
+		REMOVE_TRAIT(H, TRAIT_SOFT_YARDS, "Mobility - Wasteland Wanderer")
+
+/datum/quirk/package/generalmedicalpractitioner
+	name = "General Medical Practitioner"
+	desc = "You were a General Practiotioner at some point in your life, you probably had an office and a license to practice medicine, or... maybe this is what you kept saying to your patients..."
+	value = 50
+	category = "Quirk Packages"
+	mechanics = "Grants access to positive trait Chem Whiz & Minor Surgery."
+	conflicts = list(
+		/datum/quirk/chemwhiz,
+		/datum/quirk/surgerylow
+		)
+	gain_text = span_notice("Let's go practice medicine!")
+	lose_text = span_notice("I really think I need a true medical license...")
+
+/datum/quirk/package/generalmedicalpractitioner/add()
+	var/mob/living/carbon/human/H = quirk_holder
+	ADD_TRAIT(H, TRAIT_CHEMWHIZ, "Chem Whiz")
+	ADD_TRAIT(H, TRAIT_SURGERY_LOW, "Minor Surgery")
+	if(!H.mind.learned_recipes)
+		H.mind.learned_recipes = list()
+	H.mind.learned_recipes |= GLOB.chemwhiz_recipes
+
+/datum/quirk/package/generalmedicalpractitioner/remove()
+	var/mob/living/carbon/human/H = quirk_holder
+	if(!QDELETED(H))
+		REMOVE_TRAIT(H, TRAIT_CHEMWHIZ, "Chem Whiz")
+		REMOVE_TRAIT(H, TRAIT_SURGERY_LOW, "Minor Surgery")
+	if(H)
+		H.mind.learned_recipes -= GLOB.chemwhiz_recipes

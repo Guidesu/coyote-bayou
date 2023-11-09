@@ -437,6 +437,13 @@
 	materials = list(/datum/material/iron = 6000, /datum/material/blackpowder = 1500)
 	category = list("initial", "Basic Ammo")
 
+/datum/design/ammolathe/a22_ratshot
+	name = ".22lr ratshot box"
+	id = "a22_ratshot"
+	build_path = /obj/item/ammo_box/m22/ratshot
+	materials = list(/datum/material/iron = 4000, /datum/material/blackpowder = 1500)
+	category = list("initial", "Basic Ammo")
+
 /datum/design/ammolathe/a9mmfmj
 	name = "9mm FMJ ammo box"
 	id = "a9mmfmj"
@@ -472,6 +479,13 @@
 	materials = list(/datum/material/iron = 10000, /datum/material/blackpowder = 1500)
 	build_path = /obj/item/ammo_box/m22/rubber
 	category = list("initial", "Basic Ammo")
+
+/datum/design/ammolathe/needlercapsule
+	name = "Capsule full of needle ammo"
+	id = "needlercapsule"
+	build_path = /obj/item/ammo_box/needlercapsule
+	materials = list(/datum/material/iron = 6000, /datum/material/blackpowder = 1500)
+	category = list("initial", "Simple Ammo")
 
 /datum/design/ammolathe/a762rubber
 	name = ".308 rubber ammo box"
@@ -523,6 +537,21 @@
 	id = "m127mm"
 	materials = list(/datum/material/iron = 6000)
 	build_path = /obj/item/ammo_box/magazine/m14mm/empty
+	category = list("initial", "Intermediate Magazines")
+
+
+/datum/design/ammolathe/m14mmcustommagazine
+	name = "empty P-36 magazine (14mm)"
+	id = "14mmcustom"
+	materials = list(/datum/material/iron = 6000)
+	build_path = /obj/item/ammo_box/magazine/m14mmcustom/empty
+	category = list("initial", "Basic Magazines")
+
+/datum/design/ammolathe/m5mmpistol
+	name = "empty handgun magazine (5mm)"
+	id = "m5mmcustom"
+	materials = list(/datum/material/iron = 4000)
+	build_path = /obj/item/ammo_box/magazine/m5mmcustom/empty
 	category = list("initial", "Intermediate Magazines")
 
 /datum/design/ammolathe/smg14
@@ -586,6 +615,13 @@
 	id = "boysmagazine"
 	materials = list(/datum/material/iron = 8000)
 	build_path = /obj/item/ammo_box/magazine/boys/empty
+	category = list("initial", "Advanced Magazines")
+
+/datum/design/ammolathe/highcalmag
+	name = "empty compact AMR magazine (.50)"
+	id = "highcalmagazine"
+	materials = list(/datum/material/iron = 8000)
+	build_path = /obj/item/ammo_box/magazine/highcaliber/empty
 	category = list("initial", "Advanced Magazines")
 
 //Tier 3 Ammo
@@ -700,6 +736,14 @@
 	materials = list(/datum/material/iron = 6000)
 	build_path = /obj/item/ammo_box/magazine/m308/ext/empty
 	category = list("initial", "Advanced Magazines")
+
+/datum/design/ammolathe/rpdmag
+	name = "empty drum magazine (.308)"
+	id = "rpdmag"
+	materials = list(/datum/material/iron = 20000)
+	build_path = /obj/item/ammo_box/magazine/rpd/empty
+	category = list("initial", "Advanced Magazines")
+
 
 /datum/design/ammolathe/tommygunm45
 	name = "empty drum magazine (.45)"

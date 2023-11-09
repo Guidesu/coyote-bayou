@@ -39,7 +39,7 @@
 
 	if(!(stat & (NOPOWER|BROKEN)))
 		. += span_notice("The status display reads:")
-		. += "<span class='notice'>- Recharging <b>[recharge_coeff*10]%</b> cell charge per cycle.</span>"
+		. += span_notice("- Recharging <b>[recharge_coeff*10]%</b> cell charge per cycle.")
 		if(charging)
 			var/charge_percent
 			var/obj/item/stock_parts/cell/C = charging.get_cell()
@@ -47,7 +47,7 @@
 				charge_percent = C.percent()
 			else
 				charge_percent = SEND_SIGNAL(charging, COMSIG_CELL_CHECK_CHARGE_PERCENT)
-			. += "<span class='notice'>- \The [charging]'s cell is at <b>[charge_percent]%</b>.</span>"
+			. += span_notice("- \The [charging]'s cell is at <b>[charge_percent]%</b>.")
 
 /obj/machinery/recharger/proc/setCharging(new_charging)
 	charging = new_charging
@@ -71,9 +71,12 @@
 		if(charging)
 			to_chat(user, span_notice("Remove the charging item first!"))
 			return
+/*
+// Till FIAT Power is fixed, no movin these around willy nilly. Put some effort into it and work for the milage of your 'non battery replacable' firearms. You can still full dissasemble after all
 		setAnchored(!anchored)
 		power_change()
-		to_chat(user, span_notice("You [anchored ? "attached" : "detached"] [src]."))
+*/
+		to_chat(user, span_notice("[src] seems to be stuck in place, it will need further disassembly to move."))
 		G.play_tool_sound(src)
 		return
 

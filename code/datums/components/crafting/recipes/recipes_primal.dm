@@ -163,6 +163,14 @@
 	result = /obj/structure/punji_sticks
 	category = CAT_PRIMAL
 
+/datum/crafting_recipe/wickerdoll
+	name = "Wicker Doll"
+	time = 15
+	reqs = list(
+			/obj/item/stack/sheet/hay = 25)
+	result = /obj/item/voodoo
+	category = CAT_PRIMAL
+
 /datum/crafting_recipe/tribal_pa
 	name = "Tribal Salvaged Power Armor"
 	time = 120
@@ -308,7 +316,7 @@
 
 /datum/crafting_recipe/tribalwar/sling
 	name = "Sling"
-	result = /obj/item/gun/ballistic/revolver/sling
+	result = /obj/item/gun/energy/kinetic_accelerator/crossbow/sling
 	time = 30
 	reqs = list(/obj/item/weaponcrafting/string = 1,
 					/obj/item/stack/sheet/cloth = 1)
@@ -316,7 +324,7 @@
 
 /datum/crafting_recipe/tribalwar/slingstaff
 	name = "Sling Staff"
-	result = /obj/item/gun/ballistic/revolver/sling/staff
+	result = /obj/item/gun/energy/kinetic_accelerator/crossbow/sling/staff
 	time = 60
 	reqs = list(/obj/item/weaponcrafting/string = 2,
 				/obj/item/stack/sheet/leather = 2,
@@ -605,3 +613,10 @@
 	category = CAT_PRIMAL
 	tools = list(TOOL_WORKBENCH)
 */
+
+/datum/crafting_recipe/hay
+	name = "hay"
+	result = /obj/item/stack/sheet/hay
+	time = 10
+	reqs = list(/obj/item/reagent_containers/food/snacks/grown/wheat = 1)
+	category = CAT_PRIMAL

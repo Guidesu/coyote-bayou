@@ -2,11 +2,16 @@
 	category = LOADOUT_CATEGORY_SHOES
 	subcategory = LOADOUT_SUBCATEGORY_SHOES_GENERAL
 	slot = SLOT_SHOES
-	cost = 1
+	cost = 0
 
 /datum/gear/shoes/laceup
 	name = "laceup shoes"
 	path = /obj/item/clothing/shoes/laceup
+	cost = 0
+
+/datum/gear/shoes/ninja
+	name = "ninja shoes"
+	path = /obj/item/clothing/shoes/f13/ninja
 	cost = 0
 
 /datum/gear/shoes/workboots
@@ -17,6 +22,12 @@
 /datum/gear/shoes/winterboots
 	name = "winter boots"
 	path = /obj/item/clothing/shoes/winterboots
+	subcategory = LOADOUT_SUBCATEGORY_SHOES_BOOTS
+
+/datum/gear/shoes/sneakboots
+	name = "infiltrator boots"
+	path = /obj/item/clothing/shoes/jackboots/sneakboots
+	cost = 2
 	subcategory = LOADOUT_SUBCATEGORY_SHOES_BOOTS
 
 /datum/gear/shoes/sandals
@@ -93,22 +104,23 @@
 	name = "cowboy boots"
 	path = /obj/item/clothing/shoes/f13/cowboy
 	subcategory = LOADOUT_SUBCATEGORY_SHOES_BOOTS
-
+	cost = 1
 /datum/gear/shoes/cowboy/black
 	name = "black cowboy boots"
 	path = /obj/item/clothing/shoes/cowboyboots/black
 	subcategory = LOADOUT_SUBCATEGORY_SHOES_BOOTS
-
+	cost = 1
 /datum/gear/shoes/diesel
 	name = "male diesel boots"
 	path = /obj/item/clothing/shoes/f13/diesel
 	subcategory = LOADOUT_SUBCATEGORY_SHOES_BOOTS
+	cost = 1
 
 /datum/gear/shoes/diesel_alt
 	name = "female diesel boots"
 	path = /obj/item/clothing/shoes/f13/diesel/alt
 	subcategory = LOADOUT_SUBCATEGORY_SHOES_BOOTS
-
+	cost = 1
 /// Military aka Two point boots
 
 /datum/gear/shoes/military
@@ -120,27 +132,27 @@
 /datum/gear/shoes/military/leather
 	name = "leather combat boots"
 	path = /obj/item/clothing/shoes/f13/military/leather
-
+	cost = 2
 /datum/gear/shoes/military/desert
 	name = "desert combat boots"
 	path = /obj/item/clothing/shoes/f13/military/desert
-
+	cost = 2
 /datum/gear/shoes/military/combat
 	name = "combat boots"
 	path = /obj/item/clothing/shoes/combat
-
+	cost = 2
 /datum/gear/shoes/military/steeltipped
 	name = "steel tipped boots"
 	path = /obj/item/clothing/shoes/f13/military/khan
-
+	cost = 2
 /datum/gear/shoes/military/steelpelts
 	name = "steel tipped pelt boots"
 	path = /obj/item/clothing/shoes/f13/military/khan_pelt
-
+	cost = 2
 /datum/gear/shoes/military/duty
 	name = "duty boots"
 	path = /obj/item/clothing/shoes/f13/military/duty
-
+	cost = 2
 /datum/gear/shoes/military/patrol
 	name = "patrol boots"
 	path = /obj/item/clothing/shoes/f13/military/patrol
@@ -148,7 +160,7 @@
 /datum/gear/shoes/military/jackboots
 	name = "jackboots"
 	path = /obj/item/clothing/shoes/jackboots
-
+	cost = 2
 /datum/gear/shoes/clown
 	name = "clown shoes"
 	path = /obj/item/clothing/shoes/clown
@@ -193,6 +205,13 @@
 	cost = 2
 	subcategory = LOADOUT_SUBCATEGORY_SHOES_BOOTS
 
+/datum/gear/shoes/ducky
+	name = "rubber ducky shoes"
+	path = /obj/item/clothing/shoes/ducky
+
+/datum/gear/shoes/slippers
+	name = "bunny slippers"
+	path = /obj/item/clothing/shoes/slippers
 
 /// Factions Shoes or well NCR boots.
 

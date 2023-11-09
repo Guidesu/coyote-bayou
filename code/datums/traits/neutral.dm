@@ -268,8 +268,8 @@
 		/datum/quirk/butter_ass,
 	)
 	mob_trait = TRAIT_STEEL_ASS
-	gain_text = "<span class='notice'>Your ass rivals those of golems.</span>"
-	lose_text = "<span class='notice'>Your butt feels more squishy and slappable.</span>"
+	gain_text = span_notice("Your ass rivals those of golems.")
+	lose_text = span_notice("Your butt feels more squishy and slappable.")
 
 /datum/quirk/butter_ass
 	name = "Buns of Thunder"
@@ -281,8 +281,8 @@
 		/datum/quirk/steel_ass,
 	)
 	mob_trait = TRAIT_JIGGLY_ASS
-	gain_text = "<span class='notice'>The ass is fat.</span>"
-	lose_text = "<span class='notice'>The ass was fat.</span>"
+	gain_text = span_notice("The ass is fat.")
+	lose_text = span_notice("The ass was fat.")
 
 /datum/quirk/headpat_hater
 	name = "Distant"
@@ -294,8 +294,8 @@
 	conflicts = list(
 		/datum/quirk/headpat_slut,
 	)
-	gain_text = "<span class='notice'>Others' touches begin to make your blood boil...</span>"
-	lose_text = "<span class='notice'>Having your head pet doesn't sound so bad right about now...</span>"
+	gain_text = span_notice("Others' touches begin to make your blood boil...")
+	lose_text = span_notice("Having your head pet doesn't sound so bad right about now...")
 	medical_record_text = "Patient cares little with or dislikes being touched."
 
 /datum/quirk/headpat_slut
@@ -308,8 +308,8 @@
 	conflicts = list(
 		/datum/quirk/headpat_hater,
 	)
-	gain_text = "<span class='notice'>You crave headpats immensely!</span>"
-	lose_text = "<span class='notice'>Your headpats addiction wanes.</span>"
+	gain_text = span_notice("You crave headpats immensely!")
+	lose_text = span_notice("Your headpats addiction wanes.")
 	medical_record_text = "Patient seems overly affectionate."
 
 /datum/quirk/overweight
@@ -324,7 +324,7 @@
 		/datum/quirk/light_step,
 		/datum/quirk/quick_step,
 	)
-	gain_text = "<span class='notice'>You feel blubbery!</span>"
+	gain_text = span_notice("You feel blubbery!")
 	//no lose_text cause why would there be?
 
 /datum/quirk/overweight/on_spawn()
@@ -341,8 +341,8 @@
 	conflicts = list(
 		/datum/quirk/horrifying_tastes,
 		)
-	gain_text = "<span class='notice'>You feel repulsion at the idea of eating meat.</span>"
-	lose_text = "<span class='notice'>You feel like eating meat isn't that bad.  Might could even go for a cheeseburger.</span>"
+	gain_text = span_notice("You feel repulsion at the idea of eating meat.")
+	lose_text = span_notice("You feel like eating meat isn't that bad.  Might could even go for a cheeseburger.")
 	medical_record_text = "Patient reports a vegetarian diet."
 
 /datum/quirk/vegetarian/add()
@@ -368,8 +368,8 @@
 	mechanics = "Format your name in a manner similar to Rucks-Tucks-Ducks and you can use the action button to toggle between which personality is speaking."
 	conflicts = list()
 	mob_trait = TRAIT_HYDRA_HEADS
-	gain_text = "<span class='notice'>You hear two other voices inside of your head(s).</span>"
-	lose_text = "<span class='danger'>All of your minds become singular.</span>"
+	gain_text = span_notice("You hear two other voices inside of your head(s).")
+	lose_text = span_danger("All of your minds become singular.")
 	medical_record_text = "Patient has multiple heads and personalities affixed to their body."
 
 /datum/quirk/hydra/on_spawn()
@@ -398,16 +398,16 @@
 /datum/action/innate/hydrareset/Activate()
 	var/mob/living/carbon/human/hydra = owner
 	hydra.real_name = hydra.name_archive
-	hydra.visible_message("<span class='notice'>[hydra.name] pushes all three heads forwards; they seem to be talking as a collective.</span>", \
-							"<span class='notice'>You are now talking as [hydra.name_archive]!</span>", ignored_mobs=owner)
+	hydra.visible_message(span_notice("[hydra.name] pushes all three heads forwards; they seem to be talking as a collective."), \
+							span_notice("You are now talking as [hydra.name_archive]!"), ignored_mobs=owner)
 
 /datum/action/innate/hydra/Activate() //I hate this but its needed
 	var/mob/living/carbon/human/hydra = owner
 	var/list/names = splittext(hydra.name_archive,"-")
 	var/selhead = input("Who would you like to speak as?","Heads:") in names
 	hydra.real_name = selhead
-	hydra.visible_message("<span class='notice'>[hydra.name] pulls the rest of their heads back; and puts [selhead]'s forward.</span>", \
-							"<span class='notice'>You are now talking as [selhead]!</span>", ignored_mobs=owner)
+	hydra.visible_message(span_notice("[hydra.name] pulls the rest of their heads back; and puts [selhead]'s forward."), \
+							span_notice("You are now talking as [selhead]!"), ignored_mobs=owner)
 
 /datum/quirk/sheltered
 	name = "Sheltered"
@@ -417,17 +417,18 @@
 	mechanics = "You flat out don't know english, the most common langauge of the swampland.  Be wary, this will limit your roleplay potential to some degree if not used properly."
 	conflicts = list()
 	mob_trait = TRAIT_SHELTERED
-	gain_text = "<span class='danger'>The words of others begin to blur together...</span>"
-	lose_text = "<span class='notice'>You start putting together what people are saying!</span>"
+	gain_text = span_danger("The words of others begin to blur together...")
+	lose_text = span_notice("You start putting together what people are saying!")
 	medical_record_text = "Patient has shown an inability to use common speaking languages."
+	human_only = FALSE
 
 /datum/quirk/sheltered/on_spawn()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.remove_language(/datum/language/common)
 // You can pick languages for your character, if you don't pick anything, enjoy the rest of the round understanding nothing.
 
 /datum/quirk/sheltered/remove() //i mean, the lose text explains it, so i'm making it actually work
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/common)
 
 /datum/quirk/tribespeak
@@ -439,14 +440,15 @@
 	conflicts = list()
 	gain_text = span_notice("You remember the old ways of your tribe..")
 	lose_text = span_notice("You've forgotten the ways of your ancestors..")
+	human_only = FALSE
 
 
 /datum/quirk/tribespeak/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/tribal)
 
 /datum/quirk/tribespeak/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		H.remove_language(/datum/language/tribal)
 
@@ -459,14 +461,15 @@
 	conflicts = list()
 	gain_text = span_notice("A deep draconic roar rises within you..")
 	lose_text = span_notice("The roar within you fades away..")
+	human_only = FALSE
 
 
 /datum/quirk/draconicspeak/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/draconic)
 
 /datum/quirk/draconicspeak/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		H.remove_language(/datum/language/draconic)
 
@@ -477,16 +480,16 @@
 	category = "Language Quirks"
 	mechanics = "You can speak the pokemon langage, or at least understand it. Maybe you really are the very best."
 	conflicts = list()
-	gain_text = span_notice("You remember how to speak the way of the pokemon")
-	lose_text = span_notice("You've forgotten how to speak pokemon..")
-
+	gain_text = span_notice("You remember how to speak to pokemon.")
+	lose_text = span_notice("You've forgotten how to speak pokemon.")
+	human_only = FALSE
 
 /datum/quirk/pokespeak/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/pokemon)
 
 /datum/quirk/pokespeak/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		H.remove_language(/datum/language/pokemon)
 
@@ -498,6 +501,7 @@
 	mechanics = "This trait is a flag for people who have ERP seeking to know that you, right now, are seeking ERP. It's a simple concept, if you just have this quirk you are not going out of our way to look for it, but if it stumbles into your lap well that'd be fine, right?"
 	conflicts = list()
 	mob_trait = TRAIT_IN_HEAT
+	human_only = FALSE
 
 /datum/quirk/heat
 	name = "ERP Seeking"
@@ -507,6 +511,7 @@
 	mechanics = "This Quirk allows you to see other players ERP related quirks when you examine them. Letting you know, at a glance, some of their prefs if they have them set."
 	conflicts = list()
 	mob_trait = TRAIT_HEAT_DETECT
+	human_only = FALSE
 
 /datum/quirk/shy
 	name = "OOCly Shy"
@@ -516,6 +521,7 @@
 	mechanics = "The description should be fairly clear, but to reiterate this quirk exists as an OOC flag to let everyone know that you have some sort of social issue that makes it hard for you to approach others. If anyone dares to give you shit about taking this please alert staff immediatly, we will eat their legs off."
 	conflicts = list()
 	mob_trait = TRAIT_SHY
+	human_only = FALSE
 
 /datum/quirk/pvefocus
 	name = "PVE Focused"
@@ -525,6 +531,7 @@
 	mechanics = "Ya' like fighting geckos, do ya'?"
 	conflicts = list()
 	mob_trait = TRAIT_PVEFOC
+	human_only = FALSE
 
 /datum/quirk/pvpfocus
 	name = "PVP Focused"
@@ -534,6 +541,7 @@
 	mechanics = "Ya' like fighting people, do ya'?"
 	conflicts = list()
 	mob_trait = TRAIT_PVPFOC
+	human_only = FALSE
 
 /datum/quirk/loocapproach
 	name = "L/OOC Approach"
@@ -543,7 +551,7 @@
 	mechanics = "This quirk should be helpful also for people who like to plan scenes ahead of time. It's a well known fact of SS13 that time always runs short when roleplay is happening and hopefully this can help alleviate that via planning."
 	conflicts = list()
 	mob_trait = TRAIT_OOCAPP
-
+	human_only = FALSE
 
 /datum/quirk/pvpande
 	name = "PVP/PVE Accepting"
@@ -553,6 +561,7 @@
 	mechanics = "Yeah, you're just violent and quirky. We get it."
 	conflicts = list()
 	mob_trait = TRAIT_COMBATSWITCH
+	human_only = FALSE
 
 /datum/quirk/smol
 	name = "Smol!"
@@ -564,6 +573,7 @@
 	mob_trait = TRAIT_SMOL
 	gain_text = span_notice("You feel scoopable! Others can ALT-CLICK you to pick you up!")
 	lose_text = span_notice("You feel a lot less scoopable.")
+	human_only = FALSE
 
 /datum/quirk/smol/add()
 	if(istype(quirk_holder))
@@ -581,6 +591,7 @@
 	mechanics = "You trigger the cat phobia, amazing."
 	conflicts = list()
 	mob_trait = TRAIT_CAT
+	human_only = FALSE
 
 /datum/quirk/rat
 	name = "A rat!"
@@ -590,6 +601,7 @@
 	mechanics = "You trigger the cat phobia, stellar."
 	conflicts = list()
 	mob_trait = TRAIT_RAT
+	human_only = FALSE
 
 /datum/quirk/spider
 	name = "A spider!"
@@ -599,6 +611,7 @@
 	mechanics = "You trigger the spider phobia, tubular."
 	conflicts = list()
 	mob_trait = TRAIT_SPIDER
+	human_only = FALSE
 
 /datum/quirk/lizard
 	name = "A lizard or reptillian!"
@@ -608,6 +621,7 @@
 	mechanics = "You trigger the lizard phobia, choice."
 	conflicts = list()
 	mob_trait = TRAIT_LIZARD
+	human_only = FALSE
 
 /datum/quirk/robot
 	name = "A robot/synth!"
@@ -617,6 +631,7 @@
 	mechanics = "You trigger the robot phobia, radical."
 	conflicts = list()
 	mob_trait = TRAIT_ROBOT
+	human_only = FALSE
 
 /datum/quirk/bird
 	name = "A bird!"
@@ -626,6 +641,7 @@
 	mechanics = "You trigger the bird phobia, magical."
 	conflicts = list()
 	mob_trait = TRAIT_BIRD
+	human_only = FALSE
 
 /datum/quirk/dog
 	name = "A dog!"
@@ -635,6 +651,7 @@
 	mechanics = "You trigger the dog phobia, dastardly."
 	conflicts = list()
 	mob_trait = TRAIT_DOG
+	human_only = FALSE
 
 /datum/quirk/photographer
 	name = "Photographer"
@@ -700,18 +717,20 @@
 	gain_text = span_notice("You feel a slight tingle in your mouth.")
 	lose_text = span_danger("The tingle in your mouth fades.")
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/touch_heal
 	name = "Innate healing - Magic"
 	desc = "By the Nine- Wait, wrong game. One way or another you can lay on hands."
 	value = 0
 	category = "Healer Quirks"
-	mechanics = "Your touch has a mild healing effect on burns and bruises. Use *touch to sooth the injuries of yourself or others. Drinking water helps recover from the fatigue of using the spell faster."
+	mechanics = "Your touch has a mild healing effect on burns and bruises. Use *touch to soothe the injuries of yourself or others. Drinking water helps recover from the fatigue of using the spell faster."
 	conflicts = list()
 	mob_trait = TRAIT_HEAL_TOUCH
 	gain_text = span_notice("You feel a slight tingle in your hands.")
 	lose_text = span_danger("The tingle in your palm fades.")
 	locked = FALSE
+	human_only = FALSE
 
 /datum/quirk/tend_heal
 	name = "Innate healing - Triage"
@@ -724,7 +743,7 @@
 	gain_text = span_notice("You feel your triage kit tucked safely in a pocket.")
 	lose_text = span_danger("You lost your triage kit...")
 	locked = FALSE
-
+	human_only = FALSE
 
 //Fennys insane RP quirks
 
@@ -736,6 +755,7 @@
 	mechanics = "This quirk lets you see other peoples roleplay related traits, pretty simple."
 	conflicts = list()
 	mob_trait = TRAIT_RPFOCUSED
+	human_only = FALSE
 
 /datum/quirk/rplongterm
 	name = "Roleplay Seeking - Long Term Focus"
@@ -745,6 +765,7 @@
 	mechanics = "Consider passing each other your discords, or something similar. Make a little long term group!  We'd love to see it!"
 	conflicts = list()
 	mob_trait = TRAIT_RPLONGTERM
+	human_only = FALSE
 
 /datum/quirk/rpshortterm
 	name = "Roleplay Seeking - Short Term Focus"
@@ -754,6 +775,7 @@
 	mechanics = "Grab and go, go gettem y'all!"
 	conflicts = list()
 	mob_trait = TRAIT_RPSHORTTERM
+	human_only = FALSE
 
 /datum/quirk/rpserious
 	name = "Roleplay Seeking - Serious Roleplay"
@@ -763,6 +785,7 @@
 	mechanics = "For more clarification, when we say 'serious' we're implying what some players may know to some degree as a 'higher' roleplay level. Think serious cop drama."
 	conflicts = list()
 	mob_trait = TRAIT_RPSERIOUS
+	human_only = FALSE
 
 /datum/quirk/rplight
 	name = "Roleplay Seeking - Light Roleplay"
@@ -772,6 +795,7 @@
 	mechanics = "For more clarification, when we say 'light' we're implying what some players may know to some degree as a 'lower' roleplay level. Think goofy and lighthearted."
 	conflicts = list()
 	mob_trait = TRAIT_RPLIGHT
+	human_only = FALSE
 
 /datum/quirk/rpdaysofourlives
 	name = "Roleplay Seeking - Dramatic Roleplay"
@@ -781,6 +805,7 @@
 	mechanics = "For more clarification, when we say 'dramatic' we mean spicier topics. These dramatic moments should also be careful to be kept in IC spaces, remember your IC/OOC barrier peeps."
 	conflicts = list()
 	mob_trait = TRAIT_RPDAYSOFOURLIVES
+	human_only = FALSE
 
 /datum/quirk/rpscrubs
 	name = "Roleplay Seeking - Medical Roleplay"
@@ -790,6 +815,7 @@
 	mechanics = "For more clarification, when we say 'medical' we don't mean roleplaying out adding every bandage but maybe give this person a little bit more to work with than wandering in and out of medbay like a stooge."
 	conflicts = list()
 	mob_trait = TRAIT_RPSCRUBS
+	human_only = FALSE
 
 //ERP Focused quirks
 
@@ -801,6 +827,7 @@
 	mechanics = "For people who like both but have a lean consider taking this with the anyone kisser quirk."
 	conflicts = list()
 	mob_trait = TRAIT_ERPBOYKISSER
+	human_only = FALSE
 
 /datum/quirk/erpgirlkisser
 	name = "ERP Seeking - Prefers Girls"
@@ -810,6 +837,7 @@
 	mechanics = "For people who like both but have a lean consider taking this with the anyone kisser quirk."
 	conflicts = list()
 	mob_trait = TRAIT_ERPGIRLKISSER
+	human_only = FALSE
 
 /datum/quirk/erpanykisser
 	name = "ERP Seeking - Prefers Anyone"
@@ -819,6 +847,7 @@
 	mechanics = "For those with a lean towards boys or girls consider taking the quirks for them with this to show that interest."
 	conflicts = list()
 	mob_trait = TRAIT_ERPANYKISSER
+	human_only = FALSE
 
 /datum/quirk/erpquicky
 	name = "ERP Seeking - Relationships - Short Term"
@@ -828,6 +857,7 @@
 	mechanics = "Party like its 6969, bro."
 	conflicts = list()
 	mob_trait = TRAIT_ERPQUICKY
+	human_only = FALSE
 
 /datum/quirk/erplongerm
 	name = "ERP Seeking - Relationships - Long Term"
@@ -837,6 +867,7 @@
 	mechanics = "If you really liked it you shoulda put a ring on it."
 	conflicts = list()
 	mob_trait = TRAIT_ERPLONGTERM
+	human_only = FALSE
 
 /datum/quirk/erpbottom //or dan, or fuzzy, or kuddles or like 9/10ths of the dev team, lmao
 	name = "ERP Seeking - I am a Bottom"
@@ -846,6 +877,7 @@
 	mechanics = "More like Buwudy quirks, am I right?"
 	conflicts = list()
 	mob_trait = TRAIT_ERPBOTTOM
+	human_only = FALSE
 
 /datum/quirk/erptop
 	name = "ERP Seeking - I am a Top"
@@ -855,6 +887,7 @@
 	mechanics = "Go get em, cowboy. There's a lot of em', I promise."
 	conflicts = list()
 	mob_trait = TRAIT_ERPTOP
+	human_only = FALSE
 
 /datum/quirk/erpswitch
 	name = "ERP Seeking - I am a Switch"
@@ -864,6 +897,7 @@
 	mechanics = "If you lean a specific direction maybe take it to."
 	conflicts = list()
 	mob_trait = TRAIT_ERPSWITCH
+	human_only = FALSE
 
 /datum/quirk/erpflirty
 	name = "ERP Seeking - Flirty"
@@ -873,6 +907,7 @@
 	mechanics = "We understand that the *help verb is a mess right now, but this is a sign to others that using the *flirt related verbs on you is a GREAT way to get your attention."
 	conflicts = list()
 	mob_trait = TRAIT_ERPFLIRTY
+	human_only = FALSE
 
 
 //Adventure Traits
@@ -885,6 +920,7 @@
 	mechanics = "This is a flag quirk that lets you see what other peoples builds are for going out and doing adventure, letting you more easily build your groups strenghths up and check weaknesses."
 	conflicts = list()
 	mob_trait = TRAIT_ADV_SEEKER
+	human_only = FALSE
 
 /datum/quirk/adver
 	name = "Adventurer"
@@ -894,6 +930,7 @@
 	mechanics = "You're really always on call for a wild time. Wanna go kill some robots later?"
 	conflicts = list()
 	mob_trait = TRAIT_ADV_ER
+	human_only = FALSE
 
 /datum/quirk/advlfg
 	name = "Adventurer - Looking for Group"
@@ -903,6 +940,7 @@
 	mechanics = "This is the flag to tell others that you are really down for going out at any time!"
 	conflicts = list()
 	mob_trait = TRAIT_ADV_LFG
+	human_only = FALSE
 
 /datum/quirk/advsolo
 	name = "Adventurer - Not Looking for Group"
@@ -912,6 +950,7 @@
 	mechanics = "This is the flag to tell others that you aren't really looking for adventure today."
 	conflicts = list()
 	mob_trait = TRAIT_ADV_SOLO
+	human_only = FALSE
 
 /datum/quirk/advgunner
 	name = "Adventurer - Class: Gunner"
@@ -921,6 +960,7 @@
 	mechanics = "Not a skygunner though, no airplanes around here. Yet."
 	conflicts = list()
 	mob_trait = TRAIT_ADV_GUNNER
+	human_only = FALSE
 
 /datum/quirk/advfighter
 	name = "Adventurer - Class: Fighter"
@@ -930,6 +970,7 @@
 	mechanics = "No, you don't get an extra 'feat' for taking this."
 	conflicts = list()
 	mob_trait = TRAIT_ADV_FIGHTER
+	human_only = FALSE
 
 /datum/quirk/advtank
 	name = "Adventurer - Class: Tank"
@@ -939,6 +980,7 @@
 	mechanics = "No promises about your team actually using you as a shield, you know how it is man."
 	conflicts = list()
 	mob_trait = TRAIT_ADV_TANK
+	human_only = FALSE
 
 /datum/quirk/advbruiser
 	name = "Adventurer - Class: Bruiser"
@@ -948,6 +990,7 @@
 	mechanics = "Bruise em', smash em', stick em' in a stew."
 	conflicts = list()
 	mob_trait = TRAIT_ADV_BRUISER
+	human_only = FALSE
 
 /datum/quirk/advrogue
 	name = "Adventurer - Class: Rogue"
@@ -957,7 +1000,7 @@
 	mechanics = "If you pray for extra backstab damage I promise I'll only smite you three times. ~Fenny"
 	conflicts = list()
 	mob_trait = TRAIT_ADV_ROGUE
-
+	human_only = FALSE
 
 /datum/quirk/advhealer
 	name = "Adventurer - Class: Healer"
@@ -967,6 +1010,7 @@
 	mechanics = "Doesn't actually require you to take the quirk for being a bottom, believe it or not."
 	conflicts = list()
 	mob_trait = TRAIT_ADV_HEALER
+	human_only = FALSE
 
 /datum/quirk/canine
 	name = "Canine Language Comprehension"
@@ -977,14 +1021,14 @@
 	conflicts = list()
 	gain_text = span_notice("You remember how to speak the way of the canine")
 	lose_text = span_notice("You've forgotten how to speak canine..")
-
+	human_only = FALSE
 
 /datum/quirk/canine/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/canine)
 
 /datum/quirk/canine/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		H.remove_language(/datum/language/canine)
 
@@ -997,14 +1041,15 @@
 	conflicts = list()
 	gain_text = span_notice("You remember how to speak the way of the squirrel")
 	lose_text = span_notice("You've forgotten how to speak squirrel..")
+	human_only = FALSE
 
 
 /datum/quirk/squirrel/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/squirrel)
 
 /datum/quirk/squirrel/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		H.remove_language(/datum/language/squirrel)
 
@@ -1017,14 +1062,15 @@
 	conflicts = list()
 	gain_text = span_notice("You remember how to speak the way of the sergal")
 	lose_text = span_notice("You've forgotten how to speak sergal..")
+	human_only = FALSE
 
 
 /datum/quirk/sergal/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/sergal)
 
 /datum/quirk/sergal/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		H.remove_language(/datum/language/sergal)
 
@@ -1037,14 +1083,15 @@
 	conflicts = list()
 	gain_text = span_notice("You remember how to speak the way of the mouse")
 	lose_text = span_notice("You've forgotten how to speak mouse..")
+	human_only = FALSE
 
 
 /datum/quirk/mouse/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/mouse)
 
 /datum/quirk/mouse/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		H.remove_language(/datum/language/mouse)
 
@@ -1057,14 +1104,14 @@
 	conflicts = list()
 	gain_text = span_notice("You remember how to sp eak the way of the bird")
 	lose_text = span_notice("You've forgotten how to speak bird..")
-
+	human_only = FALSE
 
 /datum/quirk/birdsong/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/birdsong)
 
 /datum/quirk/birdsong/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		H.remove_language(/datum/language/birdsong)
 
@@ -1077,14 +1124,15 @@
 	conflicts = list()
 	gain_text = span_notice("You remember how to sp eak the way of the rabbit")
 	lose_text = span_notice("You've forgotten how to speak rabbit..")
+	human_only = FALSE
 
 
 /datum/quirk/rabbit/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/rabbit)
 
 /datum/quirk/rabbit/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		H.remove_language(/datum/language/rabbit)
 
@@ -1097,15 +1145,25 @@
 	conflicts = list()
 	gain_text = span_notice("You remember how to sp eak the way of the insect")
 	lose_text = span_notice("You've forgotten how to speak insect..")
+	human_only = FALSE
 
 
 /datum/quirk/bug/add()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	H.grant_language(/datum/language/bug)
 
 /datum/quirk/bug/remove()
-	var/mob/living/carbon/human/H = quirk_holder
+	var/mob/living/H = quirk_holder
 	if(!QDELETED(H))
 		H.remove_language(/datum/language/bug)
 
-
+/datum/quirk/distinct
+	name = "Distinct"
+	desc = "Whether you've got horns, wings, a big ass tail, or maybe just your general vibe, something about you cannot be concealed"
+	value = 0
+	category = "Lifepath Quirks"
+	mechanics = "Face coverings will not hide your identity from others, including flavor text and species"
+	conflicts = list()
+	mob_trait = TRAIT_NOHIDEFACE
+	gain_text = span_notice("You feel seen!")
+	lose_text = span_notice("You feel hidden")

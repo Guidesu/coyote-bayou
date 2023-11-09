@@ -52,6 +52,7 @@ Administrator
 
 	outfit = /datum/outfit/job/followers/f13leadpractitioner
 
+
 	access = list(ACCESS_BAR, ACCESS_FOLLOWER, ACCESS_SCIENCE, ACCESS_COMMAND, ACCESS_MILITARY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
 	minimal_access = list(ACCESS_BAR, ACCESS_FOLLOWER, ACCESS_COMMAND, ACCESS_MILITARY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
 
@@ -100,15 +101,16 @@ Administrator
 	backpack =	/obj/item/storage/backpack/medic
 	satchel =	/obj/item/storage/backpack/satchel/med
 	duffelbag =	/obj/item/storage/backpack/duffelbag/med
+	suit_store = /obj/item/gun/medbeam
 	backpack_contents = list(
 		/obj/item/storage/firstaid/ancient = 1,
 		/obj/item/storage/survivalkit/medical/follower = 1,
 		/obj/item/reagent_containers/medspray/synthflesh = 2,
+		/obj/item/pda = 1,
 		/obj/item/book/granter/trait/techno = 1,
 		/obj/item/healthanalyzer/advanced = 1,
 		/obj/item/storage/wallet/stash/high = 1,
 		/obj/item/hypospray/mkii/CMO = 1,
-		/obj/item/gun/medbeam = 1,
 	)
 
 //Professor
@@ -183,6 +185,7 @@ Administrator
 	backpack_contents = list(
 		/obj/item/storage/survivalkit/medical/follower = 1,
 		/obj/item/storage/belt/utility/full/engi = 1,
+		/obj/item/pda = 1,
 		/obj/item/storage/firstaid/ancient=1,
 		/obj/item/storage/wallet/stash/mid = 1,
 		)
@@ -275,6 +278,7 @@ Administrator
 	glasses = /obj/item/clothing/glasses/science
 	duffelbag =	/obj/item/storage/backpack/duffelbag/med
 	backpack_contents = list(
+		/obj/item/pda = 1,
 		/obj/item/book/granter/trait/techno = 1,
 		/obj/item/storage/wallet/stash/high = 1,
 		/obj/item/storage/belt/utility/full/engi = 1,
@@ -361,6 +365,7 @@ Practitioner
 	duffelbag =	/obj/item/storage/backpack/duffelbag/med
 	backpack_contents = list(
 		/obj/item/storage/survivalkit/medical/follower = 1,
+		/obj/item/pda = 1,
 		/obj/item/reagent_containers/hypospray/medipen/stimpak = 2,
 		/obj/item/reagent_containers/medspray/synthflesh = 1,
 		/obj/item/storage/firstaid/ancient = 1,
@@ -456,6 +461,7 @@ Follower Volunteer
 	backpack = 	/obj/item/storage/backpack/explorer
 	satchel = 	/obj/item/storage/backpack/satchel/explorer
 	backpack_contents =  list(
+		/obj/item/pda = 1,
 		/obj/item/storage/firstaid/ancient = 1,
 		/obj/item/storage/wallet/stash/mid = 1,
 	)
@@ -542,6 +548,7 @@ Follower Volunteer
 	backpack =	/obj/item/storage/backpack/explorer
 	satchel =	/obj/item/storage/backpack/satchel/explorer
 	backpack_contents = list(
+		/obj/item/pda = 1,
 		/obj/item/storage/survivalkit/medical/follower = 1,
 		/obj/item/gun/energy/laser/complianceregulator = 1,
 		/obj/item/flashlight/seclite = 1,

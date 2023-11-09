@@ -53,6 +53,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///Whether emotes will be displayed on runechat. Requires chat_on_map to have effect. Boolean.
 	var/see_rc_emotes = TRUE
 
+	var/list/aghost_squelches = list()
+
 	/// Custom Keybindings
 	var/list/key_bindings = list()
 	/// List with a key string associated to a list of keybindings. Unlike key_bindings, this one operates on raw key, allowing for binding a key that triggers regardless of if a modifier is depressed as long as the raw key is sent.
@@ -77,7 +79,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/pda_color = "#808000"
 	var/pda_skin = PDA_SKIN_CLASSIC
 
+	var/genital_whitelist = ""
+	var/whoflags = DEFAULT_WHO_FLAGS
+	var/lockouts = NONE
+
 	var/uses_glasses_colour = 0
+
+	var/show_in_directory = TRUE
+	var/directory_tag = "Unset"
+	var/directory_erptag = "Unset"
+	var/directory_ad = "Hi"
 
 	//character preferences
 	var/real_name						//our character's name
@@ -104,7 +115,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/right_eye_color = "000000"
 	var/eye_type = DEFAULT_EYES_TYPE	//Eye type
 	var/split_eye_colors = FALSE
-	var/datum/species/pref_species = new /datum/species/human()	//Mutant race
+	var/tbs = TBS_DEFAULT // turner broadcasting system
+	var/kisser = KISS_DEFAULT // Kiss this (  Y  )
+	var/datum/species/pref_species = new /datum/species/mammal()	//Mutant race
 	var/list/features = list(
 		"mcolor" = "FFFFFF",
 		"mcolor2" = "FFFFFF",
@@ -316,11 +329,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/custom_pixel_x = 0
 	var/custom_pixel_y = 0
 
+	var/permanent_tattoos = ""
+
 	/// Associative list: matchmaking_prefs[/datum/matchmaking_pref subtype] -> number of desired matches
 	var/list/matchmaking_prefs = list()
 
 	/// Versioning hack! Versioning hack! Versioning hack!
 	var/list/current_version = list()
+
+	var/fuzzy = FALSE //Fuzzy scaling
 
 
 /datum/preferences/New(client/C)
@@ -390,7 +407,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/unspaced_slots = 0
 					for(var/i=1, i<=max_save_slots, i++)
 						unspaced_slots++
-						if(unspaced_slots > 4)
+						if(unspaced_slots > 8)
 							dat += "<br>"
 							unspaced_slots = 0
 						S.cd = "/character[i]"
@@ -410,7 +427,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<h2>Configure Quirks</a></h2><br></center>"
 				dat += "</a>"
 				dat += "<center><b>Current Quirks:</b> [get_my_quirks()]</center>"
-			dat += "<center><h2>S.P.E.C.I.A.L</h2>"
+			dat += "<center><h2>S.P.E.C.I.A.L.</h2>"
 			dat += "<a href='?_src_=prefs;preference=special;task=menu'>Allocate Points</a><br></center>"
 			//Left Column
 			dat += "<table><tr><td width='30%'valign='top'>"
@@ -425,6 +442,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<b>Gender:</b> <a href='?_src_=prefs;preference=gender;task=input'>[gender == MALE ? "Male" : (gender == FEMALE ? "Female" : (gender == PLURAL ? "Non-binary" : "Object"))]</a><BR>"
 			dat += "<b>Age:</b> <a style='display:block;width:30px' href='?_src_=prefs;preference=age;task=input'>[age]</a><BR>"
+			dat += "<b>Top/Bottom/Switch:</b> <a href='?_src_=prefs;preference=tbs;task=input'>[tbs]</a><BR>"
+			dat += "<b>Orientation:</b> <a href='?_src_=prefs;preference=kisser;task=input'>[kisser]</a><BR>"
 			dat += "</td>"
 			//Middle Column
 			dat +="<td width='30%' valign='top'>"
@@ -498,7 +517,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/unspaced_slots = 0
 					for(var/i=1, i<=max_save_slots, i++)
 						unspaced_slots++
-						if(unspaced_slots > 4)
+						if(unspaced_slots > 8)
 							dat += "<br>"
 							unspaced_slots = 0
 						S.cd = "/character[i]"
@@ -507,9 +526,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							name = "Character[i]"
 						dat += "<a style='white-space:nowrap;' href='?_src_=prefs;preference=changeslot;num=[i];' [i == default_slot ? "class='linkOn'" : ""]>[name]</a> "
 					dat += "</center>"
-
 			dat += "<table><tr><td width='340px' height='300px' valign='top'>"
-			dat += "<h2>Flavor Text</h2>"
+			dat += APPEARANCE_CATEGORY_COLUMN
+			dat += "<h3>Flavor Text</h3>"
 			dat += "<a href='?_src_=prefs;preference=flavor_text;task=input'><b>Set Examine Text</b></a><br>"
 			if(length(features["flavor_text"]) <= 40)
 				if(!length(features["flavor_text"]))
@@ -518,7 +537,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "[features["flavor_text"]]"
 			else
 				dat += "[TextPreview(features["flavor_text"])]...<BR>"
-			dat += "<h2>Silicon Flavor Text</h2>"
+			dat += "<h3>Silicon Flavor Text</h3>"
 			dat += "<a href='?_src_=prefs;preference=silicon_flavor_text;task=input'><b>Set Silicon Examine Text</b></a><br>"
 			if(length(features["silicon_flavor_text"]) <= 40)
 				if(!length(features["silicon_flavor_text"]))
@@ -527,7 +546,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "[features["silicon_flavor_text"]]"
 			else
 				dat += "[TextPreview(features["silicon_flavor_text"])]...<BR>"
-			dat += "<h2>OOC notes</h2>"
+			dat += "<h3>OOC notes</h3>"
 			dat += "<a href='?_src_=prefs;preference=ooc_notes;task=input'><b>Set OOC notes</b></a><br>"
 			var/ooc_notes_len = length(features["ooc_notes"])
 			if(ooc_notes_len <= 40)
@@ -536,27 +555,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				else
 					dat += "[features["ooc_notes"]]"
 			else
-				dat += "[TextPreview(features["ooc_notes"])]...<BR>"
-			dat += "<h2>Body</h2>"
-			dat += "<b>Gender:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=gender;task=input'>[gender == MALE ? "Male" : (gender == FEMALE ? "Female" : (gender == PLURAL ? "Non-binary" : "Object"))]</a><BR>"
-			if(gender != NEUTER && pref_species.sexes)
-				dat += "<b>Body Model:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=body_model'>[features["body_model"] == MALE ? "Masculine" : "Feminine"]</a><BR>"
-			dat += "<b>Limb Modification:</b><BR>"
-			dat += "<a href='?_src_=prefs;preference=modify_limbs;task=input'>Modify Limbs</a><BR>"
-			for(var/modification in modified_limbs)
-				if(modified_limbs[modification][1] == LOADOUT_LIMB_PROSTHETIC)
-					dat += "<b>[modification]: [modified_limbs[modification][2]]</b><BR>"
-				else
-					dat += "<b>[modification]: [modified_limbs[modification][1]]</b><BR>"
-			dat += "<BR>"
-			dat += "<b>Species:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a><BR>"
-			dat += "<b>Custom Species Name:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=custom_species;task=input'>[custom_species ? custom_species : "None"]</a><BR>"
-			dat += "<b>Custom Taste:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=taste;task=input'>[features["taste"] ? features["taste"] : "something"]</a><BR>"
-			dat += "<b>Runechat Color:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=chat_color;task=input;background-color: #[features["chat_color"]]'>#[features["chat_color"]]</span></a><BR>"
-			dat += "<b>Random Body:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=all;task=random'>Randomize!</A><BR>"
-			dat += "<b>Always Random Body:</b><a href='?_src_=prefs;preference=all'>[be_random_body ? "Yes" : "No"]</A><BR>"
-			dat += "<br><b>Cycle background:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=cycle_bg;task=input'>[bgstate]</a><BR>"
-
+				dat += "[TextPreview(features["ooc_notes"])]...<br>"
+			//Start Creature Character
 			dat += "<h2>Creature Character</h2>"
 			dat += "<b>Creature Species</b><a style='display:block;width:100px' href='?_src_=prefs;preference=creature_species;task=input'>[creature_species ? creature_species : "Eevee"]</a><BR>"
 			dat += "<b>Creature Name</b><a style='display:block;width:100px' href='?_src_=prefs;preference=creature_name;task=input'>[creature_name ? creature_name : "Eevee"]</a><BR>"
@@ -576,137 +576,147 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "[creature_ooc]<br>"
 			else
 				dat += "[TextPreview(creature_ooc)]...<br>"
-			if(!creature_image && creature_species)
-				if(!LAZYLEN(GLOB.creature_selectable))//Pokemon selection list is empty, so generate it.
+			if(creature_species)
+				if(!LAZYLEN(GLOB.creature_selectable))
 					generate_selectable_creatures()
-				if(!(creature_species in GLOB.creature_selectable))//Previously selected species which isn't supported anymore.
+				if(!(creature_species in GLOB.creature_selectable))
 					creature_species = initial(creature_species)
-				var/creature_type = GLOB.creature_selectable["[creature_species]"]
-				if(!isnull(creature_type) && isliving(creature_type))//If we couldn't find a type to spawn, avoid a runtime and don't try to make a null
-					var/mob/living/M = new creature_type(user)
-					creature_image = image(icon=M.icon,icon_state=M.icon_state,dir=2)
-					qdel(M)
-			if(creature_image)
-				dat += "[icon2html(creature_image, user)]<br>"
+				dat += "[icon2base64html(GLOB.creature_selectable_icons[creature_species])]<br>"
+			// End creature Character
 
-			dat += "<h3>Pixel Offsets</h3>"
-			var/px = custom_pixel_x > 0 ? "+[custom_pixel_x]" : "[custom_pixel_x]"
-			var/py = custom_pixel_y > 0 ? "+[custom_pixel_y]" : "[custom_pixel_y]"
-			dat += "<a href='?_src_=prefs;preference=pixel_x;task=input'>&harr;[px]</a><BR>"
-			dat += ", "
-			dat += "<a href='?_src_=prefs;preference=pixel_y;task=input'>&#8597;[py]</a><BR>"
+			dat += "</td>"
+			//	END COLUMN 1
+			//	START COLUMN 2
+			dat += APPEARANCE_CATEGORY_COLUMN
 
-			var/use_skintones = pref_species.use_skintones
-			if(use_skintones)
-				dat += APPEARANCE_CATEGORY_COLUMN
-
-				dat += "<h3>Skin Tone</h3>"
-
-				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=s_tone;task=input'>[use_custom_skin_tone ? "custom: <span style='border:1px solid #161616; background-color: [skin_tone];'>&nbsp;&nbsp;&nbsp;</span>" : skin_tone]</a><BR>"
-
+			dat += "<h3>Body</h3>"
+			
+			dat += "<b>Species:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a><BR>"
+			
+			dat += "<b>Custom Species Name:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=custom_species;task=input'>[custom_species ? custom_species : "None"]</a><BR>"
+			
+			dat += "<b>Gender:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=gender;task=input'>[gender == MALE ? "Male" : (gender == FEMALE ? "Female" : (gender == PLURAL ? "Non-binary" : "Object"))]</a><br>"
+			
+			if(gender != NEUTER && pref_species.sexes)
+				dat += "<b>Body Model:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=body_model'>[features["body_model"] == MALE ? "Masculine" : "Feminine"]</a><br>"
+			
+			if(length(pref_species.allowed_limb_ids))
+				if(!chosen_limb_id || !(chosen_limb_id in pref_species.allowed_limb_ids))
+					chosen_limb_id = pref_species.limbs_id || pref_species.id
+				dat += "<b>Body Sprite:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=bodysprite;task=input'>[chosen_limb_id]</a><br>"
+			
+			var/use_skintones = pref_species.use_skintones			
 			var/mutant_colors
 			if((MUTCOLORS in pref_species.species_traits) || (MUTCOLORS_PARTSONLY in pref_species.species_traits))
 				if(!use_skintones)
-					dat += APPEARANCE_CATEGORY_COLUMN
+					dat += "<b>Primary Color:</b><BR>"
+					dat += "<span style='border: 1px solid #161616; background-color: #[features["mcolor"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color;task=input'>Change</a><BR>"
 
-				dat += "<h3>Advanced Coloring</h3>"
-				dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=color_scheme;task=input'>[(features["color_scheme"] == ADVANCED_CHARACTER_COLORING) ? "Enabled" : "Disabled"]</a>"
+					dat += "<b>Secondary Color:</b><BR>"
+					dat += "<span style='border: 1px solid #161616; background-color: #[features["mcolor2"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color2;task=input'>Change</a><BR>"
 
-				dat += "<h2>Body Colors</h2>"
-
-				dat += "<b>Primary Color:</b><BR>"
-				dat += "<span style='border: 1px solid #161616; background-color: #[features["mcolor"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color;task=input'>Change</a><BR>"
-
-				dat += "<b>Secondary Color:</b><BR>"
-				dat += "<span style='border: 1px solid #161616; background-color: #[features["mcolor2"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color2;task=input'>Change</a><BR>"
-
-				dat += "<b>Tertiary Color:</b><BR>"
-				dat += "<span style='border: 1px solid #161616; background-color: #[features["mcolor3"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color3;task=input'>Change</a><BR>"
-				mutant_colors = TRUE
-
+					dat += "<b>Tertiary Color:</b><BR>"
+					dat += "<span style='border: 1px solid #161616; background-color: #[features["mcolor3"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color3;task=input'>Change</a><BR>"
+					mutant_colors = TRUE
+			
+			if(use_skintones)
+				dat += "<h3>Skin Tone</h3>"
+				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=s_tone;task=input'>[use_custom_skin_tone ? "custom: <span style='border:1px solid #161616; background-color: [skin_tone];'>&nbsp;&nbsp;&nbsp;</span>" : skin_tone]</a><BR>"
+			
 			if (CONFIG_GET(number/body_size_min) != CONFIG_GET(number/body_size_max))
 				dat += "<b>Sprite Size:</b> <a href='?_src_=prefs;preference=body_size;task=input'>[features["body_size"]*100]%</a><br>"
 			if (CONFIG_GET(number/body_width_min) != CONFIG_GET(number/body_width_max))
 				dat += "<b>Sprite Width:</b> <a href='?_src_=prefs;preference=body_width;task=input'>[features["body_width"]*100]%</a><br>"
+			dat += "<b>Scaling:</b> <a href='?_src_=prefs;preference=toggle_fuzzy;task=input'>[fuzzy ? "Fuzzy" : "Sharp"]</a><br>"
 
+			dat += "<b>Limb Modification:</b><br>"
+			dat += "<a href='?_src_=prefs;preference=modify_limbs;task=input'>Modify Limbs</a><BR>"
+			for(var/modification in modified_limbs)
+				if(modified_limbs[modification][1] == LOADOUT_LIMB_PROSTHETIC)
+					dat += "<b>[modification]: [modified_limbs[modification][2]]</b><BR>"
+				else
+					dat += "<b>[modification]: [modified_limbs[modification][1]]</b><BR>"
+
+			dat += "</td>"
+			//	END COLUMN 2
+			//	START COLUMN 3
+			dat += APPEARANCE_CATEGORY_COLUMN
+
+			dat += "<h2>Voice</h2>"
+			dat += "<b>Speech Verb:</b><br>"
+			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=speech_verb;task=input'>[custom_speech_verb]</a><br>"
+			dat += "<b>Custom Tongue:</b><br>"
+			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=tongue;task=input'>[custom_tongue]</a><br>"
+
+			// Coyote ADD: Blurbleblurhs
+			dat += "<b>Voice Sound:</b></b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_sound;task=input'>[features_speech["typing_indicator_sound"]]</a><br>"
+			dat += "<b>Voice When:</b></b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_sound_play;task=input'>[features_speech["typing_indicator_sound_play"]]</a><br>"			
+			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_speed;task=input'>[features_speech["typing_indicator_speed"]]</a><br>"
+			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_pitch;task=input'>[features_speech["typing_indicator_pitch"]]</a><br>"
+			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_variance;task=input'>[features_speech["typing_indicator_variance"]]</a><br>"
+			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_volume;task=input'>[features_speech["typing_indicator_volume"]]</a><br>"
+			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_max_words_spoken;task=input'>[features_speech["typing_indicator_max_words_spoken"]]</a><br>"
+			//dat += "<BR><a href='?_src_=prefs;preference=soundindicatorpreview'>Preview Sound Indicator</a><BR>"
+			dat += "</td>"
+			// Coyote ADD: End
+			dat += APPEARANCE_CATEGORY_COLUMN
+			if(HAIR in pref_species.species_traits)
+				dat += "<h3>Hair</h3>"
+				dat += "<b>Style:</b><br>"
+				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=hair_style;task=input'>[hair_style]</a><br>"
+				dat += "<a href='?_src_=prefs;preference=previous_hair_style;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_hair_style;task=input'>&gt;</a><br>"
+				dat += "<span style='border:1px solid #161616; background-color: #[hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=hair;task=input'>Change</a><br>"
+
+				// Coyote ADD: Hair gradients
+				dat += "<b>Gradiant:</b><br>"
+				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=grad_style;task=input'>[features_override["grad_style"]]</a><br>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features_override["grad_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=grad_color;task=input'>Change</a><br>"
+				// Coyote ADD: End
+
+				dat += "<b>Facial Style:</b><br>"
+				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=facial_hair_style;task=input'>[facial_hair_style]</a><br>"
+				dat += "<a href='?_src_=prefs;preference=previous_facehair_style;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_facehair_style;task=input'>&gt;</a><br>"
+				dat += "<span style='border: 1px solid #161616; background-color: #[facial_hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=facial;task=input'>Change</a><br>"
+
+			dat += "<h3>Misc</h3>"
+			dat += "<b>Custom Taste:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=taste;task=input'>[features["taste"] ? features["taste"] : "something"]</a><br>"
+			dat += "<b>Runechat Color:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=chat_color;task=input;background-color: #[features["chat_color"]]'>#[features["chat_color"]]</span></a><br>"
+			dat += "<b>Background:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=cycle_bg;task=input'>[bgstate]</a><br>"
+			dat += "<b>Pixel Offsets</b><br>"
+			var/px = custom_pixel_x > 0 ? "+[custom_pixel_x]" : "[custom_pixel_x]"
+			var/py = custom_pixel_y > 0 ? "+[custom_pixel_y]" : "[custom_pixel_y]"
+			dat += "<a href='?_src_=prefs;preference=pixel_x;task=input'>&harr;[px]</a><br>"
+			dat += "<a href='?_src_=prefs;preference=pixel_y;task=input'>&#8597;[py]</a><br>"
+
+			dat += "</td>"
+
+			dat += APPEARANCE_CATEGORY_COLUMN
 			if(!(NOEYES in pref_species.species_traits))
-				dat += "<h3>Eye Type</h3>"
-				dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=eye_type;task=input'>[eye_type]</a><BR>"
+				dat += "<h3>Eyes</h3>"
+				dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=eye_type;task=input'>[eye_type]</a><br>"
 				if((EYECOLOR in pref_species.species_traits))
 					if(!use_skintones && !mutant_colors)
 						dat += APPEARANCE_CATEGORY_COLUMN
 					if(left_eye_color != right_eye_color)
 						split_eye_colors = TRUE
-					dat += "<h3>Heterochromia</h3>"
-					dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=toggle_split_eyes;task=input'>[split_eye_colors ? "Enabled" : "Disabled"]</a>"
+					dat += "<b>Heterochromia</b><br>"
+					dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=toggle_split_eyes;task=input'>[split_eye_colors ? "Enabled" : "Disabled"]</a><br>"
 					if(!split_eye_colors)
-						dat += "<h3>Eye Color</h3>"
-						dat += "<span style='border: 1px solid #161616; background-color: #[left_eye_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=eyes;task=input'>Change</a>"
-						dat += "</td>"
+						dat += "<b>Eye Color</b><br>"
+						dat += "<span style='border: 1px solid #161616; background-color: #[left_eye_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=eyes;task=input'>Change</a><br>"
 					else
-						dat += "<h3>Left Eye Color</h3>"
-						dat += "<span style='border: 1px solid #161616; background-color: #[left_eye_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=eye_left;task=input'>Change</a>"
-						dat += "<h3>Right Eye Color</h3>"
-						dat += "<span style='border: 1px solid #161616; background-color: #[right_eye_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=eye_right;task=input'>Change</a><BR>"
-						dat += "</td>"
-				else if(use_skintones || mutant_colors)
-					dat += "</td>"
+						dat += "<b>Left Color</b><br>"
+						dat += "<span style='border: 1px solid #161616; background-color: #[left_eye_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=eye_left;task=input'>Change</a><br>"
+						dat += "<b>Right Color</b><br>"
+						dat += "<span style='border: 1px solid #161616; background-color: #[right_eye_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=eye_right;task=input'>Change</a><br>"
+			
+			dat += "<h3>Randomization</h3>"
+			dat += "<b>Random Body:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=all;task=random'>Randomize!</A><BR>"
+			dat += "<b>Always Random Body:</b><a href='?_src_=prefs;preference=all'>[be_random_body ? "Yes" : "No"]</A><BR>"
 
-			dat += APPEARANCE_CATEGORY_COLUMN
-			dat += "<h2>Speech preferences</h2>"
-			dat += "<b>Custom Speech Verb:</b><BR>"
-			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=speech_verb;task=input'>[custom_speech_verb]</a><BR>"
-			dat += "<b>Custom Tongue:</b><BR>"
-			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=tongue;task=input'>[custom_tongue]</a><BR>"
-
-			// Coyote ADD: Blurbleblurhs
-			dat += "<h2>Sound Indicator Preferences</h2>"
-			dat += "<b>Sound Ind. Enable:</b><BR>"
-			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_sound_play;task=input'>[features_speech["typing_indicator_sound_play"]]</a><BR>"
-			dat += "<b>Sound Ind. Tone:</b><BR>"
-			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_sound;task=input'>[features_speech["typing_indicator_sound"]]</a><BR>"
-			dat += "<b>Sound Ind. Speed:</b><BR>"
-			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_speed;task=input'>[features_speech["typing_indicator_speed"]]</a><BR>"
-			dat += "<b>Sound Ind. Pitch:</b><BR>"
-			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_pitch;task=input'>[features_speech["typing_indicator_pitch"]]</a><BR>"
-			dat += "<b>Sound Ind. Variance:</b><BR>"
-			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_variance;task=input'>[features_speech["typing_indicator_variance"]]</a><BR>"
-			dat += "<b>Sound Ind. Volume:</b><BR>"
-			dat += "</b><a style='display:block;width:100px' href='?_src_=prefs;preference=typing_indicator_volume;task=input'>[features_speech["typing_indicator_volume"]]</a><BR>"
-			//dat += "<BR><a href='?_src_=prefs;preference=soundindicatorpreview'>Preview Sound Indicator</a><BR>"
-
-			// Coyote ADD: End
-
-			if(HAIR in pref_species.species_traits)
-
-				dat += APPEARANCE_CATEGORY_COLUMN
-
-				dat += "<h3>Hair Style</h3>"
-
-				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=hair_style;task=input'>[hair_style]</a>"
-				dat += "<a href='?_src_=prefs;preference=previous_hair_style;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_hair_style;task=input'>&gt;</a><BR>"
-				dat += "<span style='border:1px solid #161616; background-color: #[hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=hair;task=input'>Change</a><BR>"
-
-				// Coyote ADD: Hair gradients
-				dat += "<h3>Hair Gradient</h3>"
-				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=grad_style;task=input'>[features_override["grad_style"]]</a>"
-				dat += "<span style='border:1px solid #161616; background-color: #[features_override["grad_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=grad_color;task=input'>Change</a><BR>"
-				// Coyote ADD: End
-
-				dat += "<h3>Facial Hair Style</h3>"
-
-				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=facial_hair_style;task=input'>[facial_hair_style]</a>"
-				dat += "<a href='?_src_=prefs;preference=previous_facehair_style;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_facehair_style;task=input'>&gt;</a><BR>"
-				dat += "<span style='border: 1px solid #161616; background-color: #[facial_hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=facial;task=input'>Change</a><BR>"
-
-				dat += "</td>"
-
+			dat += "</td>"
 			//Mutant stuff
 			var/mutant_category = 0
-
-			dat += APPEARANCE_CATEGORY_COLUMN
-			dat += "<h3>Show mismatched markings</h3>"
-			dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=mismatched_markings;task=input'>[show_mismatched_markings ? "Yes" : "No"]</a>"
 			mutant_category++
 			if(mutant_category >= MAX_MUTANT_ROWS) //just in case someone sets the max rows to 1 or something dumb like that
 				dat += "</td>"
@@ -715,10 +725,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			// rp marking selection
 			// assume you can only have mam markings or regular markings or none, never both
 			var/marking_type
+			dat += APPEARANCE_CATEGORY_COLUMN
+			dat += "<b>Advanced Coloring:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=color_scheme;task=input'>[(features["color_scheme"] == ADVANCED_CHARACTER_COLORING) ? "Enabled" : "Disabled"]</a>"
+			dat += "<b>Mismatched Markings:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=mismatched_markings;task=input'>[show_mismatched_markings ? "Yes" : "No"]</a>"
 			if(parent.can_have_part("mam_body_markings"))
 				marking_type = "mam_body_markings"
 			if(marking_type)
-				dat += APPEARANCE_CATEGORY_COLUMN
 				dat += "<h3>[GLOB.all_mutant_parts[marking_type]]</h3>" // give it the appropriate title for the type of marking
 				dat += "<a href='?_src_=prefs;preference=marking_add;marking_type=[marking_type];task=input'>Add marking</a>"
 				// list out the current markings you have
@@ -839,12 +851,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						dat += "</td>"
 						mutant_category = 0
 
-			if(length(pref_species.allowed_limb_ids))
-				if(!chosen_limb_id || !(chosen_limb_id in pref_species.allowed_limb_ids))
-					chosen_limb_id = pref_species.limbs_id || pref_species.id
-				dat += "<h3>Body sprite</h3>"
-				dat += "<a style='display:block;width:100px' href='?_src_=prefs;preference=bodysprite;task=input'>[chosen_limb_id]</a>"
-
 			if(mutant_category)
 				dat += "</td>"
 				mutant_category = 0
@@ -943,7 +949,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/unspaced_slots = 0
 					for(var/i=1, i<=max_save_slots, i++)
 						unspaced_slots++
-						if(unspaced_slots > 4)
+						if(unspaced_slots > 8)
 							dat += "<br>"
 							unspaced_slots = 0
 						S.cd = "/character[i]"
@@ -1111,7 +1117,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 								?_src_=prefs;
 								preference=bag;
 								task=input'>
-								Sackpack
+								[backbag]
 							</a>"}
 					dat += "<div class='undies_link'>-</div>"
 					dat += "</td>"
@@ -1122,7 +1128,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 									href='
 										?_src_=prefs;
 										preference=persistent_scars'>
-											Enabled
+											[persistent_scars ? "Enabled" : "Disabled"]
 								</a>"}
 					dat += {"<a 
 									class='undies_link' 
@@ -2176,11 +2182,26 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 // 			return bal + 33 //max 33 point regardless of how many prosthetics
 // 	return bal
 
-// /datum/preferences/proc/GetPositiveQuirkCount()
-// 	. = 0
-// 	for(var/q in char_quirks)
-// 		if(SSquirks.quirk_points[q] > 0)
-// 			.++
+/datum/preferences/proc/update_genital_whitelist()
+	var/new_genital_whitelist = stripped_multiline_input_or_reflect(
+		parent, 
+		"Which people are you okay with seeing their genitals when exposed? If a humanlike mob has a name containing \
+		any of the following, if their genitals are showing, you will be able to see them, regardless of your \
+		content settings. Partial names are accepted, case is not important, please no punctuation (except ','). \
+		Separate your entries with a comma!",
+		"Genital Whitelist",
+		genital_whitelist)
+	if(isnull(new_genital_whitelist))
+		to_chat(parent, "Never mind!!")
+		return
+	if(trim(new_genital_whitelist) == "" && trim(genital_whitelist) != "")
+		var/whoa = alert(usr, "Are you sure you want to clear your genital whitelist?", "Clear Genital Whitelist", "Yes", "No")
+		if(whoa == "No")
+			to_chat(parent, "Never mind!!")
+			return
+	genital_whitelist = new_genital_whitelist
+	to_chat(parent, span_notice("Updated your genital whitelist! It should kick in soon!"))
+	save_preferences()
 
 /datum/preferences/Topic(href, href_list, hsrc)			//yeah, gotta do this I guess..
 	. = ..()
@@ -2218,20 +2239,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(href_list["preference"] == "change_genital_order")
 		shift_genital_order(href_list["which"], (href_list["direction"]=="up"))
 	if(href_list["preference"] == "change_genital_whitelist")
-		var/new_genital_whitelist = stripped_multiline_input_or_reflect(
-			user, 
-			"Which people are you okay with seeing their genitals when exposed? If a humanlike mob has a name containing \
-			any of the following, if their genitals are showing, you will be able to see them, regardless of your \
-			content settings. Partial names are accepted, case is not important, please no punctuation (except ','). \
-			Keep in mind this matches their 'real' name, so 'unknown' likely won't do much. Separate your entries with a comma!",
-			"Genital Whitelist",
-			features["genital_whitelist"])
-		if(new_genital_whitelist == "")
-			var/whoathere = alert(user, "This will clear your genital whitelist, you sure?", "Just checkin'", "Yes", "No")
-			if(whoathere == "Yes")
-				features["genital_whitelist"] = new_genital_whitelist
-		else if(!isnull(new_genital_whitelist))
-			features["genital_whitelist"] = new_genital_whitelist
+		update_genital_whitelist()
 	if(href_list["preference"] == "change_genital_clothing")
 		var/list/genital_overrides = GENITAL_CLOTHING_FLAG_LIST
 		var/new_visibility = input(user, "When your genitals are visible, how should they appear in relation to your clothes/underwear?", "Character Preference", href_list["nadflag"]) as null|anything in GENITAL_CLOTHING_FLAG_LIST
@@ -2487,6 +2495,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(!isnull(msg))
 						creature_ooc = msg
 
+				if("tbs")
+					var/new_tbs = input(user, "Are you a top, bottom, or switch? (or none of the above)", "Character Preference") as null|anything in TBS_LIST
+					if(new_tbs)
+						tbs = new_tbs
+				if("kisser")
+					var/newkiss = input(user, "What sort of person do you like to kisser?", "Character Preference") as null|anything in KISS_LIST
+					if(newkiss)
+						kisser = newkiss
 				if("age")
 					var/new_age = input(user, "Choose your character's age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference") as num|null
 					if(new_age)
@@ -3216,7 +3232,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						else if(ReadHSV(temp_hsv)[3] >= ReadHSV(MINIMUM_MUTANT_COLOR)[3])
 							features["butt_color"] = sanitize_hexcolor(new_buttcolor, 6)
 						else
-							to_chat(user,"<span class='danger'>Invalid color. Your color is not bright enough.</span>")
+							to_chat(user,span_danger("Invalid color. Your color is not bright enough."))
 
 				if("butt_size")
 					var/min_B = CONFIG_GET(number/butt_min_size_prefs)
@@ -3340,6 +3356,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						if(dorfy != "No")
 							features["body_size"] = new_body_size
 
+				if("toggle_fuzzy")
+					fuzzy = !fuzzy
+
 				if("body_width")
 					var/min = CONFIG_GET(number/body_width_min)
 					var/max = CONFIG_GET(number/body_width_max)
@@ -3357,11 +3376,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/selected_custom_speech_verb = input(user, "Choose your desired speech verb (none means your species speech verb)", "Character Preference") as null|anything in GLOB.speech_verbs
 					if(selected_custom_speech_verb)
 						custom_speech_verb = selected_custom_speech_verb
-
-				//if("soundindicatorpreview") //last famous words: I'll work on it later
-					//for(var/i in 1 to (32) +1)
-						//playsound(get_turf(src), get_typing_indicator_sound(), rand(15, 100), TRUE)
-						//addtimer(CALLBACK(src, .proc/endLaunch), 1 SECONDS)
 
 				if("bodysprite")
 					var/selected_body_sprite = input(user, "Choose your desired body sprite", "Character Preference") as null|anything in pref_species.allowed_limb_ids
@@ -3772,11 +3786,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("ambientocclusion")
 					ambientocclusion = !ambientocclusion
 					if(parent && parent.screen && parent.screen.len)
-						var/obj/screen/plane_master/game_world/G = parent.mob.hud_used.plane_masters["[GAME_PLANE]"]
-						var/obj/screen/plane_master/objitem/OI = parent.mob.hud_used.plane_masters["[OBJITEM_PLANE]"]
-						var/obj/screen/plane_master/mob/M = parent.mob.hud_used.plane_masters["[MOB_PLANE]"]
-						var/obj/screen/plane_master/above_wall/A = parent.mob.hud_used.plane_masters["[ABOVE_WALL_PLANE]"]
-						var/obj/screen/plane_master/wall/W = parent.mob.hud_used.plane_masters["[WALL_PLANE]"]
+						var/atom/movable/screen/plane_master/game_world/G = parent.mob.hud_used.plane_masters["[GAME_PLANE]"]
+						var/atom/movable/screen/plane_master/objitem/OI = parent.mob.hud_used.plane_masters["[OBJITEM_PLANE]"]
+						var/atom/movable/screen/plane_master/mob/M = parent.mob.hud_used.plane_masters["[MOB_PLANE]"]
+						var/atom/movable/screen/plane_master/above_wall/A = parent.mob.hud_used.plane_masters["[ABOVE_WALL_PLANE]"]
+						var/atom/movable/screen/plane_master/wall/W = parent.mob.hud_used.plane_masters["[WALL_PLANE]"]
 						G.backdrop(parent.mob)
 						OI.backdrop(parent.mob)
 						M.backdrop(parent.mob)
@@ -3913,6 +3927,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.special_i = special_i
 	character.special_a = special_a
 	character.special_l = special_l
+	character.fuzzy = fuzzy
 
 	character.left_eye_color = left_eye_color
 	character.right_eye_color = right_eye_color
@@ -3996,7 +4011,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		//delete any existing prosthetic limbs to make sure no remnant prosthetics are left over - But DO NOT delete those that are species-related
 		for(var/obj/item/bodypart/part in character.bodyparts)
 			if(part.status == BODYPART_ROBOTIC && !part.render_like_organic)
-				qdel(part)
+				QDEL_NULL(part)
 		character.regenerate_limbs() //regenerate limbs so now you only have normal limbs
 		for(var/modified_limb in modified_limbs)
 			var/modification = modified_limbs[modified_limb][1]
@@ -4016,7 +4031,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(prosthetic_type != "prosthetic") //lets just leave the old sprites as they are
 					new_limb.icon = wrap_file("icons/mob/augmentation/cosmetic_prosthetic/[prosthetic_type].dmi")
 				new_limb.replace_limb(character)
-			qdel(old_part)
+			QDEL_NULL(old_part)
 
 	SEND_SIGNAL(character, COMSIG_HUMAN_PREFS_COPIED_TO, src, icon_updates, roundstart_checks)
 

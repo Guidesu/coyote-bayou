@@ -19,9 +19,9 @@
 
 
 /mob/dead/new_player/Initialize(mapload)
-	if(client && SSticker.state == GAME_STATE_STARTUP)
-		var/obj/screen/splash/S = new(null, client, TRUE, TRUE)
-		S.Fade(TRUE)
+	// if(client && SSticker.state == GAME_STATE_STARTUP)
+	// 	var/atom/movable/screen/splash/S = new(null, client, TRUE, TRUE)
+	// 	S.Fade(TRUE)
 
 	if(length(GLOB.newplayer_start))
 		forceMove(pick(GLOB.newplayer_start))
@@ -32,7 +32,11 @@
 
 	. = ..()
 
+	GLOB.new_player_list += src
+
 /mob/dead/new_player/Destroy()
+	GLOB.new_player_list -= src
+
 	return ..()
 
 /mob/dead/new_player/prepare_huds()
@@ -68,19 +72,21 @@
 		output += "<p>Please be patient, the game is starting soon!</p>"
 		output += "<p><a href='byond://?src=[REF(src)];refresh=1'>(Refresh)</a></p>"
 		output += "<p><a href='byond://?src=[REF(src)];refresh_chat=1)'>(Fix Chat Window)</a></p>"
+		output += "<p><a href='byond://?src=[REF(src)];fit_viewport_lobby=1)'>(Fit Viewport)</a></p>"
 	else
 		output += "<p><a href='byond://?src=[REF(src)];manifest=1'>View the Crew Manifest</a></p>"
 		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>Join Game!</a></p>"
 		output += "<p>[LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)]</p>"
 		output += "<p><a href='byond://?src=[REF(src)];join_as_creature=1'>Join as Creature!</a></p>"
 		output += "<p><a href='byond://?src=[REF(src)];refresh_chat=1)'>(Fix Chat Window)</a></p>"
+		output += "<p><a href='byond://?src=[REF(src)];fit_viewport_lobby=1)'>(Fit Viewport)</a></p>"
 
 	if(!IsGuestKey(src.key))
 		output += playerpolls()
 
 	output += "</center>"
 
-	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New Player Options</div>", 250, 350)
+	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New Player Options</div>", 250, 400)
 	popup.set_window_options("can_close=0")
 	popup.set_content(output.Join())
 	popup.open(FALSE)
@@ -213,6 +219,9 @@
 
 	if(href_list["refresh_chat"]) //fortuna addition. asset delivery pain
 		client.nuke_chat()
+	
+	if(href_list["fit_viewport_lobby"])
+		client.fit_viewport()
 
 	if(href_list["late_join"])
 		if(!SSticker || !SSticker.IsRoundInProgress())
@@ -526,7 +535,7 @@
 	if(job && !job.override_latejoin_spawn(character))
 		SSjob.SendToLateJoin(character)
 		if(!arrivals_docked)
-			var/obj/screen/splash/Spl = new(character.client, TRUE)
+			var/atom/movable/screen/splash/Spl = new(character.client, TRUE)
 			Spl.Fade(TRUE)
 			character.playsound_local(get_turf(character), 'sound/voice/ApproachingTG.ogg', 25)
 
@@ -548,7 +557,7 @@
 			AnnounceArrival(humanc, rank)
 		AddEmploymentContract(humanc)
 		if(GLOB.highlander)
-			to_chat(humanc, "<span class='userdanger'><i>THERE CAN BE ONLY ONE!!!</i></span>")
+			to_chat(humanc, span_userdanger("<i>THERE CAN BE ONLY ONE!!!</i>"))
 			humanc.make_scottish()
 
 		if(GLOB.summon_guns_triggered)
@@ -591,17 +600,17 @@
 		var/obj/structure/filingcabinet/employment/employmentCabinet = C
 		if(!employmentCabinet.virgin)
 			employmentCabinet.addFile(employee)
-	
+
 /mob/dead/new_player/proc/CreatureSpawn()
 	if(ckey && client && client.prefs.creature_species)
 		var/datum/preferences/P = client.prefs
 		if(!P.creature_flavor_text || !P.creature_ooc)
-			to_chat(src, "<span class='userdanger'>You must set your Creature OOC Notes and Flavor Text before joining as a creature.</span>")
+			to_chat(src, span_userdanger("You must set your Creature OOC Notes and Flavor Text before joining as a creature."))
 			return FALSE
 		var/spawn_selection = input(src, "Select a Creature Spawnpoint", "Spawnpoint Selection") as null|anything in GLOB.creature_spawnpoints
 		if(!spawn_selection || QDELETED(src) || !ckey)
 			return FALSE
-		log_and_message_admins("joined as \an [P.creature_species] and spawned at [spawn_selection].")
+
 		spawning = 1
 		close_spawn_windows()
 		var/spawntype = GLOB.creature_spawnpoints["[spawn_selection]"]
@@ -610,18 +619,24 @@
 		//Give them a better HUD and change their starting backpack
 		var/mob/living/simple_animal/C = new creature_type(src)
 		C.dextrous_hud_type = /datum/hud/dextrous/drone
-		var/obj/item/storage/backpack/satchel/old/S = new(C)
-		C.equip_to_slot(S, SLOT_GENERIC_DEXTROUS_STORAGE)
 		C.dextrous = TRUE
 		C.held_items = list(null, null)
 		C.possible_a_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
 		//Give them some starting items
 		var/obj/item/implant/radio/slime/imp = new//Implant with a radio
 		imp.implant(C, src)
+		//Give them a backpack and fill it with the starter kit that everyone gets
+		var/obj/item/storage/backpack/duffelbag/S = new(C)
+		C.equip_to_slot(S, SLOT_GENERIC_DEXTROUS_STORAGE)
 		if(S)
+			new /obj/item/storage/wallet/stash/low(S)
 			new /obj/item/stack/medical/gauze(S)//Give them some gauze for healing
 			new /obj/item/flashlight(S)//Give them a flashlight for seeing
 			new /obj/item/melee/onehanded/knife/hunting(S)//And a knife for crafting/gutting
+			new /obj/item/kit_spawner/townie(S)//And a weapon so they can play the game :tm:
+			new /obj/item/kit_spawner/tools(S)//And a toolkit for job stuffs
+			new /obj/item/pda(S)//And a PDA since everyone else spawns with one, too
+			new /obj/item/card/id/selfassign(S)//And an ID card to swipe into the PDA
 		//Assign the mob's information based on the player's client preferences
 		switch(P.gender)
 			if("male")
@@ -630,6 +645,7 @@
 				C.gender = FEMALE
 			else
 				C.gender = PLURAL
+		//Set up their name and what not
 		C.name = P.creature_name
 		C.real_name = P.creature_name
 		C.flavortext = P.creature_flavor_text
@@ -642,7 +658,8 @@
 		C.can_have_ai = FALSE
 		//Set them as a player-character simplemob so examine and such changes to show their character prefs
 		C.player_character = ckey
-		C.grant_all_languages()
+		//Grant them the english language just in case they don't have it.
+		C.grant_language(/datum/language/common)
 		//Prepare their spawnpoint
 		var/list/avail_spawns = list()
 		for(var/SP in GLOB.landmarks_list)
@@ -655,6 +672,10 @@
 		//Alert deadchat of their arrival
 		var/dsay_message = "<span class='game deadsay'><span class='name'>[C.real_name]</span> ([P.creature_species]) has entered the wasteland at <span class='name'>[spawn_selection]</span>.</span>"
 		deadchat_broadcast(dsay_message, follow_target = C, message_type=DEADCHAT_ARRIVALRATTLE)
+		//Log their arrival
+		log_and_message_admins("[ADMIN_PP(C)] joined as \a [P.creature_species] named [C.name] and spawned at [spawn_selection].")
+		//Insert the quirks, do it now
+		SSquirks.AssignQuirks(C, C.client, TRUE, FALSE)
 
 /mob/dead/new_player/proc/PreLateChoices()
 	if(client.holder && check_rights(R_STEALTH, 0))
@@ -731,6 +752,11 @@
 
 		client.prefs.scars_list["[cur_scar_index]"] = valid_scars
 		client.prefs.save_character()
+		
+	// load permanent tattoos
+	if(client.prefs.permanent_tattoos)
+		H.load_all_tattoos(client.prefs.permanent_tattoos)
+
 	client.prefs.copy_to(H, initial_spawn = TRUE)
 	H.dna.update_dna_identity()
 	if(mind)
@@ -739,6 +765,7 @@
 		mind.active = 0					//we wish to transfer the key manually
 		mind.transfer_to(H)					//won't transfer key since the mind is not active
 		mind.original_character = H
+
 
 	H.name = real_name
 	client.init_verbs()
@@ -833,4 +860,5 @@
 
 	// Add verb for re-opening the interview panel, and re-init the verbs for the stat panel
 	add_verb(src, /mob/dead/new_player/proc/open_interview)
+
 

@@ -570,6 +570,424 @@
 	icon = 'icons/obj/plushes.dmi'
 	icon_state = "teshariplushie"
 
+//Sprites from Bubberstation
+
+/obj/item/toy/plush/ianplush
+	name = "ian plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "ianplush"
+
+/obj/item/toy/plush/lisaplush
+	name = "lisa plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "lisaplush"
+
+/obj/item/toy/plush/upaplush
+	name = "upa plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "upaplush"
+
+/obj/item/toy/plush/renaultplush
+	name = "renault plush"
+	desc = "Don't tell the Captain. Wait. What's a Captain?"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "renaultplush"
+
+/obj/item/toy/plush/rounyplush
+	name = "rouny plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "rounyplush"
+
+/obj/item/toy/plush/crossedplushie
+	name = "crossed plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "crossedplush"
+
+/obj/item/toy/plush/runtimeplushie
+	name = "runtime plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "runtimeplush"
+
+/obj/item/toy/plush/flushplushie
+	name = "flush plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "flushplush"
+
+/obj/item/toy/plush/moffplushie
+	name = "moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush"
+
+/obj/item/toy/plush/moffplushie/monarch
+	name = "monarch moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_monarch"
+
+/obj/item/toy/plush/moffplushie/luna
+	name = "luna moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_luna"
+
+/obj/item/toy/plush/moffplushie/atlas
+	name = "atlas moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_atlas"
+
+/obj/item/toy/plush/moffplushie/redish
+	name = "redish moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_redish"
+
+/obj/item/toy/plush/moffplushie/royal
+	name = "royal moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_royal"
+
+/obj/item/toy/plush/moffplushie/gothic
+	name = "gothic moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_gothic"
+
+/obj/item/toy/plush/moffplushie/lovers
+	name = "lovers moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_lovers"
+
+/obj/item/toy/plush/moffplushie/whitefly
+	name = "white fly moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_whitefly"
+
+/obj/item/toy/plush/moffplushie/punished
+	name = "punished moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_punished"
+
+/obj/item/toy/plush/moffplushie/firewatch
+	name = "firewatch moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_firewatch"
+
+/obj/item/toy/plush/moffplushie/deadhead
+	name = "deadhead moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_deadhead"
+
+/obj/item/toy/plush/moffplushie/poison
+	name = "poison moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_poison"
+
+/obj/item/toy/plush/moffplushie/ragged
+	name = "ragged moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_ragged"
+
+/obj/item/toy/plush/moffplushie/snow
+	name = "snow moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_snow"
+
+/obj/item/toy/plush/moffplushie/clockwork
+	name = "clockwork moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_clockwork"
+
+/obj/item/toy/plush/moffplushie/moonfly
+	name = "moonfly moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_moonfly"
+
+/obj/item/toy/plush/moffplushie/random
+	name = "random moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_random"
+
+/obj/item/toy/plush/moffplushie/rainbow
+	name = "rainbow moff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "moffplush_rainbow"
+
+/obj/item/toy/plush/romanianplushie
+	name = "romanian plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "romanian"
+
+/obj/item/toy/plush/synthplushie
+	name = "synth plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "plushie_synth"
+
+/obj/item/toy/plush/malplushie
+	name = "mal plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "plushie_mal0"
+
+/obj/item/toy/plush/toasterplushie
+	name = "chaotic toaster plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "chaotic_toaster"
+
+/obj/item/toy/plush/nobl_plush
+	name = "skull dragon plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "nobl_plush"
+
+/obj/item/toy/plush/chirpplushie
+	name = "chirp plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "chirp_plush"
+
+/obj/item/toy/plush/bigdeerplushie
+	name = "big deer plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "bigdeer_plush"
+
+/obj/item/toy/plush/pichu
+	name = "pichu plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "pichu"
+
+/obj/item/toy/plush/pikachu
+	name = "pikachu plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "pikachu"
+
+/obj/item/toy/plush/marill
+	name = "marill plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "marill"
+
+/obj/item/toy/plush/togepi
+	name = "togepi plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "togepi"
+
+/obj/item/toy/plush/cyndaquil
+	name = "cyndaquil plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "cyndaquil"
+
+/obj/item/toy/plush/chikorita
+	name = "chikorita plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "chikorita"
+
+/obj/item/toy/plush/totodile
+	name = "totodile plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "totodile"
+
+/obj/item/toy/plush/jigglypuff
+	name = "jigglypuff plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "jigglypuff"
+
+/obj/item/toy/plush/meowth
+	name = "meowth plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "meowth"
+
+/obj/item/toy/plush/clefairy
+	name = "clefairy plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "clefairy"
+
+/obj/item/toy/plush/ditto
+	name = "ditto plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "ditto"
+
+/obj/item/toy/plush/smoochum
+	name = "smoochum plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "smoochum"
+
+/obj/item/toy/plush/trecko
+	name = "trecko plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "trecko"
+
+/obj/item/toy/plush/torchic
+	name = "torchic plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "torchic"
+
+/obj/item/toy/plush/mudkip
+	name = "mudkip plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "mudkip"
+
+/obj/item/toy/plush/duskull
+	name = "duskull plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "duskull"
+
+/obj/item/toy/plush/wynaut
+	name = "wynaut plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "wynaut"
+
+/obj/item/toy/plush/baltoy
+	name = "baltoy plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "baltoy"
+
+/obj/item/toy/plush/kecleon
+	name = "kecleon plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "kecleon"
+
+/obj/item/toy/plush/azurill
+	name = "azurill plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "azurill"
+
+/obj/item/toy/plush/skitty
+	name = "skitty plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "skitty"
+
+/obj/item/toy/plush/swablu
+	name = "swablu plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "swablu"
+
+/obj/item/toy/plush/gulpin
+	name = "gulpin plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "gulpin"
+
+/obj/item/toy/plush/lotad
+	name = "lotad plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "lotad"
+
+/obj/item/toy/plush/seedot
+	name = "seedot plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushes.dmi'
+	icon_state = "seedot"
+
+/obj/item/toy/plush/snorlax
+	name = "snorlax plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushies_big.dmi'
+	icon_state = "snorlax"
+
+/obj/item/toy/plush/rhydon
+	name = "rhydon plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushies_big.dmi'
+	icon_state = "rhydon"
+
+/obj/item/toy/plush/lapras
+	name = "lapras plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushies_big.dmi'
+	icon_state = "lapras"
+
+/obj/item/toy/plush/venusaur
+	name = "venusaur plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushies_big.dmi'
+	icon_state = "venusaur"
+
+/obj/item/toy/plush/charizard
+	name = "charizard plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushies_big.dmi'
+	icon_state = "charizard"
+
+/obj/item/toy/plush/blastoise
+	name = "blastoise plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushies_big.dmi'
+	icon_state = "blastoise"
+
+/obj/item/toy/plush/wailmer
+	name = "wailmer plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushies_big.dmi'
+	icon_state = "wailmer"
+
+/obj/item/toy/plush/regirock
+	name = "regirock plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushies_big.dmi'
+	icon_state = "regirock"
+
+/obj/item/toy/plush/regice
+	name = "regice plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushies_big.dmi'
+	icon_state = "regice"
+
+/obj/item/toy/plush/registeel
+	name = "registeel plush"
+	desc = "An adorable plushie"
+	icon = 'icons/obj/plushies_big.dmi'
+	icon_state = "registeel"
+
+
+
 
 //Nests from virgo
 
@@ -1043,5 +1461,73 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/fishmeat/salmon
 	icon =  'modular_coyote/icons/objects/items.dmi'
 	icon_state = "goldfish"
+
+//Cars
+/obj/vehicle/sealed/car/sportcar
+	name = "sports car"
+	icon = 'modular_coyote/icons/objects/civ_vehicles.dmi'
+	icon_state = "sportscar"
+
+/obj/vehicle/sealed/car/jeep
+	name = "jeep"
+	icon = 'modular_coyote/icons/objects/civ_vehicles.dmi'
+	icon_state = "jeep"
+
+/obj/vehicle/sealed/car/jeep_mesa
+	name = "jeep mesa"
+	icon = 'modular_coyote/icons/objects/civ_vehicles.dmi'
+	icon_state = "jeep_mesa"
+
+/obj/vehicle/sealed/car/policecar
+	name = "policecar"
+	icon = 'modular_coyote/icons/objects/civ_vehicles.dmi'
+	icon_state = "policecar"
+
+/obj/vehicle/sealed/car/truck
+	name = "truck"
+	icon = 'modular_coyote/icons/objects/civ_vehicles.dmi'
+	icon_state = "truck"
+
+/obj/vehicle/sealed/car/ambulance
+	name = "ambulance"
+	icon = 'modular_coyote/icons/objects/civ_vehicles.dmi'
+	icon_state = "ambulance"
+
+/obj/item/choice_beacon/car
+	name = "vehicle delivery beacon"
+	desc = "Summon your tool of car. Beep beep"
+	icon_state = "gangtool-red"
+
+/obj/item/choice_beacon/car/generate_display_names()
+	var/static/list/car
+	if(!car)
+		car = list()
+		var/list/templist = list(/obj/item/choice_beacon/car,
+							/obj/vehicle/sealed/car/ambulance,
+							/obj/vehicle/sealed/car/truck,
+							/obj/vehicle/sealed/car/policecar,
+							/obj/vehicle/sealed/car/jeep_mesa,
+							/obj/vehicle/sealed/car/jeep,
+							/obj/vehicle/sealed/car/sportcar
+							)
+		for(var/V in templist)
+			var/atom/A = V
+			car[initial(A.name)] = A
+	return car
+
+//Yogurt
+
+
+/datum/chemical_reaction/food/yoghurt
+	required_reagents = list(/datum/reagent/consumable/cream = 10, /datum/reagent/consumable/vinegar = 2)
+	results = list(/datum/reagent/consumable/yoghurt = 10)
+	mix_message = "The mixture thickens into yoghurt."
+
+/datum/reagent/consumable/yoghurt
+	name = "Yoghurt"
+	description = "Creamy natural yoghurt, with applications in both food and drinks."
+	taste_description = "yoghurt"
+	color = "#efeff0"
+	nutriment_factor = 2
 
 

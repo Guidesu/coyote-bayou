@@ -671,3 +671,61 @@
 	icon_state = "xeno"
 	icon = 'icons/mob/mam/coyote/mam_tails.dmi'
 	color_src = MUTCOLORS
+
+/datum/sprite_accessory/tails/mam_tails/clubtail
+	name = "club tail"
+	icon_state = "clubtail"
+	icon = 'icons/mob/mam/coyote/mam_tails.dmi'
+	matrixed_sections = MATRIX_RED_GREEN
+
+/datum/sprite_accessory/tails/mam_tails/spiketail
+	name = "spike tail"
+	icon_state = "spiketail"
+	icon = 'icons/mob/mam/coyote/mam_tails.dmi'
+	matrixed_sections = MATRIX_RED_GREEN
+
+/datum/sprite_accessory/tails/mam_tails/glaceon
+	name = "glaceon"
+	icon_state = "glaceon"
+	icon = 'icons/mob/mam/coyote/mam_tails.dmi'
+	matrixed_sections = MATRIX_RED_GREEN
+
+/datum/sprite_accessory/tails/mam_tails/ninetailsalt
+	name = "ninetails, alt"
+	icon_state = "ninetails"
+	icon = 'icons/mob/mam/coyote/mam_tails.dmi'
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/tails/mam_tails/roiz
+	name = "Lizard (Large)"
+	icon_state = "roiz"
+	color_src = MUTCOLORS
+	icon = 'icons/mob/mam/coyote/64_mam_tails.dmi'
+	dimension_x = 64
+	center = TRUE
+
+/datum/sprite_accessory/tails/mam_tails/longfluff
+	name = "Long Fluff Tail"
+	icon_state = "longfluff"
+	matrixed_sections = MATRIX_RED_GREEN
+	icon = 'icons/mob/mam/coyote/64_mam_tails.dmi'
+	dimension_x = 64
+	center = TRUE
+
+/datum/sprite_accessory/tails/mam_tails/bigring
+	name = "Big Ring Tail"
+	icon_state = "bigring"
+	matrixed_sections = MATRIX_RED_GREEN
+	icon = 'icons/mob/mam/coyote/64_mam_tails.dmi'
+	dimension_x = 64
+	center = TRUE
+
+/datum/sprite_accessory/tails/mam_tails/longstalker
+	name = "Nightstalker (Large)"
+	icon_state = "longstalker"
+	matrixed_sections = MATRIX_RED_GREEN
+	icon = 'icons/mob/mam/coyote/64_mam_tails.dmi'
+	dimension_x = 64
+	center = TRUE
+
+

@@ -21,6 +21,7 @@
 	var/diameter_ratio = COCK_DIAMETER_RATIO_DEF //0.25; check citadel_defines.dm
 	associated_has = CS_PENIS // for cockstring stuff
 	hide_flag = HIDE_PENIS // for hideflag stuff
+	pornhud_slot = PHUD_PENIS
 
 /obj/item/organ/genital/penis/modify_size(modifier, min = -INFINITY, max = INFINITY)
 	var/new_value = clamp(length + modifier, min, max)
@@ -43,7 +44,7 @@
 /obj/item/organ/genital/penis/update_size(modified = FALSE)
 	if(length <= 0)//I don't actually know what round() does to negative numbers, so to be safe!!
 		if(owner)
-			to_chat(owner, "<span class='warning'>You feel your tallywacker shrinking away from your body as your groin flattens out!</b></span>")
+			to_chat(owner, span_warning("You feel your tallywacker shrinking away from your body as your groin flattens out!</b>"))
 		QDEL_IN(src, 1)
 		if(linked_organ)
 			QDEL_IN(linked_organ, 1)
@@ -53,21 +54,23 @@
 	switch(rounded_length)
 		if(0 to 6) //If modest size
 			new_size = 1
-		if(7 to 11) //If large
+		if(7 to 12) //If large
 			new_size = 2
-		if(12 to 20) //If massive
+		if(13 to 24) //If massive
 			new_size = 3
-		if(21 to 34) //If massive and due for large effects
-			new_size = 3
-		if(35 to INFINITY) //If comical
-			new_size = 4 //no new sprites for anything larger yet
+		if(25 to 36) //If massive and due for large effects. Tox note here: Inter-stage between massive and enters hyper.
+			new_size = 4
+		if(37 to 48) //If low-tier hyper, enters medium-high tier with only a foot increase
+			new_size = 4
+		if(49 to INFINITY) //If medium-high tier hyper/comical. It becomes a baseball bat!
+			new_size = 5
 	size = new_size
 
 	if(owner)
 		if (round(length) > round(prev_length))
-			to_chat(owner, "<span class='warning'>Your [pick(GLOB.dick_nouns)] [pick("swells up to", "flourishes into", "expands into", "bursts forth into", "grows eagerly into", "amplifys into")] a [uppertext(round(length))] inch penis.</b></span>")
+			to_chat(owner, span_warning("Your [pick(GLOB.dick_nouns)] [pick("swells up to", "flourishes into", "expands into", "bursts forth into", "grows eagerly into", "amplifys into")] a [uppertext(round(length))] inch penis.</b>"))
 		else if ((round(length) < round(prev_length)) && (length > 0.5))
-			to_chat(owner, "<span class='warning'>Your [pick(GLOB.dick_nouns)] [pick("shrinks down to", "decreases into", "diminishes into", "deflates into", "shrivels regretfully into", "contracts into")] a [uppertext(round(length))] inch penis.</b></span>")
+			to_chat(owner, span_warning("Your [pick(GLOB.dick_nouns)] [pick("shrinks down to", "decreases into", "diminishes into", "deflates into", "shrivels regretfully into", "contracts into")] a [uppertext(round(length))] inch penis.</b>"))
 	icon_state = sanitize_text("penis_[shape]_[size]")
 	diameter = (length * diameter_ratio)//Is it just me or is this ludicous, why not make it exponentially decay?
 

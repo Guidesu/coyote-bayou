@@ -77,8 +77,8 @@
 /obj/item/hand_item/healable/attack_obj_nohit(obj/O, mob/living/user)
 	return start_licking(src, O, user)
 
-/obj/item/hand_item/healable/proc/start_licking(atom/source, atom/licked, mob/living/carbon/user)
-	if(!iscarbon(user))
+/obj/item/hand_item/healable/proc/start_licking(atom/source, atom/licked, mob/living/user)
+	if(!isliving(user))
 		return FALSE
 	if(working)
 		to_chat(user, span_alert("You're already [tend_word] something!"))
@@ -90,7 +90,7 @@
 	lick_atom(licked, user)
 	return cool_thing(source, user, licked)
 
-/obj/item/hand_item/healable/proc/cool_thing(mob/living/carbon/user, atom/licked)
+/obj/item/hand_item/healable/proc/cool_thing(mob/living/user, atom/licked)
 	return TRUE
 
 /obj/item/hand_item/healable/proc/tend_hurt(mob/living/user, mob/living/target)
@@ -99,7 +99,7 @@
 	if(!HAS_TRAIT(user, needed_trait))
 		return FALSE
 	var/mob/living/mlemmed = target
-	if(!mlemmed.get_bodypart(user.zone_selected))
+	if(iscarbon(mlemmed) && !mlemmed.get_bodypart(user.zone_selected))
 		return FALSE
 	if(!istype(healthing))
 		healthing = new healthing(src)
@@ -115,7 +115,7 @@
 	. = ..()
 	RegisterSignal(src, COMSIG_LICK_RETURN, .proc/start_licking)
 
-/obj/item/hand_item/healable/proc/lick_atom(atom/movable/licked, mob/living/carbon/user)
+/obj/item/hand_item/healable/proc/lick_atom(atom/movable/licked, mob/living/user)
 	var/list/lick_words = get_lick_words(user)
 	if(isliving(licked))
 		user.visible_message(
@@ -131,28 +131,31 @@
 			span_notice("You hear [action_verb_ing]."),
 			LICK_SOUND_TEXT_RANGE
 		)
-	if(can_taste)
+	if(can_taste && iscarbon(user))
 		lick_flavor(atom_licked = licked, licker = user)
 
-/obj/item/hand_item/healable/proc/lick_flavor(atom/source, atom/atom_licked, mob/living/carbon/licker)
+/obj/item/hand_item/healable/proc/lick_flavor(atom/source, atom/atom_licked, mob/living/licker)
 	if(!atom_licked)
 		return
 	if(!licker)
-		var/mob/living/carbon/maybe_licker = loc
-		if(!maybe_licker)
+		var/mob/living/maybe_licker = loc
+		if(!isliving(maybe_licker))
 			return
 		licker = maybe_licker
-		
-	licker.taste(null, atom_licked)
+	if(iscarbon(licker))
+		var/mob/living/carbon/C = licker
+		C.taste(null, atom_licked)
 	playsound(get_turf(src), pokesound, 25, 1, SOUND_DISTANCE(LICK_SOUND_TEXT_RANGE))
 
-/obj/item/hand_item/healable/licker/tend_hurt(mob/living/licked, mob/living/carbon/user)
-	var/obj/item/organ/tongue/our_tongue = user.getorganslot(ORGAN_SLOT_TONGUE)
-	if(!istype(our_tongue))
-		return FALSE
+/obj/item/hand_item/healable/licker/tend_hurt(mob/living/licked, mob/living/user)
+	if(iscarbon(user))
+		var/mob/living/carbon/C = user
+		var/obj/item/organ/tongue/our_tongue = C.getorganslot(ORGAN_SLOT_TONGUE)
+		if(!istype(our_tongue))
+			return FALSE
 	. = ..()
 
-/obj/item/hand_item/healable/proc/get_lick_words(mob/living/carbon/user)
+/obj/item/hand_item/healable/proc/get_lick_words(mob/living/user)
 	if(!user)
 		return
 
@@ -209,16 +212,47 @@
 	icon_state = "biter"
 	attack_verb = list("chomped", "gnawed", "bit", "crunched", "nommed")
 	hitsound = "sound/weapons/bite.ogg"
+	slot_flags = INV_SLOTBIT_GLOVES
 	w_class = WEIGHT_CLASS_TINY
-	siemens_coefficient = 5 
-	force = 6
-	force_wielded = 10
+	flags_1 = CONDUCT_1
+	force = 15
 	throwforce = 0
-	wound_bonus = 5
-	sharpness = SHARP_EDGED
-	attack_speed = 4
+	wound_bonus = 4
+	sharpness = SHARP_POINTY
+	attack_speed = CLICK_CD_MELEE * 0.7
 	item_flags = DROPDEL | ABSTRACT | HAND_ITEM
 	weapon_special_component = /datum/component/weapon_special/single_turf
+	var/can_adjust_unarmed = TRUE
+	var/unarmed_adjusted = TRUE
+
+/obj/item/hand_item/biter/equipped(mob/user, slot)
+	. = ..()
+	var/mob/living/carbon/human/H = user
+	if(unarmed_adjusted)
+		mob_overlay_icon = righthand_file
+	if(!unarmed_adjusted)
+		mob_overlay_icon = lefthand_file
+	if(ishuman(user) && slot == SLOT_GLOVES)
+		ADD_TRAIT(user, TRAIT_UNARMED_WEAPON, "glove")
+		if(HAS_TRAIT(user, TRAIT_UNARMED_WEAPON))
+			H.dna.species.punchdamagehigh += force + 8 //Work around for turbo bad code here. Makes this correctly stack with your base damage. No longer makes ghouls the kings of melee.
+			H.dna.species.punchdamagelow += force + 8
+			H.dna.species.attack_sound = hitsound
+			if(sharpness == SHARP_POINTY || sharpness ==  SHARP_EDGED)
+				H.dna.species.attack_verb = pick("chomped", "gnawed", "bit", "crunched", "nommed")
+	if(ishuman(user) && slot != SLOT_GLOVES && !H.gloves)
+		REMOVE_TRAIT(user, TRAIT_UNARMED_WEAPON, "glove")
+		if(!HAS_TRAIT(user, TRAIT_UNARMED_WEAPON)) //removing your funny trait shouldn't make your fists infinitely stack damage.
+			H.dna.species.punchdamagehigh = 10
+			H.dna.species.punchdamagelow = 1
+		if(HAS_TRAIT(user, TRAIT_IRONFIST))
+			H.dna.species.punchdamagehigh = 12
+			H.dna.species.punchdamagelow = 6
+		if(HAS_TRAIT(user, TRAIT_STEELFIST))
+			H.dna.species.punchdamagehigh = 16
+			H.dna.species.punchdamagelow = 10
+		H.dna.species.attack_sound = 'sound/weapons/bite.ogg'
+		H.dna.species.attack_verb = "bites"
 
 /obj/item/hand_item/biter/creature
 	force = 25
@@ -228,25 +262,22 @@
 	name = "Big Biter"
 	desc = "Talk shit, get BIG bit."
 	color = "#884444"
-	force = 15
-	force_wielded = 18
-	attack_speed = 5
+	force = 25
+	attack_speed = CLICK_CD_MELEE * 0.8
 
 /obj/item/hand_item/biter/sabre
 	name = "Sabre Toothed Biter"
 	desc = "Damn bitch, you eat with them teeth?"
 	color = "#FF4444"
-	force = 5
-	force_wielded = 27
-	attack_speed = 6
+	force = 30
+	attack_speed = CLICK_CD_MELEE * 0.7
 
 /obj/item/hand_item/biter/fast
-	name = "Big Biter"
+	name = "Fast Biter"
 	desc = "Talk shit, get SPEED bit."
 	color = "#448844"
-	force = 4
-	force_wielded = 7
-	attack_speed = 3
+	force = 18
+	attack_speed = CLICK_CD_MELEE * 0.5
 
 /obj/item/hand_item/biter/play
 	name = "Play Biter"
@@ -260,16 +291,15 @@
 	name = "Spicy Biter"
 	desc = "Your sickly little nibbler, good for dropping fools."
 	color = "#44FF44"
-	force = 5
-	force_wielded = 10
-	attack_speed = 5
+	force = 15//7-11 haha get it bad gas station food lmao ~TK
+	attack_speed = CLICK_CD_MELEE * 0.8
 
 
 /obj/item/hand_item/biter/spicy/attack(mob/living/M, mob/living/user)
 	. = ..()
 	if(!istype(M))
 		return
-	M.apply_damage(30, STAMINA, "chest", M.run_armor_check("chest", "brute"))
+	M.apply_damage(30, STAMINA, "chest", M.run_armor_check("chest", "melee"))
 
 
 /obj/item/hand_item/clawer
@@ -277,67 +307,113 @@
 	desc = "Thems some claws."
 	icon = 'icons/obj/in_hands.dmi'
 	icon_state = "clawer"
-	attack_verb = list("clawed", "swiped", "raked")
-	hitsound = "sound/weapons/bladeslice.ogg"
+	slot_flags = INV_SLOTBIT_GLOVES
 	w_class = WEIGHT_CLASS_TINY
-	force = 5
-	force_wielded = 8
+	flags_1 = CONDUCT_1
+	sharpness = SHARP_EDGED
+	attack_verb = list("slashed", "sliced", "torn", "ripped", "diced", "cut")
+	force = 15
 	throwforce = 0
 	wound_bonus = 4
 	sharpness = SHARP_EDGED
-	attack_speed = 2
+	attack_speed = CLICK_CD_MELEE * 0.7
 	item_flags = DROPDEL | ABSTRACT | HAND_ITEM
 	weapon_special_component = /datum/component/weapon_special/single_turf
+	var/can_adjust_unarmed = TRUE
+	var/unarmed_adjusted = TRUE
+
+/obj/item/hand_item/clawer/equipped(mob/user, slot)
+	. = ..()
+	var/mob/living/carbon/human/H = user
+	if(unarmed_adjusted)
+		mob_overlay_icon = righthand_file
+	if(!unarmed_adjusted)
+		mob_overlay_icon = lefthand_file
+	if(ishuman(user) && slot == SLOT_GLOVES)
+		ADD_TRAIT(user, TRAIT_UNARMED_WEAPON, "glove")
+		if(HAS_TRAIT(user, TRAIT_UNARMED_WEAPON))
+			H.dna.species.punchdamagehigh += force + 8 //Work around for turbo bad code here. Makes this correctly stack with your base damage. No longer makes ghouls the kings of melee.
+			H.dna.species.punchdamagelow += force + 8
+			H.dna.species.attack_sound = hitsound
+			if(sharpness == SHARP_POINTY || sharpness ==  SHARP_EDGED)
+				H.dna.species.attack_verb = pick("slash","slice","rip","tear","cut","dice","clawed")
+	if(ishuman(user) && slot != SLOT_GLOVES && !H.gloves)
+		REMOVE_TRAIT(user, TRAIT_UNARMED_WEAPON, "glove")
+		if(!HAS_TRAIT(user, TRAIT_UNARMED_WEAPON)) //removing your funny trait shouldn't make your fists infinitely stack damage.
+			H.dna.species.punchdamagehigh = 10
+			H.dna.species.punchdamagelow = 1
+		if(HAS_TRAIT(user, TRAIT_IRONFIST))
+			H.dna.species.punchdamagehigh = 12
+			H.dna.species.punchdamagelow = 6
+		if(HAS_TRAIT(user, TRAIT_STEELFIST))
+			H.dna.species.punchdamagehigh = 16
+			H.dna.species.punchdamagelow = 10
+		H.dna.species.attack_sound = 'sound/weapons/punch1.ogg'
+		H.dna.species.attack_verb = "punch"
+
+/obj/item/hand_item/clawer/examine(mob/user)
+	. = ..()
+	if(can_adjust_unarmed == TRUE)
+		if(unarmed_adjusted == TRUE)
+			. += span_notice("Alt-click on [src] to wear it on a different hand. You must take it off first, then put it on again.")
+		else
+			. += span_notice("Alt-click on [src] to wear it on a different hand. You must take it off first, then put it on again.")
+
+/obj/item/hand_item/clawer/AltClick(mob/user)
+	. = ..()
+	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ishuman(user)))
+		return
+	if(can_adjust_unarmed == TRUE)
+		toggle_unarmed_adjust()
+
+/obj/item/hand_item/clawer/proc/toggle_unarmed_adjust()
+	unarmed_adjusted = !unarmed_adjusted
+	to_chat(usr, span_notice("[src] is ready to be worn on another hand."))
+
 
 /obj/item/hand_item/clawer/creature
-	force = 25
-	force_wielded = 30
+	force = 30
 
 /obj/item/hand_item/clawer/big
 	name = "Big Clawer"
 	desc = "Thems some BIG ASS claws."
 	color = "#884444"
-	force = 7
-	force_wielded = 9
-	attack_speed = 3
+	force = 25
+	attack_speed = CLICK_CD_MELEE * 0.8
 
 /obj/item/hand_item/clawer/razor
 	name = "Razor Sharp Clawers"
 	desc = "RIP AND TEAR."
 	color = "#FF4444"
-	force = 5
-	force_wielded = 17
-	attack_speed = 4
+	force = 30
+	attack_speed = CLICK_CD_MELEE * 0.8
 
 /obj/item/hand_item/clawer/fast
 	name = "Fast Clawer"
 	desc = "Thems some FAST ASS claws."
 	color = "#448844"
-	force = 4
-	force_wielded = 7
-	attack_speed = 1
+	force = 18
+	attack_speed = CLICK_CD_MELEE * 0.5
 
 /obj/item/hand_item/clawer/play
 	name = "Play Clawer"
 	desc = "Basically just a bean thwapper."
 	color = "#FF88FF"
 	force = 0
-	force_wielded = 0
 	attack_speed = 1
 
 /obj/item/hand_item/clawer/spicy
 	name = "Spicy Clawer"
 	desc = "Your gross little litter box rakes, good for puttings idiots on the ground."
 	color = "#44FF44"
-	force = 7
-	force_wielded = 11 //7-11 haha get it bad gas station food lmao ~TK
-	attack_speed = 4
+	force = 15//7-11 haha get it bad gas station food lmao ~TK
+	attack_speed = CLICK_CD_MELEE * 0.8
 
 /obj/item/hand_item/clawer/spicy/attack(mob/living/M, mob/living/user)
 	. = ..()
 	if(!istype(M))
 		return
-	M.apply_damage(30, STAMINA, "chest", M.run_armor_check("chest", "brute"))
+	M.apply_damage(30, STAMINA, "chest", M.run_armor_check("chest", "melee"))
 
 /obj/item/hand_item/arm_blade/mutation
 	name = "arm blade"
@@ -392,9 +468,8 @@
 	desc = "A tail. Good for whacking."
 	icon_state = "proboscis"
 	w_class = WEIGHT_CLASS_TINY
-	force = 5
-	force_wielded = 10
-	attack_speed = 4 
+	force = 15
+	attack_speed = CLICK_CD_MELEE * 0.7
 	weapon_special_component = /datum/component/weapon_special/single_turf
 
 /obj/item/hand_item/tail/ComponentInitialize()
@@ -406,42 +481,38 @@
 	desc = "A speedy tail that's very good at whackin' fast."
 	icon_state = "proboscis"
 	color = "#448844"
-	force = 3
-	force_wielded = 7
-	attack_speed = 2
+	force = 18
+	attack_speed = CLICK_CD_MELEE * 0.6
 
 /obj/item/hand_item/tail/big
 	name = "big tail"
 	desc = "A big tail that whacks hard."
 	icon_state = "proboscis"
 	color = "#884444"
-	force = 10
-	force_wielded = 20
-	attack_speed = 5
+	force = 25
+	attack_speed = CLICK_CD_MELEE * 0.8
 
 /obj/item/hand_item/tail/spicy
 	name = "spicy tail"
 	desc = "A tail with something that can inject venom on it."
 	icon_state = "proboscis"
 	color = "#44FF44"
-	force = 4
-	force_wielded = 8
-	attack_speed = 5
+	force = 15
+	attack_speed = CLICK_CD_MELEE * 0.8
 
 /obj/item/hand_item/tail/spicy/attack(mob/living/M, mob/living/user)
 	. = ..()
 	if(!istype(M))
 		return
-	M.apply_damage(30, STAMINA, "chest", M.run_armor_check("chest", "brute"))
+	M.apply_damage(30, STAMINA, "chest", M.run_armor_check("chest", "melee"))
 
 /obj/item/hand_item/tail/thago
 	name = "dangerous tail"
 	desc = "A god damn mighty tail that would kill an allosaurus.  Maybe."
 	icon_state = "proboscis"
 	color = "#FF4444"
-	force = 12
-	force_wielded = 24
-	attack_speed = 6
+	force = 30
+	attack_speed = CLICK_CD_MELEE * 0.8
 
 /obj/item/hand_item/beans
 	name = "beans"
@@ -449,7 +520,7 @@
 	icon = 'icons/obj/in_hands.dmi'
 	icon_state = "bean"
 	color = "#ff88bb"
-	attack_verb = list("beans", "baps", "smushes")
+	attack_verb = list()
 	hitsound = "sound/effects/attackblob.ogg"
 	force = 0
 	force_wielded = 0
@@ -462,7 +533,43 @@
 	. = ..()
 	if(!istype(M))
 		return
-	M.apply_damage(1, STAMINA, "chest", M.run_armor_check("chest", "brute"))
+	M.apply_damage(1, STAMINA, "chest", M.run_armor_check("chest", "melee"))
+
+
+
+/////////////
+//Cantrips//
+///////////
+
+
+/obj/item/hand_item/cantrip
+	name = "Cantrip"
+	desc = "it's magic yo."
+	icon = 'icons/obj/in_hands.dmi'
+	icon_state = "clawer"
+	w_class = WEIGHT_CLASS_TINY
+	attack_verb = list("slashed", "sliced", "torn", "ripped", "diced", "cut")
+	force = 15
+	throwforce = 0
+	wound_bonus = 4
+	attack_speed = CLICK_CD_MELEE * 0.7
+	item_flags = DROPDEL | HAND_ITEM
+	weapon_special_component = /datum/component/weapon_special/single_turf
+
+
+/obj/item/hand_item/cantrip/godhand
+	icon_state = "disintegrate"
+	item_state = "disintegrate"
+	icon = 'icons/obj/items_and_weapons.dmi'
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	name = "Shocking Grasp"
+	desc = "A basic cantrip that allows the caster to inflict nasty shocks on touch"
+	item_flags = ABSTRACT | DROPDEL
+	force = 30
+	hitsound = 'sound/weapons/sear.ogg'
+	damtype = BURN
+	attack_verb = list("seared", "zapped", "fried", "shocked")
 
 // /obj/item/hand_item/healable/licker/proc/bandage_wound(mob/living/licked, mob/living/carbon/user)
 // 	if(!iscarbon(licked))
@@ -515,5 +622,3 @@
 // 		return LICK_CANCEL
 // 	user.visible_message(span_alert("[user] was interrupted!"))
 // 	return LICK_CANCEL
-
-
