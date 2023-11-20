@@ -1336,7 +1336,7 @@
 
 /obj/item/gun/ballistic/automatic/matildar
 	name = "A11 'Matilda' Rifle"
-	desc = "A Latos Systems A11 Matilda battle rifle. Was rarely used in pre-war times but was issued to Canadian based PMC groups. Chambered in .308"
+	desc = "A Latos Systems A11 Matilda battle rifle. Was rarely used in pre-war times but was issued to Canadian based PMC groups. Chambered in .308 ammunition."
 	icon_state = "matilda"
 	item_state = "matilda"
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'
@@ -2320,7 +2320,7 @@
 
 /obj/item/gun/ballistic/automatic/p47
 	name = "P47 Battle rifle"
-	desc = "A P47 Battle Rifle or 'P47BR'. A collaboration between Jaeger company and Leo Armaments to appeal to the civilian and hunter markets, this rifle is chambered in .308 UNMC NATO rounds.. The rifle has a bullpup configuration and has a built in ammo counter. It's also lightweight, allowing it to be holstered around the hip or the back for ease of carry."
+	desc = "A P47 Battle Rifle or 'P47BR'. A collaboration between Jaeger company and Leo Armaments to appeal to the civilian and hunter markets, this rifle is chambered in .308 UNMC NATO rounds. The rifle has a bullpup configuration and has a built in ammo counter. It's also lightweight, allowing it to be holstered around the hip or the back for ease of carry."
 	icon_state = "p47"
 	item_state = "p47"
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'
@@ -2646,7 +2646,7 @@
 
 /obj/item/gun/ballistic/automatic/aksmol
 	name = "Ak74u"
-	desc = "A AK74u assault rifle. Rechambered in 5.45x39 NATO , this assault rifle was the answer for a more lighter assault rifle. This one comes with wood furniture and has no stock, hits a shy bit harder, slower firerate, and allows much easier carry at the cost of higher recoil."
+	desc = "A AK74u assault rifle. Rechambered in 5.45x39 NATO, this assault rifle was the answer for a more lighter assault rifle. This one comes with wood furniture and has no stock, hits a shy bit harder, slower firerate, and allows much easier carry at the cost of higher recoil."
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'
 	lefthand_file = 'icons/fallout/onmob/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/fallout/onmob/weapons/guns_righthand.dmi'
@@ -2670,7 +2670,7 @@
 
 /obj/item/gun/ballistic/automatic/aksmol/aldric
 	name = "Ak74u Custom"
-	desc = "A customized AK74u assault rifle. Rechambered in 5.45x39 NATO , this assault rifle was the answer for a more lighter assault rifle. This one comes with wood furniture and has no stock, allowing much easier carry at the cost of higher recoil."
+	desc = "A customized AK74u assault rifle. Rechambered in 5.45x39 NATO, this assault rifle was the answer for a more lighter assault rifle. This one comes with wood furniture and has no stock, allowing much easier carry at the cost of higher recoil."
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'
 	lefthand_file = 'icons/fallout/onmob/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/fallout/onmob/weapons/guns_righthand.dmi'
@@ -2755,7 +2755,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /obj/item/gun/ballistic/automatic/z34rifle
 	name = "Z34 Battle Rifle"
-	desc = "The Soviet Z34 battle rifle. Based off the SLR or FN FAL, it is chambered in 7.62 Soviet. Now rechambered in .308, the weapon itself comes with a scope and seems to have a much heavy trigger than usual rifles"
+	desc = "The Soviet Z34 battle rifle. Based off the SLR or FN FAL, it is chambered in 7.62 Soviet. Now rechambered in .308, the weapon itself comes with a scope and seems to have a much heavier trigger than most rifles."
 	icon_state = "zastava"
 	item_state = "zastava"
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'
@@ -2780,7 +2780,7 @@
 
 /obj/item/gun/ballistic/automatic/z34rifle/custom
 	name = "Z34 Battle Rifle"
-	desc = "The Soviet Z34 battle rifle. Based off the SLR or FN FAL, it is chambered in 7.62 Soviet. Now rechambered in .308, the weapon itself comes with a scope and seems to have a much heavy trigger than usual rifles"
+	desc = "The Soviet Z34 battle rifle. Based off the SLR or FN FAL, it is chambered in 7.62 Soviet. Now rechambered in .308, the weapon itself comes with a scope and seems to have a much heavier trigger than most rifles."
 	icon_state = "zastava"
 	item_state = "zastava"
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'
@@ -2803,7 +2803,7 @@
 	fire_sound = 'sound/f13weapons/automaticrifle_BAR.ogg'
 /obj/item/gun/ballistic/automatic/fnfal/ak47 //slow ROF, hits like a truck. Slow counterpart to the G3
 	name = "Retro AK-47"
-	desc = "This rifle is modeled after an older, reliable, and mass produced version of the AK-47. Comes with wood furniture. Comes with a Warsaw pact rail, which was mainly used for the PSO-1 sight. Sadly it seems to take only extended .308 magazines"
+	desc = "This rifle is modeled after an older, reliable, and mass produced version of the AK-47. Comes with wood furniture and a Warsaw pact rail, which was mainly used for the PSO-1 sight. Sadly it seems to take only extended .308 magazines."
 	icon_state = "trueak"
 	item_state = "trueak"
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'
@@ -2855,7 +2855,7 @@
 
 /obj/item/gun/ballistic/automatic/fnfal/g3battlerifle // Less damage dealing than the AK47 but has a high ROF and good recoil.
 	name = "G3M99"
-	desc = "A battle rifle chambered in 7.62 NATO, this revised battle rifle was used extensively by West Germany and still in use today by wasters, wasteland PMCs, and raiders for being quite reliable. The charging handle needs to be pulled back after emptying a whole magazine. Rechambered for .308"
+	desc = "A battle rifle chambered in 7.62 NATO, this revised battle rifle was used extensively by West Germany and still in use today by wasters, wasteland PMCs, and raiders for being quite reliable. The charging handle needs to be pulled back after emptying a whole magazine. Rechambered for .308 ammunition."
 	icon_state = "g3"
 	item_state = "g3"
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'
@@ -2877,34 +2877,6 @@
 	can_suppress = TRUE
 	can_flashlight = FALSE
 	fire_sound = 'sound/f13weapons/automaticrifle_BAR.ogg'
-
-/obj/item/gun/ballistic/automatic/fnfal/g3battlerifle/tox
-	name = "Custom G3 Stjarnarriffill"
-	desc = "A custom and refined G3 battle rifle. With proper engravings, this G3 has a scene of a moth and feline under a crescent moon on the stock of the battle rifle. Still chambered in 7.62 NATO, it's owner's name, which is a 'Tox Mckit' is engraved onto the reciever's lower end."
-	icon_state = "g3"
-	item_state = "g3"
-	icon = 'icons/fallout/objects/guns/ballistic.dmi'
-	lefthand_file = 'icons/fallout/onmob/weapons/guns_lefthand.dmi'
-	righthand_file = 'icons/fallout/onmob/weapons/guns_righthand.dmi'
-	mag_type = /obj/item/ammo_box/magazine/m308/ext
-	init_mag_type = /obj/item/ammo_box/magazine/m308/ext
-	disallowed_mags = /obj/item/ammo_box/magazine/m308
-	weapon_class = WEAPON_CLASS_RIFLE
-	weapon_weight = GUN_TWO_HAND_ONLY
-	damage_multiplier = GUN_LESS_DAMAGE_T3
-	cock_delay = GUN_COCK_RIFLE_BASE
-	init_recoil = AUTORIFLE_RECOIL(2, 2)
-	init_firemodes = list(
-		/datum/firemode/semi_auto/slower,
-		/datum/firemode/automatic/rpm100
-	)
-	can_scope = TRUE
-	can_suppress = TRUE
-	can_flashlight = FALSE
-	fire_sound = 'sound/f13weapons/automaticrifle_BAR.ogg'
-
-
-
 
 /* * * * * * * * * * *
  * AR-10 Armalite
@@ -2953,32 +2925,31 @@
 		/datum/firemode/semi_auto/slow
 	)
 
-
-// Custom sniper rifle, loadout only, plans to change. ETA is TBA
-/obj/item/gun/ballistic/automatic/w2000 //Custom weapon, will be a loot gun eventually
-	name = "Custom Wa-2000 sniper rifle"
-	desc = "A custom version of a Wa-2000 rifle. This unique looking rifle has changed its wooden furniture for more pristine and cleaner looking wood. The metals are engraved with baroque motifs and on butt of the rifle is a small scene of a moth taking flight. It is chambered in 7.62 NATO but can be chambered in .300 magnum or 7.5mm. Etched on the grip portion of the butt is the name 'Tox Mckit'."
-	icon_state = "w2000"
-	item_state = "w2000"
+//custom gun
+/obj/item/gun/ballistic/automatic/fg42tox
+	name = "Custom FG-42 rifle"
+	desc = "A customized FG-42 rifle. This rifle was developed for paratroopers during WW2. A rather nifty and reliable rifle if not unbalanced due to a heavier magazine located on the left side. Comes witha a right-sided charging handle and a foldable bipod. This one seems to come with a scope!The rifle itself is made of a lovingly made and polished maple wood. A scene of a moth and cat is etched into the stock of the rifle. The metal is engraved with baroque motifs. A weapon fit, for the Queen."
+	icon_state = "fg42"
+	item_state = "fg42"
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'
 	lefthand_file = 'icons/fallout/onmob/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/fallout/onmob/weapons/guns_righthand.dmi'
 	mag_type = /obj/item/ammo_box/magazine/m308
-	init_mag_type = /obj/item/ammo_box/magazine/m308
-	disallowed_mags = list(/obj/item/ammo_box/magazine/m308/ext , /obj/item/ammo_box/magazine/m308/ext/empty)
+	init_mag_type = /obj/item/ammo_box/magazine/m308/ext
 	weapon_class = WEAPON_CLASS_CARBINE
 	weapon_weight = GUN_TWO_HAND_ONLY
 	damage_multiplier = GUN_LESS_DAMAGE_T3
-	cock_delay = GUN_COCK_RIFLE_BASE
-	init_recoil = RIFLE_RECOIL(1.3, 1.3)
+	init_recoil = CARBINE_RECOIL(1.2, 1.3)
 	init_firemodes = list(
-		/datum/firemode/semi_auto/slow
+		/datum/firemode/semi_auto ,
+		/datum/firemode/automatic/rpm100
 	)
 	gun_accuracy_zone_type = ZONE_WEIGHT_PRECISION
-
-	zoom_factor = 1.1
-	can_suppress = TRUE
+	can_scope = TRUE
+	can_suppress = FALSE
 	can_bayonet = FALSE
+	zoom_factor = 0.9
+	fire_sound = 'sound/f13weapons/fg42.ogg'
 
 /* * * * * * * * * * *
  * Browning Automatic BAR Rifle
@@ -3063,7 +3034,7 @@
 
 /obj/item/gun/ballistic/automatic/g11/tox
 	name = "Tox's G11M"
-	desc = "A unique G11. With a built in scope, this G11 was bought and repurposed by a wealthy felid named Tox Mckit. Etched on the reciever is a lovely motif of moths and felines surrounding one singular feline under a full moon. On the scope is a engraving that says 'To the sands we stride on'"
+	desc = "A unique G11. With a built in scope, this G11 was bought and repurposed by a wealthy felid named Tox Mckit. Etched on the reciever is a lovely motif of moths and felines surrounding one singular feline under a full moon. On the scope is an engraving that says 'To the sands we stride on'."
 	icon_state = "g11c"
 	item_state = "g11"
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'

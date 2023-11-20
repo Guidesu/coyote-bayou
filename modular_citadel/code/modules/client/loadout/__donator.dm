@@ -681,6 +681,14 @@
 	new /obj/item/voodoo(src)
 	new /obj/item/clothing/mask/chameleon(src)
 
+/datum/gear/donator/kits/jaeger
+	name = "Huntress Customs"
+	path = /obj/item/storage/box/large/custom_kit/jaeger
+	ckeywhitelist = list("kilment")
+
+/obj/item/storage/box/large/custom_kit/jaeger/PopulateContents()
+	new /obj/item/gun/ballistic/rifle/hebe(src)
+
 /datum/gear/donator/kits/jaggachi
 	name = "Scug Industries Kit"
 	path = /obj/item/storage/box/large/custom_kit/jaggachi
@@ -1171,7 +1179,7 @@
 	new /obj/item/clothing/shoes/customtoxboots(src)
 	new /obj/item/pet_carrier/fluffy(src)
 	new /obj/item/ammo_box/m14mm(src)
-	new /obj/item/gun/ballistic/automatic/gewehr41civ/tox(src)
+	new /obj/item/gun/ballistic/automatic/fg42tox(src)
 	new /obj/item/ammo_box/a308box(src)
 	new /obj/item/gun/ballistic/automatic/pistol/hellocutiepistol(src)
 /datum/gear/donator/kits/seermankhajiit002
@@ -1216,7 +1224,7 @@
 /obj/item/storage/box/large/custom_kit/seermankhajiit003/PopulateContents()
 	new /obj/item/ammo_box/m14mm(src)
 	new /obj/item/ammo_box/a308box(src)
-	new /obj/item/gun/ballistic/automatic/w2000(src)
+	new /obj/item/gun/ballistic/automatic/gewehr41civ/tox(src)
 	new /obj/item/gun/ballistic/automatic/pistol/hellocutiepistol(src)
 	new /obj/item/clothing/suit/armor/medium/toxspartanarmors(src)
 	new /obj/item/clothing/shoes/customtoxboots(src)
@@ -1354,6 +1362,7 @@
 	new /obj/item/gun/ballistic/automatic/pistol/ninemil/maria(src)
 	new /obj/item/gun/ballistic/automatic/pistol/n99/crusader/thingpony(src)
 	new /obj/item/clothing/neck/customfleur(src)
+	new /obj/item/clothing/under/tribalcustom(src)
 
 /datum/gear/donator/kits/tk420634
 	name = "Casey's 'Business' Bundle"
