@@ -33,27 +33,27 @@ ty ilu - bear
 */
 
 /area/f13/building/hospital
-	narrate = "The faint drone of medical equipment. The calming hum of medical machinery drones faintly onwards. Quiet pings and chimes echo."
+	narrate = "The faint smell of the medicine. The calming hum faintly goes onwards. Quiet pings and chimes echo."
 
 /area/f13/wasteland/redwater
-	narrate = "Bitter dust hangs in the air. The town in the distance looms. When the raiders on the wall see you, they laugh and point their guns at you- this area is dangerous. You feel like you shouldn't be here alone!!"
+	narrate = "Bitter dust hangs in the air. The town in the distance looms. When the jackals of the voidwolf on the wall see you, they laugh and point their guns at you- this area is dangerous. You feel like you shouldn't be here alone!!"
 
 /area/f13/wasteland/city/nash/starterroad
-	narrate = "You've finally made it to the road just outside of the city of Nash. From here you can head out (or back in, if you came out from the town) or head east. There's many things you can see from here, the remants of the Army Depot and all of its dangers lay to the north of town. The gigantic Hospital, Mall, and School of downtown Texarkana to the North East, with Mass Fusion looming behind them. Or perhaps to the east, where you can see the ruins of a large museum. The choice is yours to take, but the danger is real. This is not a safe world."
+	narrate = "You've finally made it to your home! Head east and you can go to a more dangerous area from a now old city built by now gone excelsior and voidwolfs. There's many things you can see from here, the remants of the several outpost on this planet and all of its dangers lay to the north of the tribe. The gigantic Hospital, Mall, and School of downtown to the North East, with Mass Fusion looming behind them. Or perhaps to the east, where you can see the ruins of a large museum. The choice is yours to take, but the danger is real. This is not a safe planet."
 
 
 /area/f13/wasteland/city/nash/suburbs
-	narrate = "What remains of the suburbs of the city of Nash from the before times. Now it's full of monsters perfect for cutting your teeth on. Not much remains here that hasn't been picked clean by generations of wanderers, but maybe something new was left behind by those passing by. It shouldn't be too dangerous, unless you do something very foolish."
+	narrate = "What remains of the suburbs from the before times. Now it's full of monsters perfect for cutting your teeth on. Not much remains here that hasn't been picked clean by generations of wanderers, but maybe something new was left behind by those passing by. It shouldn't be too dangerous, unless you do something very foolish."
 
 /area/f13/wasteland/city/nash/theloop
-	narrate = "This road, if you follow it long enough, goes around the city of Texarkana in a slightly broken but very big loop. You don't know why it's like that, but it sure is. Rumors say that this path, especially on the north western portion, are particularly dangerous."
+	narrate = "This road, if you follow it long enough, goes around the city in a slightly broken but very big loop. You don't know why it's like that, but it sure is. Rumors say that this path, especially on the north western portion, are particularly dangerous."
 
 /area/f13/wasteland/city/nash/downtown
-	narrate = "The actual city of Texarkana, and you're knee deep in it. This town is not safe. Often filled with raiders, poisonous monsters, and even the occasional deathclaw. You need to keep your wits about you, or else you're going to wish you were just hurting. Remember, Nash is to the West."
+	narrate = "The actual old outpost, and you're knee deep in it. This town is not safe. Often filled with raiders, poisonous monsters, and even the occasional deathclaw. You need to keep your wits about you, or else you're going to wish you were just hurting. Remember, Our home is to the West."
 
 
 /area/f13/wasteland/city/nash/redriverdepotroad
-	narrate = "Looming to the west is the remains of the Red River Army depot, a small portion of it anyway. This place is beyond unsafe, and you should not be here alone unless you are very brave or very stupid. Continue west or north at your own peril."
+	narrate = "Looming to the west is the remains of the Excelsior depot, a small portion of it anyway. This place is beyond unsafe, and you should not be here alone unless you are very brave or very stupid. Continue west or north at your own peril."
 
 //Fennys Slew of Quickly Made Areas that can be improved on later.
 
@@ -82,7 +82,7 @@ ty ilu - bear
 	narrate = "The motes of dust burn your nose as your take your first breath of this diner. Well preserved as it may be, and perhaps it even has an owner, you can't help but know this building is older than old. A miracle it is retained in such good shape."
 
 /area/f13/building/coyote/nash/greenhouse
-	name = "Greenhouse near Nash"
+	name = "Greenhouse"
 	narrate = "The smell of mold mixed with the stench of bloatfly puss burns your nose the first time you enter this place. Once, perhaps not all that long ago, someone was growing plants in here. Maybe someone is now, but if not then this ramshackle greenhouse is in poor repair."
 
 /area/f13/building/coyote/nash/museum/groundfloor
@@ -95,7 +95,7 @@ ty ilu - bear
 	narrate = "This place was once home to the heroes that would help fight fires in the city. It's a shame that the fire that killed all them wasn't one a waterhose could put out. Now all that remains is a dark, slightly dank, husk of a building. The trucks, if you even know what those are, are long gone. Torn apart for no one knows what, but it does seem to have been made into a residence for some creatures of the waste."
 
 /area/f13/building/coyote/nash/mall/groundfloor
-	narrate = "You've stumbled into the largest building you can find in the city. This was once the Texarkana Central Mall. Now it's little more than a nest for monsters, raiders, and no one knows what else. Perhaps, if you are lucky, you can pick through what remains and find something worthwhile. Or perhaps work your way up, though, even from down here you can hear the hollering yells of mutants above, they likely saw you come inside and are hoping to ambush you on the roof. Or, maybe that's the wind."
+	narrate = "You've stumbled into the largest building you can find in the city. This was once the Mankara Central Mall. Now it's little more than a nest for monsters, raiders, and no one knows what else. Perhaps, if you are lucky, you can pick through what remains and find something worthwhile. Or perhaps work your way up, though, even from down here you can hear the hollering yells of mutants above, they likely saw you come inside and are hoping to ambush you on the roof. Or, maybe that's the wind."
 
 /area/f13/building/coyote/nash/massfus/parkinglot
 	narrate = "You've pushed into the parking lot of the gigantic power plant that used to run the city. Perhaps you know what it is, perhaps you don't. The stench of molerat feces is strong, the creatures seem to be about in large numbers. Perhaps, if you're smart enough, you ponder if the systems leaked into the ground water and caused the molerats to find this area so comfortable. Or perhaps you only care to slay the monsters and seek what is inside. No matter which option, the gigantic cooling tower at the center of the facility looms over you with a shadow that stretches far. Enter with caution."

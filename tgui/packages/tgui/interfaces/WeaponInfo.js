@@ -405,7 +405,7 @@ export const ProjectileInfo = (props, context) => {
             <Tooltipify name="DT Pierce:" tip="Points of armor damage threshold (flat reduction) it ignores on the target." />
           </Table.Cell>
           <Table.Cell>
-            {casing_damage_threshold_penetration} <Tooltipify name="mmNS" tip="Millimeters of Nash Steel" fade={1} />
+            {casing_damage_threshold_penetration} <Tooltipify name="mmNS" tip="Millimeters of Mankara Steel" fade={1} />
           </Table.Cell>
         </Table.Row>
 

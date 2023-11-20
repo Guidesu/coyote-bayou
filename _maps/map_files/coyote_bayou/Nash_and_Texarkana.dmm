@@ -6809,7 +6809,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/carpet/black,
 /area/f13/building/abandoned)
@@ -6821,7 +6821,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "verticaloutermain2"
@@ -9001,14 +9001,6 @@
 	icon_state = "horizontaloutermain2"
 	},
 /area/f13/wasteland/city/nash/downtown)
-"aFs" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/f13/vault_floor/white,
-/area/f13/building/hospital/clinic/nash)
 "aFt" = (
 /obj/item/ammo_casing/caseless{
 	dir = 10;
@@ -9817,7 +9809,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -13092,7 +13084,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/f13{
@@ -14782,14 +14774,8 @@
 	},
 /area/f13/building/coyote/nash/school/groundfloor)
 "aYr" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
+/obj/structure/flora/chomp/thicket2,
+/turf/open/indestructible/ground/outside/dirt,
 /area/f13/building/hospital/clinic/nash)
 "aYv" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -15813,12 +15799,13 @@
 /turf/closed/wall/f13/wood/interior,
 /area/f13/building/abandoned)
 "bcq" = (
-/turf/open/floor/carpet/blue,
-/area/f13/building/hospital/clinic/nash)
+/obj/machinery/iv_drip/telescopic,
+/turf/open/floor/plasteel/cult,
+/area/f13/building/tribal)
 "bcr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -16083,13 +16070,6 @@
 	},
 /turf/open/indestructible/ground/outside/desert,
 /area/f13/wasteland/city)
-"bdn" = (
-/obj/item/twohanded/required/kirbyplants/random,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/carpet/blue,
-/area/f13/building/hospital/clinic/nash)
 "bdo" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -16198,7 +16178,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/building/abandoned)
@@ -16255,9 +16235,6 @@
 /obj/structure/table/wood,
 /obj/machinery/microwave,
 /turf/open/floor/f13/wood,
-/area/f13/building/abandoned)
-"bdR" = (
-/turf/open/transparent/openspace,
 /area/f13/building/abandoned)
 "bdS" = (
 /obj/structure/table/wood,
@@ -17390,12 +17367,6 @@
 	icon_state = "yellowrustyfull"
 	},
 /area/f13/building/coyote/nash/museum/groundfloor)
-"bhr" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/plasteel/f13/vault_floor/white,
-/area/f13/building/hospital/clinic/nash)
 "bhu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/bin/trashbin,
@@ -18260,7 +18231,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/desert,
 /area/f13/wasteland/city)
@@ -20123,7 +20094,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "7th & Tucker St.";
-	desc = "West is back towards Nash, north is the hospital.  You're at the school. South is old stores and east is the mall.";
+	desc = "West is back towards Mankara, north is the hospital.  You're at the school. South is old stores and east is the mall.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -23972,7 +23943,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/coyote/nash/greenhouse)
@@ -24232,12 +24203,6 @@
 /obj/structure/spacevine,
 /turf/closed/wall/f13/ruins,
 /area/f13/building/abandoned)
-"cjb" = (
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "cje" = (
 /obj/structure/lamp_post,
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -25179,13 +25144,6 @@
 	},
 /turf/open/floor/grass,
 /area/f13/wasteland)
-"coF" = (
-/obj/machinery/chem_master,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "coJ" = (
 /obj/structure/flora/grass/wasteland{
 	icon_state = "tall_grass_3"
@@ -25585,10 +25543,6 @@
 	name = "the watering hole"
 	},
 /area/f13/wasteland/nash)
-"crn" = (
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plasteel/f13/vault_floor/white,
-/area/f13/building/hospital/clinic/nash)
 "cro" = (
 /obj/structure/table/wood,
 /obj/item/storage/backpack/satchel/leather,
@@ -27115,7 +27069,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13{
 	icon_state = "floorrusty"
@@ -27607,7 +27561,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland/coyote/nash/southeastcornercamp)
@@ -27620,19 +27574,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/f13/inside/gravel,
 /area/f13/wasteland/coyote/nash/southeastcornercamp)
-"cLg" = (
-/obj/structure/chair/f13chair1{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube"
-	},
-/obj/structure/sign/painting/library{
-	pixel_y = 35
-	},
-/turf/open/floor/f13/wood,
-/area/f13/building/hospital/clinic/nash)
 "cLj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -27897,15 +27838,6 @@
 /obj/effect/spawner/lootdrop/f13/common,
 /turf/open/floor/carpet/black,
 /area/f13/building/abandoned)
-"cOL" = (
-/obj/structure/closet/crate/bin{
-	pixel_y = 3;
-	density = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/carpet/red,
-/area/f13/building/hospital/clinic/nash)
 "cOM" = (
 /obj/effect/turf_decal/weather/dirt{
 	color = "#a98c5d";
@@ -28562,7 +28494,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -29801,7 +29733,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/building/abandoned)
@@ -30349,7 +30281,7 @@
 	desc = "A board for pinning your looking for group messages, feel free to include your discord info in the post!";
 	layer = 5.0;
 	name = "Adventuring Board";
-	persistence_replacement = "Adventure Board - Nash";
+	persistence_replacement = "Adventure Board - Mankara";
 	pixel_y = 23;
 	plane = -5
 	},
@@ -30554,7 +30486,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Texas Blvd. & Highway 82";
-	desc = "West is the depot.  North the old mines.  East is deeper into Texarkana, so is south.";
+	desc = "West is the depot.  North the old mines.  East is deeper into Mankara, so is south.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -30858,7 +30790,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/ruins{
 	dir = 8;
@@ -31028,11 +30960,6 @@
 /obj/effect/spawner/lootdrop/f13/common,
 /turf/open/indestructible/ground/inside/dirt,
 /area/f13/wasteland)
-"dyR" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/f13/trash,
-/turf/open/floor/plasteel/f13/vault_floor/white,
-/area/f13/building/hospital/clinic/nash)
 "dyW" = (
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "horizontaltopborderbottom2right"
@@ -31430,7 +31357,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "verticalrightborderleft0"
@@ -31453,7 +31380,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "horizontaloutermain2left"
@@ -34035,7 +33962,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -34503,7 +34430,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "7th & Loop 369";
-	desc = "North is the Mall and towards Ashdown.  East is blocked by rubble.  South is back towards the country club.  West is into the ruins of Texarkana.";
+	desc = "North is the Mall and towards Ashdown.  East is blocked by rubble.  South is back towards the country club.  West is into the ruins of Mankara.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -35161,7 +35088,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "horizontalbottombordertop2"
@@ -35262,7 +35189,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland)
@@ -35406,8 +35333,8 @@
 /area/f13/wasteland)
 "ewZ" = (
 /obj/effect/landmark/vertibird{
-	id = "Nash - Behind Red River Army Depot";
-	name = "Nash - Behind Red River Army Depot"
+	id = "Mankara - Behind Red River Army Depot";
+	name = "Mankara - Behind Red River Army Depot"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland)
@@ -38059,7 +37986,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "horizontalinnermain0"
@@ -39974,8 +39901,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/vertibird{
-	id = "Nash - By The Mall";
-	name = "Nash - By The Mall"
+	id = "Mankara - By The Mall";
+	name = "Mankara - By The Mall"
 	},
 /obj/machinery/camera/autoname{
 	dir = 5;
@@ -40554,7 +40481,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/plasteel/f13/vault_floor/neutral/neutralchess,
 /area/f13/building/abandoned)
@@ -42840,8 +42767,8 @@
 /area/f13/wasteland/city/nash/theloop)
 "ged" = (
 /obj/effect/landmark/vertibird{
-	id = "Nash - Middle of Texarkana";
-	name = "Nash - Middle of Texarkana"
+	id = "Mankara - Middle of Mankara";
+	name = "Mankara - Middle of Mankara"
 	},
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "horizontalinnermain2right"
@@ -43040,13 +42967,6 @@
 	icon_state = "pool_tile"
 	},
 /area/f13/building/abandoned)
-"ggm" = (
-/obj/machinery/chem_heater,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "ggR" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -43443,15 +43363,6 @@
 	icon_state = "horizontalinnermain0"
 	},
 /area/f13/building)
-"gnt" = (
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 10
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plasteel/f13/vault_floor/white,
-/area/f13/building/hospital/clinic/nash)
 "gnC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/flora/tree/jungle{
@@ -44142,16 +44053,6 @@
 	icon_state = "bluedirtychess2"
 	},
 /area/f13/building/coyote/nash/grocery/southloop)
-"gvn" = (
-/obj/machinery/light{
-	light_color = "#e8eaff"
-	},
-/obj/structure/closet/crate/bin{
-	pixel_y = 3;
-	density = 0
-	},
-/turf/open/floor/carpet/blue,
-/area/f13/building/hospital/clinic/nash)
 "gvp" = (
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "innermaincornerouter - W"
@@ -45118,11 +45019,7 @@
 	},
 /area/f13/building/coyote/nash/cornerdiner)
 "gFz" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
+/turf/open/indestructible/ground/outside/dirt,
 /area/f13/building/hospital/clinic/nash)
 "gFA" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -47845,7 +47742,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "horizontaloutermain2right"
@@ -49531,10 +49428,6 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/closed/wall/mineral/concrete/blastproof,
 /area/f13/building/coyote/nash/massfus/groundfloor/west)
-"hGn" = (
-/obj/machinery/computer/operating,
-/turf/open/floor/plasteel/f13/vault_floor/white,
-/area/f13/building/hospital/clinic/nash)
 "hGo" = (
 /obj/effect/spawner/lootdrop/f13/common,
 /turf/open/indestructible/ground/outside/dirt{
@@ -50140,7 +50033,7 @@
 /area/f13/wasteland/city)
 "hNd" = (
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -50542,7 +50435,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "horizontalinnermain2"
@@ -53862,13 +53755,6 @@
 	icon_state = "floorrusty"
 	},
 /area/f13/ruins)
-"iAU" = (
-/obj/structure/table/reinforced,
-/obj/structure/barricade/barswindow{
-	dir = 4
-	},
-/turf/open/indestructible/ground/outside/desert,
-/area/f13/building/hospital/clinic/nash)
 "iAW" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/coffee{
@@ -53950,11 +53836,8 @@
 	},
 /area/f13/building/coyote/nash/massfus/lobby)
 "iBr" = (
-/obj/item/twohanded/required/kirbyplants/random,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
+/obj/structure/flora/chomp/shrub4,
+/turf/open/indestructible/ground/outside/dirt,
 /area/f13/building/hospital/clinic/nash)
 "iBP" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -54362,7 +54245,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Highway 82 & Loop 369";
-	desc = "West is Nash & the depot.  Continue East to enter Texarkana.  North is an old prison.";
+	desc = "West is Mankara & the depot.  Continue East to enter Mankara.  North is an old prison.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -54503,7 +54386,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Dodd St. & Loop 369";
-	desc = "The corner of Dodd and the Texarkana loop.  Nash is to the west."
+	desc = "The corner of Dodd and the Mankara loop.  Mankara is to the west."
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "outerborder - S"
@@ -57153,12 +57036,6 @@
 	icon_state = "horizontalinnermain0"
 	},
 /area/f13/wasteland/city)
-"jml" = (
-/obj/structure/chair/office{
-	dir = 4
-	},
-/turf/open/floor/carpet/red,
-/area/f13/building/hospital/clinic/nash)
 "jmn" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/f13/wood,
@@ -57231,7 +57108,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Milton & School Rd.";
-	desc = "North is downtown. East is the Texarkana Hotel.  South is Loop 369.  West is the school & Residential housing.";
+	desc = "North is downtown. East is the Mankara Hotel.  South is Loop 369.  West is the school & Residential housing.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -57416,7 +57293,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite/rarecyan,
 /area/f13/building/abandoned)
@@ -58824,17 +58701,6 @@
 	name = "dirty floor"
 	},
 /area/f13/building/abandoned)
-"jHA" = (
-/obj/structure/chair/office/dark,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube"
-	},
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "jHE" = (
 /obj/effect/turf_decal/weather/dirt{
 	color = "#a98c5d";
@@ -58994,7 +58860,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/ruins)
@@ -59005,15 +58871,6 @@
 	icon_state = "horizontaloutermain1"
 	},
 /area/f13/wasteland/city)
-"jJv" = (
-/obj/structure/chair/stool/bar,
-/obj/effect/spawner/lootdrop/f13/trash,
-/obj/effect/decal/cleanable/vomit,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "jJC" = (
 /turf/open/indestructible/ground/outside/ruins{
 	dir = 1;
@@ -60449,7 +60306,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/ruins)
@@ -61138,7 +60995,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/plasteel/vault,
 /area/f13/building/abandoned)
@@ -61464,7 +61321,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland)
@@ -62230,7 +62087,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Loop 369 & Cantrell St.";
-	desc = "To the east is Texarkana in the distance, to the west the city of Nash.  North is the depot.";
+	desc = "To the east is Mankara in the distance, to the west the city of Mankara.  North is the depot.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -64344,13 +64201,6 @@
 /obj/structure/flora/chomp/thicket2,
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland/nash)
-"kTH" = (
-/obj/structure/table/optable,
-/obj/machinery/defibrillator_mount/loaded{
-	pixel_y = 27
-	},
-/turf/open/floor/plasteel/f13/vault_floor/white,
-/area/f13/building/hospital/clinic/nash)
 "kTR" = (
 /turf/open/indestructible/ground/outside/dirt{
 	dir = 10;
@@ -65780,10 +65630,6 @@
 	icon_state = "rubble"
 	},
 /area/f13/building/coyote/nash/mall/groundfloor)
-"lhP" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/f13/wood,
-/area/f13/building/hospital/clinic/nash)
 "lhQ" = (
 /obj/structure/fence{
 	dir = 4
@@ -65960,7 +65806,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/building/abandoned)
@@ -66790,7 +66636,7 @@
 	desc = "This is a board for posting multi-person projects, feel free to include your discord info for building projects!";
 	layer = 5.0;
 	name = "Project Board";
-	persistence_replacement = "Projects Board - Nash";
+	persistence_replacement = "Projects Board - Mankara";
 	pixel_y = 23;
 	plane = -5
 	},
@@ -67942,7 +67788,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland)
@@ -70124,7 +69970,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "verticalinnermain0"
@@ -70659,9 +70505,6 @@
 	name = "dirty floor"
 	},
 /area/f13/building/abandoned)
-"miR" = (
-/turf/open/floor/carpet/red,
-/area/f13/building/hospital/clinic/nash)
 "miT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -72300,13 +72143,6 @@
 /obj/structure/simple_door/room,
 /turf/open/floor/f13/wood,
 /area/f13/ruins)
-"mAv" = (
-/obj/machinery/smartfridge/chemistry/preloaded,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "mAy" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 5
@@ -72484,10 +72320,6 @@
 	color = "#779999"
 	},
 /area/f13/building)
-"mCG" = (
-/obj/effect/decal/cleanable/vomit,
-/turf/open/floor/f13/wood,
-/area/f13/building/hospital/clinic/nash)
 "mCJ" = (
 /obj/structure/rack,
 /obj/item/clothing/head/beanie/red,
@@ -73286,7 +73118,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -74594,7 +74426,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Highway 67 & Museum Av.";
-	desc = "North is Nash.  East is the Museum.  South is towards Redwater.  West is the Anthill.";
+	desc = "North is Mankara.  East is the Museum.  South is towards Redwater.  West is the Anthill.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -75818,7 +75650,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland/coyote/nash/southeastcornercamp)
@@ -76162,7 +75994,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13{
 	icon_state = "floorrusty"
@@ -76330,7 +76162,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/plasteel/f13/vault_floor/neutral/neutralchess,
 /area/f13/building/abandoned)
@@ -78182,7 +78014,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/plating,
 /area/f13/building/abandoned)
@@ -78661,13 +78493,6 @@
 	icon_state = "verticalinnermain0"
 	},
 /area/f13/wasteland/city/nash/downtown)
-"nTr" = (
-/obj/structure/rug/mat/welcome{
-	dir = 8;
-	pixel_y = 14
-	},
-/turf/open/floor/f13/wood,
-/area/f13/building/hospital/clinic/nash)
 "nTt" = (
 /obj/structure/flora/grass/wasteland{
 	icon_state = "tall_grass_3"
@@ -79217,12 +79042,6 @@
 	icon_state = "verticalinnermain0"
 	},
 /area/f13/wasteland/city)
-"nZP" = (
-/obj/structure/simple_door/room{
-	name = "Clinic"
-	},
-/turf/open/floor/f13/wood,
-/area/f13/building/hospital/clinic/nash)
 "nZQ" = (
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "horizontalinnermain2left"
@@ -79410,7 +79229,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/plating/f13/inside/gravel,
 /area/f13/caves)
@@ -82193,17 +82012,9 @@
 /turf/open/indestructible/ground/outside/road,
 /area/f13/building)
 "oHg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname{
-	dir = 5;
-	pixel_y = 14;
-	network = list("nash");
-	layer = 3;
-	alpha = 0;
-	mouse_opacity = 0
-	},
-/turf/open/floor/f13/wood,
-/area/f13/building/hospital/clinic/nash)
+/obj/structure/closet/crate/freezer/blood,
+/turf/open/floor/plasteel/cult,
+/area/f13/building/tribal)
 "oHk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/broken{
@@ -82527,7 +82338,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -82552,7 +82363,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /obj/structure/closet/cabinet,
 /turf/open/floor/f13/wood,
@@ -83461,14 +83272,6 @@
 	},
 /turf/open/floor/plasteel/f13/vault_floor/misc/cafeteria,
 /area/f13/building)
-"oUq" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/carpet/red,
-/area/f13/building/hospital/clinic/nash)
 "oUr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall/mineral/brick,
@@ -84109,7 +83912,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "horizontaloutermain0"
@@ -84251,7 +84054,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Highway 67 towards Redwater";
-	desc = "North is Nash.  East is the Museum.  South is towards Redwater.  West is the Anthill.";
+	desc = "North is Mankara.  East is the Museum.  South is towards Redwater.  West is the Anthill.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/roaddirt{
@@ -84558,7 +84361,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13{
 	icon_state = "whitegreenrustychess"
@@ -85080,7 +84883,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland/city/nash/theloop)
@@ -85322,9 +85125,6 @@
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland)
-"pqC" = (
-/turf/open/floor/wood_common,
-/area/f13/building/hospital/clinic/nash)
 "pqI" = (
 /obj/structure/toilet{
 	dir = 4
@@ -86494,7 +86294,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -87125,7 +86925,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/plasteel/vault,
 /area/f13/building/abandoned)
@@ -87905,10 +87705,6 @@
 	color = "#555555"
 	},
 /area/f13/building)
-"pTi" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood_common,
-/area/f13/building/hospital/clinic/nash)
 "pTl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/wreck/trash/machinepile,
@@ -88318,10 +88114,6 @@
 	icon_state = "darkrustysolid"
 	},
 /area/f13/building/massfusion)
-"pZs" = (
-/obj/machinery/smartfridge/chemistry,
-/turf/closed/wall/f13/wood/house,
-/area/f13/building/hospital/clinic/nash)
 "pZA" = (
 /obj/structure/barricade/sandbags,
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -89066,7 +88858,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Texas Blvd. & 7th";
-	desc = "West is Nash, East is the old Hospital.  North and south are ruins.";
+	desc = "West is Mankara, East is the old Hospital.  North and south are ruins.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -90793,15 +90585,6 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
-"qAS" = (
-/obj/machinery/vending/medical/nash,
-/obj/machinery/light{
-	dir = 1;
-	light_color = "#e8eaff"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/carpet/blue,
-/area/f13/building/hospital/clinic/nash)
 "qAT" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -91290,7 +91073,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Milton & Loop 369";
-	desc = "North is the school, east is Texarkana Country Club, South is the museum.  West is back towards Nash.";
+	desc = "North is the school, east is Mankara Country Club, South is the museum.  West is back towards Mankara.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -91734,8 +91517,8 @@
 "qLZ" = (
 /obj/machinery/computer/terminal{
 	doc_content_1 = "We're proud to deliver all the possible upcoming technological developments coming down our assembly lines here at the Vault-Tec Exhibit of Technology!  Come on down today and experience the glory of tosmorrow, today!";
-	doc_title_1 = "Welcome to our newest exhibit in the Texarkana metro area!";
-	name = "Texarkana Display of Corporate Technology Terminal";
+	doc_title_1 = "Welcome to our newest exhibit in the Mankara metro area!";
+	name = "Mankara Display of Corporate Technology Terminal";
 	termtag = "Secret"
 	},
 /obj/structure/table,
@@ -92728,7 +92511,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "outerbordercorner - E"
@@ -92781,10 +92564,10 @@
 /area/f13/wasteland)
 "qWw" = (
 /obj/structure/noticeboard{
-	desc = "A notice board, for the town of Nash.";
+	desc = "A notice board, for the town of Mankara.";
 	layer = 5.0;
-	name = "Notice Board - Nash";
-	persistence_replacement = "Notice Board - Nash- 2";
+	name = "Notice Board - Mankara";
+	persistence_replacement = "Notice Board - Mankara- 2";
 	pixel_x = -3;
 	pixel_y = 30;
 	plane = -5
@@ -93523,9 +93306,6 @@
 	},
 /turf/open/indestructible/ground/outside/road,
 /area/f13/building)
-"rfD" = (
-/turf/closed/wall/f13/wood/house,
-/area/f13/building/hospital/clinic/nash)
 "rfH" = (
 /obj/structure/flora/grass/wasteland{
 	icon_state = "tall_grass_3"
@@ -93814,14 +93594,6 @@
 	},
 /turf/open/floor/f13/wood,
 /area/f13/wasteland/city/nash/theloop)
-"riA" = (
-/obj/machinery/door/unpowered/securedoor{
-	name = "Clinic";
-	req_access_txt = null;
-	req_one_access_txt = "124"
-	},
-/turf/open/floor/carpet/blue,
-/area/f13/building/hospital/clinic/nash)
 "riD" = (
 /obj/structure/flora/tree/jungle/small{
 	color = "#d9b51c"
@@ -93947,17 +93719,6 @@
 	name = "the watering hole"
 	},
 /area/f13/wasteland/city)
-"rkv" = (
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = -12
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "rkB" = (
 /obj/effect/decal/cleanable/dirt{
 	color = "000000"
@@ -94299,7 +94060,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13{
 	icon_state = "floorrusty"
@@ -94387,7 +94148,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/coyote/nash/greenhouse)
@@ -95031,7 +94792,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood{
 	icon_state = "housewood1-broken"
@@ -96432,8 +96193,8 @@
 /area/f13/building/abandoned)
 "rQb" = (
 /obj/effect/landmark/vertibird{
-	id = "Nash - Christus Saint Michaels Hospital";
-	name = "Nash - Christus Saint Michaels Hospital"
+	id = "Mankara - Christus Saint Michaels Hospital";
+	name = "Mankara - Christus Saint Michaels Hospital"
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/spacevine,
@@ -96709,9 +96470,10 @@
 /turf/open/floor/wood_common,
 /area/f13/building/coyote/nash/school/groundfloor)
 "rTj" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/carpet/blue,
+/obj/structure/flora/chomp/bush5{
+	color = "#338833"
+	},
+/turf/open/indestructible/ground/outside/dirt,
 /area/f13/building/hospital/clinic/nash)
 "rTn" = (
 /obj/machinery/microwave/stove,
@@ -97275,13 +97037,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/ground/outside/desert,
 /area/f13/wasteland/city)
-"rYZ" = (
-/obj/structure/chair/office/dark{
-	dir = 4
-	},
-/obj/item/trash/waffles,
-/turf/open/floor/carpet/blue,
-/area/f13/building/hospital/clinic/nash)
 "rZl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/fence/wooden{
@@ -97952,7 +97707,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/plasteel/f13/vault_floor/red,
 /area/f13/building/abandoned)
@@ -99900,29 +99655,6 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/closed/wall/mineral/brick,
 /area/f13/building/abandoned)
-"sCb" = (
-/obj/structure/table/glass,
-/obj/item/storage/box/beakers{
-	pixel_x = 7;
-	pixel_y = 11
-	},
-/obj/item/storage/box/medsprays{
-	pixel_x = -3;
-	pixel_y = 13
-	},
-/obj/item/storage/box/pillbottles{
-	pixel_x = 10;
-	pixel_y = 7
-	},
-/obj/item/storage/box/syringes,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "sCg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -102492,8 +102224,8 @@
 /area/f13/wasteland/nash)
 "tea" = (
 /obj/effect/landmark/vertibird{
-	id = "Nash - Robot Parking Lot";
-	name = "Nash - Robot Parking Lot"
+	id = "Mankara - Robot Parking Lot";
+	name = "Mankara - Robot Parking Lot"
 	},
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "verticalinnermain0"
@@ -102750,7 +102482,7 @@
 "tgI" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/landmark/party{
-	region = "Nash's bar"
+	region = "Mankara's bar"
 	},
 /turf/open/floor/wood_common{
 	color = "#779999"
@@ -103939,7 +103671,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/indestructible/ground/outside/road{
@@ -103957,7 +103689,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/wood_common,
 /area/f13/building/abandoned)
@@ -104602,7 +104334,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/water{
 	light_color = null;
@@ -105089,7 +104821,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/carpet/black,
 /area/f13/building/abandoned)
@@ -105188,11 +104920,6 @@
 	},
 /area/f13/wasteland/city/nash/theloop)
 "tEP" = (
-/obj/machinery/door/unpowered/securedoor{
-	name = "Clinic";
-	req_access_txt = null;
-	req_one_access_txt = "124"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -105486,10 +105213,6 @@
 	icon_state = "whitegreenrustychess"
 	},
 /area/f13/building/abandoned)
-"tIt" = (
-/obj/machinery/vending/medical/becomingnook,
-/turf/open/floor/plasteel/f13/vault_floor/white,
-/area/f13/building/hospital/clinic/nash)
 "tIE" = (
 /obj/machinery/power/terminal{
 	dir = 4;
@@ -105646,13 +105369,8 @@
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
 "tKC" = (
-/obj/machinery/door/unpowered/securedoor{
-	name = "Clinic";
-	req_access_txt = null;
-	req_one_access_txt = "124"
-	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood_common,
+/turf/open/indestructible/ground/outside/dirt,
 /area/f13/building/hospital/clinic/nash)
 "tKD" = (
 /obj/structure/table/reinforced,
@@ -106020,8 +105738,8 @@
 "tOk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/vertibird{
-	id = "Nash - SE of the City of Nash";
-	name = "Nash - SE of the City of Nash"
+	id = "Mankara - SE of the City of Mankara";
+	name = "Mankara - SE of the City of Mankara"
 	},
 /obj/machinery/camera/autoname{
 	dir = 5;
@@ -107460,7 +107178,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/ruins)
@@ -107559,14 +107277,6 @@
 	icon_state = "verticalinnermain0"
 	},
 /area/f13/wasteland/city/nash/downtown)
-"ugE" = (
-/obj/structure/table,
-/obj/item/storage/backpack/duffelbag/med/surgery,
-/obj/item/reagent_containers/spray/cleaner,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/masks,
-/turf/open/floor/plasteel/f13/vault_floor/white,
-/area/f13/building/hospital/clinic/nash)
 "ugG" = (
 /obj/effect/spawner/lootdrop/f13/common,
 /turf/open/indestructible/ground/outside/road{
@@ -108666,11 +108376,6 @@
 /obj/effect/turf_decal/weather/dirt,
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland/city/nash/theloop)
-"uvY" = (
-/obj/machinery/trading_machine/medical,
-/obj/effect/decal/cleanable/dirt,
-/turf/closed/wall/f13/wood/house,
-/area/f13/building/hospital/clinic/nash)
 "uwg" = (
 /obj/structure/flora/grass/wasteland{
 	icon_state = "tall_grass_3"
@@ -109174,13 +108879,6 @@
 /obj/machinery/door/window/left/directional/east,
 /turf/open/floor/plasteel/f13/vault_floor/floor/floorsolid,
 /area/f13/building/coyote/nash/mall/groundfloor)
-"uBk" = (
-/obj/machinery/chem_dispenser,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "uBl" = (
 /obj/structure/table/wood/settler,
 /obj/machinery/reagentgrinder,
@@ -109544,15 +109242,6 @@
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland/coyote/nash/southeastcornercamp)
-"uFF" = (
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_x = 8;
-	layer = 2.8;
-	density = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/carpet/blue,
-/area/f13/building/hospital/clinic/nash)
 "uFJ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/remains/human,
@@ -110196,14 +109885,6 @@
 	icon_state = "verticalrightborderright2"
 	},
 /area/f13/wasteland/city)
-"uMJ" = (
-/obj/machinery/door/unpowered/securedoor{
-	name = "Clinic";
-	req_access_txt = null;
-	req_one_access_txt = "124"
-	},
-/turf/open/floor/f13/wood,
-/area/f13/building/hospital/clinic/nash)
 "uML" = (
 /obj/effect/turf_decal/weather/dirt{
 	color = "#a98c5d"
@@ -110424,8 +110105,8 @@
 /area/f13/building/coyote/nash/school/groundfloor)
 "uQi" = (
 /obj/effect/landmark/vertibird{
-	id = "Nash - Just East of Nash city";
-	name = "Nash - Just East of Nash city"
+	id = "Mankara - Just East of Mankara city";
+	name = "Mankara - Just East of Mankara city"
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "verticalrightborderright1"
@@ -111391,10 +111072,10 @@
 /area/f13/building)
 "vbI" = (
 /obj/structure/noticeboard{
-	desc = "A notice board, for the town of Nash.";
+	desc = "A notice board, for the town of Mankara.";
 	layer = 5.0;
-	name = "Notice Board - Nash";
-	persistence_replacement = "Notice Board - Nash- 1";
+	name = "Notice Board - Mankara";
+	persistence_replacement = "Notice Board - Mankara- 1";
 	pixel_x = 4;
 	pixel_y = 30;
 	plane = -5
@@ -111628,13 +111309,6 @@
 	icon_state = "whitegreenrustychess"
 	},
 /area/f13/building/abandoned)
-"veo" = (
-/obj/structure/bed,
-/obj/structure/sign/painting/library{
-	pixel_x = 28
-	},
-/turf/open/floor/carpet/red,
-/area/f13/building/hospital/clinic/nash)
 "veu" = (
 /turf/open/indestructible/ground/outside/gravel{
 	color = "#999999"
@@ -111793,7 +111467,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/wood_common,
 /area/f13/building/coyote/nash/school/groundfloor)
@@ -112250,7 +111924,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/carpet/black,
 /area/f13/building/abandoned)
@@ -112591,14 +112265,6 @@
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/building)
-"vpC" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "vpD" = (
 /obj/structure/car/rubbish2{
 	icon_state = "car_rubish3"
@@ -112663,7 +112329,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -112793,7 +112459,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13{
 	icon_state = "whitegreenrustychess"
@@ -113509,10 +113175,6 @@
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland/coyote/nash/southeastcornercamp)
-"vAc" = (
-/obj/structure/window/fulltile/house,
-/turf/open/floor/carpet/blue,
-/area/f13/building/hospital/clinic/nash)
 "vAk" = (
 /obj/structure/table,
 /obj/item/ammo_box/shotgun/bean,
@@ -114097,12 +113759,6 @@
 	icon_state = "wide-broken3"
 	},
 /area/f13/building/coyote/nash/school/groundfloor)
-"vIJ" = (
-/obj/structure/chair/f13chair1{
-	dir = 1
-	},
-/turf/open/floor/f13/wood,
-/area/f13/building/hospital/clinic/nash)
 "vIL" = (
 /obj/structure/flora/branch_broken,
 /turf/open/indestructible/ground/outside/desert,
@@ -115376,7 +115032,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -115671,8 +115327,8 @@
 	pixel_y = 5;
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
-	name = "Welcome to city of Nash!";
-	desc = "This old sign used by the old world shows the population of the town of Nash, its massively out of date and has been crossed through with black paint.  It now says 'we don't even know' across it.";
+	name = "Welcome to city of Mankara!";
+	desc = "This old sign used by the old world shows the population of the town of Mankara, its massively out of date and has been crossed through with black paint.  It now says 'we don't even know' across it.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -116496,7 +116152,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "low level mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -117472,7 +117128,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /obj/effect/turf_decal/weather/dirt{
 	dir = 4
@@ -117794,11 +117450,6 @@
 /obj/structure/spacevine,
 /turf/open/indestructible/ground/outside/gravel,
 /area/f13/wasteland/city/nash/downtown)
-"wyK" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/f13/trash,
-/turf/open/floor/carpet/red,
-/area/f13/building/hospital/clinic/nash)
 "wyN" = (
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "verticaloutermainbottom"
@@ -117868,7 +117519,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/building/abandoned)
@@ -118467,18 +118118,6 @@
 	},
 /turf/open/indestructible/ground/outside/sidewalk,
 /area/f13/wasteland)
-"wFd" = (
-/obj/structure/table/glass,
-/obj/item/reagent_containers/dropper{
-	pixel_x = -5;
-	pixel_y = -6
-	},
-/obj/machinery/reagentgrinder,
-/turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
-	icon_state = "showroomfloor";
-	name = "tile"
-	},
-/area/f13/building/hospital/clinic/nash)
 "wFg" = (
 /turf/closed/wall/f13/supermart,
 /area/f13/caves)
@@ -118631,11 +118270,6 @@
 /obj/structure/table/wood/settler,
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland/city)
-"wGL" = (
-/obj/structure/table/wood/fancy/royalblack,
-/obj/item/toy/plush/marblefox,
-/turf/open/floor/wood_common,
-/area/f13/building/hospital/clinic/nash)
 "wGQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -118645,7 +118279,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Texas Blvd. & Cantrell";
-	desc = "West is Nash, East is the Texarkana Business District.  North is Texarkana, south is the old museum.";
+	desc = "West is Mankara, East is the Mankara Business District.  North is Mankara, south is the old museum.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -118818,7 +118452,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Loop 369";
-	desc = "North is the mall, east is the blocked path to Garland City.  South is the Texarkana Country club.  West is back towards the strip mall and musuem.";
+	desc = "North is the mall, east is the blocked path to Garland City.  South is the Mankara Country club.  West is back towards the strip mall and musuem.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -119743,11 +119377,6 @@
 /obj/structure/simple_door/interior,
 /turf/open/floor/wood_common,
 /area/f13/ruins)
-"wTy" = (
-/obj/structure/table,
-/obj/structure/barricade/bars,
-/turf/open/floor/f13/wood,
-/area/f13/building/hospital/clinic/nash)
 "wTE" = (
 /obj/effect/decal/cleanable/dirt{
 	color = "#363636"
@@ -121077,8 +120706,8 @@
 	icon_state = "tall_grass_3"
 	},
 /obj/effect/landmark/vertibird{
-	id = "Nash - Museum";
-	name = "Nash - Museum"
+	id = "Mankara - Museum";
+	name = "Mankara - Museum"
 	},
 /obj/structure/spacevine,
 /turf/open/indestructible/ground/outside/road{
@@ -122173,7 +121802,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "outermaincornerouter - N"
@@ -122843,13 +122472,6 @@
 /obj/structure/junk/machinery,
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland)
-"xCW" = (
-/obj/machinery/vending/medical,
-/obj/machinery/light{
-	light_color = "#e8eaff"
-	},
-/turf/open/floor/f13/wood,
-/area/f13/building/hospital/clinic/nash)
 "xCZ" = (
 /obj/structure/flora/grass/wasteland{
 	icon_state = "tall_grass_4"
@@ -126460,7 +126082,7 @@ flt
 eTM
 mct
 sUI
-vFQ
+oHg
 aMY
 cWF
 cWF
@@ -126717,7 +126339,7 @@ ajv
 eTM
 mct
 sUI
-vFQ
+bcq
 cWF
 cWF
 cWF
@@ -129097,7 +128719,7 @@ gfx
 xNd
 xNd
 xNd
-xNd
+gFz
 xNd
 xNd
 gfx
@@ -129351,7 +128973,7 @@ tfE
 uHu
 gfx
 szh
-xNd
+gFz
 fYy
 ubM
 gdd
@@ -129863,9 +129485,9 @@ thC
 fse
 mmH
 xNd
-xNd
-xNd
-xNd
+gFz
+gFz
+gFz
 xNd
 cdS
 cEn
@@ -130120,9 +129742,9 @@ hDX
 cxc
 qML
 xNd
-hGn
-bhr
-crn
+gFz
+gFz
+gFz
 nZx
 utB
 utB
@@ -130377,9 +129999,9 @@ hDX
 cxc
 tfE
 xNd
-kTH
-aFs
-dyR
+gFz
+iBr
+gFz
 bOQ
 kSu
 fLo
@@ -130634,11 +130256,11 @@ bhi
 cxc
 eaZ
 xNd
-ugE
-gnt
-tIt
-xNd
-xNd
+gFz
+gFz
+gFz
+gFz
+gFz
 tEP
 bOQ
 oGu
@@ -130892,17 +130514,17 @@ cxc
 hPg
 xNd
 xNd
-xNd
-xNd
-xNd
-qAS
+gFz
+aYr
+gFz
+gFz
 rTj
-bdn
-gvn
+gFz
+gFz
 xNd
 xNd
-azt
-xNd
+tKC
+gFz
 xNd
 qAx
 nFA
@@ -131148,18 +130770,18 @@ aYT
 ijI
 eaZ
 xNd
-sCb
-rkv
 gFz
-riA
-bcq
-qek
-bcq
 rTj
+gFz
+gFz
+gFz
+rTj
+gFz
+gFz
 tKC
-pqC
-oUq
-jml
+gFz
+gFz
+gFz
 xNd
 rax
 rLT
@@ -131405,18 +131027,18 @@ vPP
 snZ
 bqX
 xNd
-wFd
-vpC
+gFz
+gFz
 iBr
-vAc
-bcq
-rYZ
-uFF
-bcq
+gFz
+gFz
+iBr
+gFz
+gFz
 azt
-pTi
-wyK
-miR
+gFz
+gFz
+gFz
 xNd
 rax
 rLT
@@ -131661,19 +131283,19 @@ psq
 bcO
 tBD
 isk
+gFz
+gFz
+gFz
+aYr
+gFz
+gFz
+gFz
+gFz
+gFz
 xNd
-coF
-cjb
-cjb
-azt
-iAU
-iAU
-rfD
-uMJ
-xNd
-wGL
-cOL
-veo
+gFz
+gFz
+gFz
 xNd
 rax
 nFA
@@ -131918,19 +131540,19 @@ eAP
 bcy
 tBD
 tfE
+gFz
+rTj
+gFz
+gFz
+gFz
+iBr
+gFz
+gFz
+gFz
 xNd
-uBk
-jJv
-cjb
-pZs
-bGz
-bGz
-oHg
-bGz
-xNd
-xNd
-xNd
-xNd
+gFz
+gFz
+gFz
 xNd
 wYm
 bsh
@@ -132175,15 +131797,15 @@ psq
 bcO
 tBD
 ldT
-xNd
-ggm
-vpC
+gFz
+gFz
 aYr
-uvY
-bGz
-bGz
-lhP
-vIJ
+aYr
+gFz
+rTj
+gFz
+gFz
+gFz
 ewG
 ycm
 aJP
@@ -132432,15 +132054,15 @@ hDX
 bcf
 cxc
 boE
-xNd
-mAv
-cjb
-jHA
-wTy
-bGz
-mCG
-bGz
-vIJ
+gFz
+gFz
+aYr
+aYr
+gFz
+gFz
+gFz
+gFz
+gFz
 ewG
 lJK
 bQW
@@ -132689,15 +132311,15 @@ tBD
 tBD
 bxH
 boE
+gFz
+gFz
+gFz
+gFz
 xNd
-ewG
-ewG
-xNd
-xNd
-cLg
-bGz
-nTr
-xCW
+gFz
+gFz
+gFz
+gFz
 xNd
 pQd
 bQW
@@ -132952,8 +132574,8 @@ mES
 hLW
 xNd
 xNd
-nZP
-nZP
+bGz
+bGz
 xNd
 xNd
 ycm
@@ -147102,7 +146724,7 @@ www
 vKX
 rxg
 uEn
-bdR
+oBz
 hCc
 eOw
 bUq

@@ -422,45 +422,45 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot = new /obj/item/encryptionkey/headset_biker
 
 /obj/item/radio/headset/headset_town
-	name = "Nash radio headset"
-	desc = "This is used by the town of Nash.\
-		\nTo access the Nash channel, use :f."
+	name = "Mankara radio headset"
+	desc = "This is used by the town of Mankara.\
+		\nTo access the Mankara channel, use :f."
 	icon_state = "mine_headset"
 	keyslot = new /obj/item/encryptionkey/headset_town
 
 /obj/item/radio/headset/headset_town/lawman
-	name = "Nash sheriff radio headset"
-	desc = "This is used by Nash's local sheriff force. Protects ears from flashbangs.\
-		\nTo access the Nash channel, use :f.\
-		\nTo access the Nash sheriff channel, use :l."
+	name = "Mankara sheriff radio headset"
+	desc = "This is used by Mankara's local sheriff force. Protects ears from flashbangs.\
+		\nTo access the Mankara channel, use :f.\
+		\nTo access the Mankara sheriff channel, use :l."
 	icon_state = "sec_headset_alt"
 	item_state = "sec_headset_alt"
 	bowman = TRUE
 	keyslot = new /obj/item/encryptionkey/headset_town/lawman
 
 /obj/item/radio/headset/headset_town/commerce
-	name = "Nash commerce radio headset"
-	desc = "This is used by Nash's small business owners.\
-		\nTo access the Nash channel, use :f.\
-		\nTo access the Nash commerce channel, use :j."
+	name = "Mankara commerce radio headset"
+	desc = "This is used by Mankara's small business owners.\
+		\nTo access the Mankara channel, use :f.\
+		\nTo access the Mankara commerce channel, use :j."
 	keyslot = new /obj/item/encryptionkey/headset_town/commerce
 
 /obj/item/radio/headset/headset_town/mayor
-	name = "Nash mayoral radio headset"
-	desc = "This is used by Nash's mayor (and secretary). Protects ears from flashbangs.\
-		\nTo access the Nash channel, use :f.\
-		\nTo access the Nash mayor channel, use :y.\
-		\nTo access the Nash sheriff channel, use :l.\
-		\nTo access the Nash medical channel, use :m.\
-		\nTo access the Nash commerce channel, use :j."
+	name = "Mankara mayoral radio headset"
+	desc = "This is used by Mankara's mayor (and secretary). Protects ears from flashbangs.\
+		\nTo access the Mankara channel, use :f.\
+		\nTo access the Mankara mayor channel, use :y.\
+		\nTo access the Mankara sheriff channel, use :l.\
+		\nTo access the Mankara medical channel, use :m.\
+		\nTo access the Mankara commerce channel, use :j."
 	bowman = TRUE
 	command = TRUE
 	keyslot = new /obj/item/encryptionkey/headset_town/mayor
 
 /obj/item/radio/headset/headset_town/medical
-	name = "Nash medical radio headset"
-	desc = "This is used by Nash's medical folk.\
-		\nTo access the Nash channel, use :f.\
+	name = "Mankara medical radio headset"
+	desc = "This is used by Mankara's medical folk.\
+		\nTo access the Mankara channel, use :f.\
 		\nTo access the medical channel, use :m"
 	icon_state = "med_headset"
 	keyslot = new /obj/item/encryptionkey/headset_town/medical

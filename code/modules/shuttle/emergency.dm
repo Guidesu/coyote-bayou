@@ -503,7 +503,7 @@
 	mode = SHUTTLE_ESCAPE
 	launch_status = ENDGAME_LAUNCHED
 	setTimer(SSshuttle.emergencyEscapeTime)
-	priority_announce("The Train is preparing for direct journey. Estimate [timeLeft(600)] minutes until the train arrives at the destination.", null, null, "Vault-Tec")
+	priority_announce("The Shuttle is preparing for direct journey. Estimate [timeLeft(600)] minutes until the train arrives at the destination.", null, null, "Vault-Tec")
 
 
 /obj/docking_port/mobile/pod

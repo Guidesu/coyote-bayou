@@ -9682,7 +9682,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -10489,7 +10489,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -10874,7 +10874,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/road{
 	icon_state = "horizontalinnermain0"
@@ -17550,7 +17550,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/road{
 	dir = 8;
@@ -17642,7 +17642,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland)
@@ -18441,7 +18441,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/carpet/red,
 /area/f13/building/abandoned)
@@ -19952,7 +19952,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland)
@@ -22570,7 +22570,7 @@
 /area/f13/building/abandoned)
 "jZJ" = (
 /obj/effect/landmark/party{
-	region = "Nash's bar"
+	region = "Mankara's bar"
 	},
 /turf/open/floor/f13/wood{
 	icon_state = "housewood2"
@@ -29446,7 +29446,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/plasteel/f13{
 	icon_state = "bluedirtychess"
@@ -33917,7 +33917,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland)
@@ -34108,7 +34108,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/savannah,
 /area/f13/wasteland)
@@ -37390,7 +37390,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/plasteel/f13{
 	icon_state = "bluerustychess"
@@ -40440,7 +40440,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "horizontalbottomborderbottom0"
@@ -40802,7 +40802,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/plasteel/f13{
 	icon_state = "bluerustychess"
@@ -43371,7 +43371,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/plasteel/f13{
 	icon_state = "bluedirtychess"
@@ -43853,7 +43853,7 @@
 	icon = 'modular_coyote/icons/objects/street_signs.dmi';
 	icon_state = "street";
 	name = "Highway 71 & Red Lick Rd.";
-	desc = "North is Ashdown.  East & South both take you back towards Texarkana. West takes you towards Redlick.";
+	desc = "North is Ashdown.  East & South both take you back towards Mankara. West takes you towards Redlick.";
 	layer = 6
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
@@ -46130,7 +46130,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/dirt,
 /area/f13/wasteland)
@@ -46295,7 +46295,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -52752,7 +52752,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/outside/graveldirt,
 /area/f13/wasteland)

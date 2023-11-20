@@ -2564,10 +2564,10 @@
 /area/f13/building/tribal)
 "bsQ" = (
 /obj/structure/noticeboard{
-	desc = "A notice board, for the town of Nash.";
+	desc = "A notice board, for the town of Mankara.";
 	layer = 5.0;
-	name = "Notice Board - Nash";
-	persistence_replacement = "Notice Board - Nash- 2";
+	name = "Notice Board - Mankara";
+	persistence_replacement = "Notice Board - Mankara- 2";
 	pixel_x = -3;
 	pixel_y = 35;
 	plane = -5
@@ -3291,7 +3291,7 @@
 	desc = "This board is for putting personal ads down, feel free to include your discord info as well!";
 	layer = 5.0;
 	name = "Personals Board";
-	persistence_replacement = "Personals board - Nash";
+	persistence_replacement = "Personals board - Mankara";
 	pixel_y = 29;
 	plane = -5
 	},
@@ -6199,7 +6199,7 @@
 	desc = "This board is for putting personal ads down, feel free to include your discord info as well!";
 	layer = 5.0;
 	name = "Personals Board";
-	persistence_replacement = "Personals board - Nash";
+	persistence_replacement = "Personals board - Mankara";
 	pixel_y = 23;
 	plane = -5
 	},
@@ -6843,10 +6843,10 @@
 /area/f13/building/tribal)
 "eef" = (
 /obj/structure/noticeboard{
-	desc = "A notice board, for the town of Nash.";
+	desc = "A notice board, for the town of Mankara.";
 	layer = 5.0;
-	name = "Notice Board - Nash";
-	persistence_replacement = "Notice Board - Nash- 2";
+	name = "Notice Board - Mankara";
+	persistence_replacement = "Notice Board - Mankara- 2";
 	pixel_x = -3;
 	pixel_y = 35;
 	plane = -5
@@ -13325,10 +13325,10 @@
 /area/f13/wasteland)
 "hZZ" = (
 /obj/structure/noticeboard{
-	desc = "A notice board, for the town of Nash.";
+	desc = "A notice board, for the town of Mankara.";
 	layer = 5.0;
-	name = "Notice Board - Nash";
-	persistence_replacement = "Notice Board - Nash- 1";
+	name = "Notice Board - Mankara";
+	persistence_replacement = "Notice Board - Mankara- 1";
 	pixel_x = 4;
 	pixel_y = 35;
 	plane = -5
@@ -13424,7 +13424,7 @@
 /area/f13/building)
 "idU" = (
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -13840,7 +13840,7 @@
 	desc = "This is a board for posting multi-person projects, feel free to include your discord info for building projects!";
 	layer = 5.0;
 	name = "Project Board";
-	persistence_replacement = "Projects Board - Nash";
+	persistence_replacement = "Projects Board - Mankara";
 	pixel_y = 29;
 	plane = -5
 	},
@@ -15191,7 +15191,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 3;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/ruins)
@@ -19840,7 +19840,7 @@
 /area/f13/building/tribal)
 "lXs" = (
 /obj/effect/landmark/vertibird{
-	id = "Nash - Middle of Nash town"
+	id = "Mankara - Middle of Mankara town"
 	},
 /turf/open/indestructible/ground/outside/water,
 /area/f13/wasteland)
@@ -21264,8 +21264,8 @@
 "mXI" = (
 /obj/structure/noticeboard{
 	layer = 5.0;
-	name = "Nash Chartered Flights Board & Keyrack";
-	persistence_replacement = "Nash - Chartered Flights";
+	name = "Mankara Chartered Flights Board & Keyrack";
+	persistence_replacement = "Mankara - Chartered Flights";
 	pixel_y = 32
 	},
 /obj/item/key/vertibird{
@@ -22995,7 +22995,7 @@
 "odi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -24120,7 +24120,7 @@
 	desc = "A board for pinning your looking for group messages, feel free to include your discord info in the post!";
 	layer = 5.0;
 	name = "Adventuring Board";
-	persistence_replacement = "Adventure Board - Nash";
+	persistence_replacement = "Adventure Board - Mankara";
 	pixel_y = 29;
 	plane = -5
 	},
@@ -28042,7 +28042,7 @@
 "rvE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -30246,7 +30246,7 @@
 /area/f13/building)
 "sOj" = (
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -30286,7 +30286,7 @@
 	desc = "A board for pinning your looking for group messages, feel free to include your discord info in the post!";
 	layer = 5.0;
 	name = "Adventuring Board";
-	persistence_replacement = "Adventure Board - Nash";
+	persistence_replacement = "Adventure Board - Mankara";
 	pixel_y = 23;
 	plane = -5
 	},
@@ -33754,10 +33754,10 @@
 /area/f13/wasteland)
 "uVo" = (
 /obj/structure/noticeboard{
-	desc = "A notice board, for the town of Nash.";
+	desc = "A notice board, for the town of Mankara.";
 	layer = 5.0;
-	name = "Notice Board - Nash";
-	persistence_replacement = "Notice Board - Nash- 1";
+	name = "Notice Board - Mankara";
+	persistence_replacement = "Notice Board - Mankara- 1";
 	pixel_x = 4;
 	pixel_y = 35;
 	plane = -5
@@ -34462,8 +34462,8 @@
 /area/f13/wasteland)
 "vti" = (
 /obj/effect/landmark/vertibird{
-	id = "Nash - Just East of Nash city";
-	name = "Nash - Just East of Nash city"
+	id = "Mankara - Just East of Mankara city";
+	name = "Mankara - Just East of Mankara city"
 	},
 /turf/open/indestructible/ground/outside/sidewalk{
 	icon_state = "verticalrightborderright0"
@@ -36215,7 +36215,7 @@
 	desc = "This is a board for posting multi-person projects, feel free to include your discord info for building projects!";
 	layer = 5.0;
 	name = "Project Board";
-	persistence_replacement = "Projects Board - Nash";
+	persistence_replacement = "Projects Board - Mankara";
 	pixel_y = 23;
 	plane = -5
 	},

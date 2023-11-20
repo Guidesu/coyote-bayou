@@ -68,7 +68,7 @@ SUBSYSTEM_DEF(shuttle)
 	var/train_company = "Foxen Transit Co."
 	var/train_company_slogan = "the quickest critters on rails."
 	var/train_name = "some kind of train"
-	var/local_train_station = "Texarkana Memorial Station"
+	var/local_train_station = "Mankara Memorial Station"
 	var/where_from = "parts unknown"
 	var/where_to = "parts also unknown"
 
@@ -346,8 +346,8 @@ SUBSYSTEM_DEF(shuttle)
 	if(callShuttle)
 		if(EMERGENCY_IDLE_OR_RECALLED)
 			emergency.request(null, set_coefficient = 2.5)
-			log_shuttle("There is no means of calling the train anymore. Train automatically called.")
-			message_admins("All the communications consoles were destroyed and all AIs are inactive. Train called.")
+			log_shuttle("There is no means of calling the train anymore. Shuttle automatically called.")
+			message_admins("All the communications consoles were destroyed and all AIs are inactive. Shuttle called.")
 
 /datum/controller/subsystem/shuttle/proc/registerHostileEnvironment(datum/bad)
 	hostileEnvironments[bad] = TRUE
@@ -398,7 +398,7 @@ SUBSYSTEM_DEF(shuttle)
 		emergency.mode = SHUTTLE_DOCKED
 		emergency.setTimer(emergencyDockTime)
 		priority_announce("Hostile environment resolved. \
-			You have 3 minutes to board the Train.",
+			You have 3 minutes to board the Shuttle.",
 			null, 'sound/f13/quest.ogg', "Vault-Tec")
 
 //try to move/request to dockHome if possible, otherwise dockAway. Mainly used for admin buttons
@@ -669,8 +669,8 @@ SUBSYSTEM_DEF(shuttle)
 	if(EMERGENCY_IDLE_OR_RECALLED)
 		SSshuttle.emergency.request(silent = TRUE)
 		priority_announce("The [train_name] from [where_from] will arrive at [local_train_station] in [emergency.timeLeft(600)] minutes. Have your tickets ready.", null, "sound/f13/quest.ogg", "[train_company]")
-		log_game("Round end vote passed. Train has been auto-called.")
-		message_admins("Round end vote passed. Train has been auto-called.")
+		log_game("Round end vote passed. Shuttle has been auto-called.")
+		message_admins("Round end vote passed. Shuttle has been auto-called.")
 	emergencyNoRecall = TRUE
 	endvote_passed = TRUE
 
@@ -753,7 +753,7 @@ SUBSYSTEM_DEF(shuttle)
 		"Commute",
 		"Transit",
 		"Shuttle",
-		"Train",
+		"Shuttle",
 		"Engine",
 	)
 	express_synonym = pick(synonyms_for_express)

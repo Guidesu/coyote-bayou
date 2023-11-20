@@ -204,7 +204,7 @@
 		if("cancelshuttle2")
 			if(authenticated)
 				if(SSshuttle.endvote_passed) //Citadel Edit - endvote passing = no recalls
-					say("Warning: Train recalls have been blocked by Vault-Tec due to ongoing evacuation procedures.")
+					say("Warning: Shuttle recalls have been blocked by Vault-Tec due to ongoing evacuation procedures.")
 				else
 					SSshuttle.cancelEvac(usr)
 			state = STATE_DEFAULT
@@ -464,7 +464,7 @@
 	var/dat = ""
 	if(SSshuttle.emergency.mode == SHUTTLE_CALL)
 		var/timeleft = SSshuttle.emergency.timeLeft()
-		dat += "<B>Train</B>\n<BR>\nETA: [timeleft / 60 % 60]:[add_leading(num2text(timeleft % 60), 2, "0")]"
+		dat += "<B>Shuttle</B>\n<BR>\nETA: [timeleft / 60 % 60]:[add_leading(num2text(timeleft % 60), 2, "0")]"
 
 
 	var/datum/browser/popup = new(user, "communications", "Communications Console", 400, 500)
@@ -492,9 +492,9 @@
 				dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=messagelist'>Message List</A> \]"
 				switch(SSshuttle.emergency.mode)
 					if(SHUTTLE_IDLE, SHUTTLE_RECALL)
-						dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=callshuttle'>Call Train</A> \]"
+						dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=callshuttle'>Call Shuttle</A> \]"
 					else
-						dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=cancelshuttle'>Cancel Train Call</A> \]"
+						dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=cancelshuttle'>Cancel Shuttle Call</A> \]"
 
 				dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=status'>Set Status Display</A> \]"
 				if (authenticated==2)
@@ -661,7 +661,7 @@
 			dat += "<BR><BR><B>General Functions</B>"
 			dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-messagelist'>Message List</A> \]"
 			if(SSshuttle.emergency.mode == SHUTTLE_IDLE)
-				dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-callshuttle'>Call Train</A> \]"
+				dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-callshuttle'>Call Shuttle</A> \]"
 			dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-status'>Set Status Display</A> \]"
 			dat += "<BR><BR><B>Special Functions</B>"
 			dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-announce'>Make an Announcement</A> \]"
@@ -700,7 +700,7 @@
 		if(STATE_STATUSDISPLAY)
 			dat += "Set Status Displays<BR>"
 			dat += "\[ <A HREF='?src=[REF(src)];operation=setstat;statdisp=blank'>Clear</A> \]<BR>"
-			dat += "\[ <A HREF='?src=[REF(src)];operation=setstat;statdisp=shuttle'>Train ETA</A> \]<BR>"
+			dat += "\[ <A HREF='?src=[REF(src)];operation=setstat;statdisp=shuttle'>Shuttle ETA</A> \]<BR>"
 			dat += "\[ <A HREF='?src=[REF(src)];operation=setstat;statdisp=message'>Message</A> \]"
 			dat += "<ul><li> Line 1: <A HREF='?src=[REF(src)];operation=setmsg1'>[ stat_msg1 ? stat_msg1 : "(none)"]</A>"
 			dat += "<li> Line 2: <A HREF='?src=[REF(src)];operation=setmsg2'>[ stat_msg2 ? stat_msg2 : "(none)"]</A></ul><br>"

@@ -762,7 +762,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/inside/mountain,
 /area/f13/caves)
@@ -14310,7 +14310,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/inside/mountain,
 /area/f13/tunnel)
@@ -15044,7 +15044,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible/ground/inside/mountain,
@@ -17848,7 +17848,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/plating/tunnel,
 /area/f13/building/sewers)
@@ -19911,7 +19911,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/indestructible/ground/inside/mountain,
 /area/f13/caves)
@@ -22398,7 +22398,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/indestructible/ground/inside/mountain,
@@ -25127,7 +25127,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13{
 	icon_state = "greenrustyfull"
@@ -29750,7 +29750,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13{
 	icon_state = "greenrustyfull"
@@ -30855,7 +30855,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Residential District 1"
+	randomizer_tag = "Mankara Residential District 1"
 	},
 /turf/open/indestructible/ground/inside/mountain,
 /area/f13/tunnel)
@@ -31507,7 +31507,7 @@
 	icon_state = "gibbearcore"
 	},
 /mob/living/simple_animal/hostile/raider/ranged/biker{
-	name = "Texarkana Timothy"
+	name = "Mankara Timothy"
 	},
 /turf/open/indestructible/ground/inside/subway{
 	name = "cave"
@@ -33010,7 +33010,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/old,
@@ -33443,7 +33443,7 @@
 /area/f13/building/hospital)
 "vOQ" = (
 /mob/living/simple_animal/hostile/raider/ranged/biker{
-	name = "Texarkana Timothy"
+	name = "Mankara Timothy"
 	},
 /turf/open/water,
 /area/f13/building/sewers)
@@ -34483,7 +34483,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/plating/tunnel,
 /area/f13/building/sewers)

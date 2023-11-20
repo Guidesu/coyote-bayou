@@ -253,7 +253,7 @@
 	icon_state = "heavenex"
 
 /area/f13/wasteland/train
-	name = "Train Station Exterior"
+	name = "Shuttle Station Exterior"
 	icon_state = "trainex"
 
 /area/f13/wasteland/nanotrasen
@@ -377,7 +377,7 @@
 	icon_state = "fire"
 
 /area/f13/building/trainstation
-	name = "Train Station"
+	name = "Shuttle Station"
 	icon_state = "train"
 
 /area/f13/building/nanotrasen

@@ -39,7 +39,7 @@
  */
 
 /obj/item/clothing/suit/fire
-	name = "Texarkana firefighter suit"
+	name = "Mankara firefighter suit"
 	desc = "Once worn by the brave few willing to throw themselves into the fire - quite literally - to save others, now this firsuit sits dusty and forgotten. Still, it provides dececent protection in these uncertain times if one can handle the bulk."
 	icon = 'icons/fallout/clothing/suits_utility.dmi'
 	mob_overlay_icon = 'icons/fallout/onmob/clothes/suit_utility.dmi'

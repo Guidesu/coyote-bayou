@@ -1079,7 +1079,7 @@
 	path = /obj/item/clothing/under/rank/security/officer/blueshirt
 	cost = 0
 	subcategory = LOADOUT_SUBCATEGORY_UNIFORM_SUITS
-	restricted_desc = "Nash"
+	restricted_desc = "Mankara"
 	restricted_roles = list("High Alderperson",
 							"Councilperson",
 							"Chief of Police",

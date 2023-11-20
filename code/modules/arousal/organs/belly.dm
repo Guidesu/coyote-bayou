@@ -225,7 +225,7 @@ GLOBAL_LIST_INIT(belly_descriptors, list(
 			),
 		"7" = list(
 			list(BELLY_SHAPE_TUMMY = "mass of obesity that could easily fill the average lap",
-				BELLY_SHAPE_OBESE = "a testament to the sheer bounty of food that Nash has to offer",
+				BELLY_SHAPE_OBESE = "a testament to the sheer bounty of food that Mankara has to offer",
 				BELLY_SHAPE_UDDERS = "suit of thick, heavy sack one could bury a muzzle under"),
 			list(BELLY_SHAPE_TUMMY = "ball of well-marbled bellymeat that could easily fill an armchair",
 				BELLY_SHAPE_OBESE = "a waistline long-since buried under a mountain of fat",

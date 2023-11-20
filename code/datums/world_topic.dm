@@ -280,9 +280,9 @@
 	.["Command"] = command
 	.["New California Republic"] = ncr
 	.["Legion"] = legion
-	.["Nash Clinic"] = followers
+	.["Mankara Clinic"] = followers
 	.["Brotherhood of Steel"] = brotherhood
-	.["Nash"] = oasis
+	.["Mankara"] = oasis
 	.["Wastelanders"] = wastelanders
 	.["Other"] = misc
 	.["Round Time"] = ROUND_TIME

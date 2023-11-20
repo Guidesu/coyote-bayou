@@ -446,7 +446,7 @@
 "bK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -948,7 +948,7 @@
 	desc = "This board is for putting personal ads down, feel free to include your discord info as well!";
 	layer = 5.0;
 	name = "Personals Board";
-	persistence_replacement = "Personals board - Nash";
+	persistence_replacement = "Personals board - Mankara";
 	pixel_y = 29;
 	plane = -5
 	},
@@ -1316,7 +1316,7 @@
 /area/f13/building/hospital)
 "eC" = (
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -1991,7 +1991,7 @@
 	desc = "A board for pinning your looking for group messages, feel free to include your discord info in the post!";
 	layer = 5.0;
 	name = "Adventuring Board";
-	persistence_replacement = "Adventure Board - Nash";
+	persistence_replacement = "Adventure Board - Mankara";
 	pixel_y = 29;
 	plane = -5
 	},
@@ -8422,7 +8422,7 @@
 	desc = "This is a board for posting multi-person projects, feel free to include your discord info for building projects!";
 	layer = 5.0;
 	name = "Project Board";
-	persistence_replacement = "Projects Board - Nash";
+	persistence_replacement = "Projects Board - Mankara";
 	pixel_y = 29;
 	plane = -5
 	},
@@ -9084,10 +9084,10 @@
 /area/f13/wasteland)
 "CP" = (
 /obj/structure/noticeboard{
-	desc = "A notice board, for the town of Nash.";
+	desc = "A notice board, for the town of Mankara.";
 	layer = 5.0;
-	name = "Notice Board - Nash";
-	persistence_replacement = "Notice Board - Nash- 2";
+	name = "Notice Board - Mankara";
+	persistence_replacement = "Notice Board - Mankara- 2";
 	pixel_x = -3;
 	pixel_y = 35;
 	plane = -5
@@ -10382,8 +10382,8 @@
 "Hc" = (
 /obj/structure/noticeboard{
 	layer = 5.0;
-	name = "Nash Chartered Flights Board & Keyrack";
-	persistence_replacement = "Nash - Chartered Flights";
+	name = "Mankara Chartered Flights Board & Keyrack";
+	persistence_replacement = "Mankara - Chartered Flights";
 	pixel_y = 32
 	},
 /obj/item/key/vertibird{
@@ -15449,10 +15449,10 @@
 /area/f13/bar)
 "Xe" = (
 /obj/structure/noticeboard{
-	desc = "A notice board, for the town of Nash.";
+	desc = "A notice board, for the town of Mankara.";
 	layer = 5.0;
-	name = "Notice Board - Nash";
-	persistence_replacement = "Notice Board - Nash- 1";
+	name = "Notice Board - Mankara";
+	persistence_replacement = "Notice Board - Mankara- 1";
 	pixel_x = 4;
 	pixel_y = 35;
 	plane = -5

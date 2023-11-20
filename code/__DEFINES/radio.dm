@@ -69,7 +69,7 @@
 #define RADIO_KEY_ENCLAVE "z"
 #define RADIO_TOKEN_ENCLAVE ":z"
 
-#define RADIO_CHANNEL_TOWN "Nash"
+#define RADIO_CHANNEL_TOWN "Mankara"
 #define RADIO_KEY_TOWN "f"
 #define RADIO_TOKEN_TOWN ":f"
 

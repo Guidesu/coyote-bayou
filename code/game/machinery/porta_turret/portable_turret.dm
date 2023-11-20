@@ -1829,7 +1829,7 @@
 	turret_flags = TURRET_ROBOT_OWNED_FLAGS | TURRET_DEFAULT_UTILITY
 	faction = list("wastebot")
 
-/// Nash's Friendliest Autogun
+/// Mankara's Friendliest Autogun
 /// needs ammo~
 /obj/machinery/porta_turret/f13/nash
 	name = "portable .22LR sentry turret"

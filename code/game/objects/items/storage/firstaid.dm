@@ -424,7 +424,7 @@
 /obj/item/storage/pill_bottle/penis_enlarger
 	name = "bottle of male enhancement pills"
 	desc = "Ever wish your iron was a Big Iron? Get made fun of for being out-gunned in the sack? Not anymore with Doctor D-Zels' big blue pills! \
-		Lab tested on some of the most packing men (and women) in Texarkana, and guarenteed to give your friends a shock. \
+		Lab tested on some of the most packing men (and women) in Mankara, and guarenteed to give your friends a shock. \
 		Works on any organic lifeform, even those lacking male anatomy. D-Zel is not responsible for pregnancy, newfound fetishes, exhaustion, dehydration, or the formation of harems."
 /obj/item/storage/pill_bottle/penis_enlarger/PopulateContents()
 	for(var/i in 1 to 7)

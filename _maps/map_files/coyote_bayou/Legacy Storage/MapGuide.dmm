@@ -1178,7 +1178,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/wasteland)

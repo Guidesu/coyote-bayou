@@ -2937,7 +2937,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Tigers"
+	randomizer_tag = "Mankara Tigers"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood_common,
@@ -3338,8 +3338,8 @@
 "dSF" = (
 /obj/structure/noticeboard{
 	layer = 5.0;
-	name = "Nash Chartered Flights Board & Keyrack";
-	persistence_replacement = "Nash - Chartered Flights";
+	name = "Mankara Chartered Flights Board & Keyrack";
+	persistence_replacement = "Mankara - Chartered Flights";
 	pixel_y = 32
 	},
 /obj/item/key/vertibird{
@@ -13421,7 +13421,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Tigers"
+	randomizer_tag = "Mankara Tigers"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood_common,
@@ -16009,7 +16009,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "mid level mobs";
-	randomizer_tag = "Texarkana Tigers"
+	randomizer_tag = "Mankara Tigers"
 	},
 /obj/machinery/light/small/broken{
 	dir = 1

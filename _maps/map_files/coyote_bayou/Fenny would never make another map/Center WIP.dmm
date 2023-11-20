@@ -244,7 +244,7 @@
 "da" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -761,7 +761,7 @@
 /area/f13/wasteland)
 "if" = (
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -4699,7 +4699,7 @@
 "VQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/landmark/party{
-	region = "Nash's bar"
+	region = "Mankara's bar"
 	},
 /turf/open/floor/wood_common{
 	color = "#779999"

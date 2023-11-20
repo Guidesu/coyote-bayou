@@ -360,7 +360,7 @@
 /obj/item/stack/f13Cash/ncr
 	name = "Trade Union scrip"
 	singular_name = "Trade Union scrip"  /* same for denarius, we can pretend the legion can't latin properly */
-	flavor_desc = "Scrip issued by the Texarkana Trade Union that can be exchanged for goods and services. Or copper."
+	flavor_desc = "Scrip issued by the Mankara Trade Union that can be exchanged for goods and services. Or copper."
 	max_amount = 15000
 	icon = 'icons/obj/economy.dmi'
 	icon_state = "ncr" /* 10 points to whoever writes flavour text for each bill */

@@ -87,7 +87,7 @@
 	AI.announcement()
 
 /atom/movable/screen/ai/call_shuttle
-	name = "Call Train"
+	name = "Call Shuttle"
 	icon_state = "call_shuttle"
 
 /atom/movable/screen/ai/call_shuttle/Click()

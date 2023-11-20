@@ -166,19 +166,19 @@
 				<li>Healing Powder: Made with one broc flower and one Xander on the crafting menu, this handy powder can be made on the go and heals you just as much as a stimpack, if slower.</li>
 				<li>Sutures and Bandages: If you are bleeding, it is best to stop it, and quickly! Suture the wound closed, bandage over the sewed up wound and let it heal.</li>
 				<li>Punga can help purge radiation, but it can also be addicting if you eat more than a few in one sitting.</li>
-				<li>Nash is on the western side of the middle Z (everyone spawns on this Z), and its main entrance is on the southern wall!</li>
+				<li>Mankara is on the western side of the middle Z (everyone spawns on this Z), and its main entrance is on the southern wall!</li>
 				<li>While you have tons of slots and can make loads of characters it can sometimes be hard to get started. It takes time and being seen fairly often before people realize you're actually for real about hanging around. Maybe consider sticking to one character for a while!</li>
 				<li>Certain actions are locked behind quirks or books.</li>
 				<li>Rad-X doesn't lower rads, it stops you from getting them in the first place by making you absorb less! Use it!</li>
 				<li>Red Lights -matter-, look out for them. They usually corespond with the fact that you're about to enter a dangerous area, and the number of them are how many players are expected to be used to make the area's difficulty fair!</li>
-				<li>There is one exception to those red lights, and that's Heavens Night under Nash, it's a Red Light as in 'red light district', red light. There's also a warning at the door when you enter to make sure you know what you're getting into!</li>
+				<li>There is one exception to those red lights, and that's Heavens Night under Mankara, it's a Red Light as in 'red light district', red light. There's also a warning at the door when you enter to make sure you know what you're getting into!</li>
 				<li>You can click a table with a makeshift ammo reloader to install it onto that table, it's limited in scope but hey. Some bullets are better than none!</li>
 				<li>There are boards set up just to the south of the bar, they have persistence from round to round if you put papers on them!</li>
 				<li>The blue matrix tiles you can just walk right through to another map. The green ones are to leave the region (basically Cryo).</li>
-				<li>There are three map areas. Stacked north to south you have 'Red River', 'Texarkana', and 'Redwater'. The town of Nash is in the Texarkana Z, where you spawned!</li>
-				<li>Remember to close Nash's gate, unless you WANT the wildlife to get in!</li>
+				<li>There are three map areas. Stacked north to south you have 'Red River', 'Mankara', and 'Redwater'. The town of Mankara is in the Mankara Z, where you spawned!</li>
+				<li>Remember to close Mankara's gate, unless you WANT the wildlife to get in!</li>
 				<li>The town can be sealed, if you can find all the ways in.</li>
-				<li>Nash has MULTIPLE watch towers you can use to spot monsters working their way in, and if you use binoculars that high up you can see even further!</li>
+				<li>Mankara has MULTIPLE watch towers you can use to spot monsters working their way in, and if you use binoculars that high up you can see even further!</li>
 				<li>It's not always faster to pull your pistol, but it is if its a cowboy single action army.</li>
 				<li>Green puddles of goop are generally not your friend. Unless you think radiation is a joke.</li>
 				</ol>

@@ -12,7 +12,7 @@ here's a tip, go search DEFINES/access.dm
 
 // Headsets for everyone!!
 /datum/outfit/job/den
-	name = "Nash Default Template"
+	name = "Mankara Default Template"
 	ears = /obj/item/radio/headset/headset_town
 	belt = /obj/item/kit_spawner/waster
 	id = /obj/item/card/id/dogtag/town
@@ -40,8 +40,8 @@ Mayor
 	department_flag = DEP_OASIS
 	total_positions = 0
 	spawn_positions = 0
-	supervisors = "Nash"
-	description = "You are the civil leader of the Town of Nash. You were chosen by the people to represent and lead them from your manor. Your town is in a terse situation with the slaver town to the south, Redwater. While not at war, you will have to work to keep your people safe from their predations. The Tribals to the south east are also a nuisance but it's best not to provoke them needlessly. Do what's best for the town, and it's people. All while lining your pockets occasionally, of course."
+	supervisors = "Mankara"
+	description = "You are the civil leader of the Town of Mankara. You were chosen by the people to represent and lead them from your manor. Your town is in a terse situation with the slaver town to the south, Redwater. While not at war, you will have to work to keep your people safe from their predations. The Tribals to the south east are also a nuisance but it's best not to provoke them needlessly. Do what's best for the town, and it's people. All while lining your pockets occasionally, of course."
 	enforces = "The Secretary is your stand-in replacement, and under this the Sheriff."
 	selection_color = "#d7b088"
 
@@ -158,8 +158,8 @@ Mayor
 	total_positions = 0
 	spawn_positions = 0
 	supervisors = "your constituents, your greed, and realpolitik"
-	description = "Welcome to the show, kid. Through nepotism, Edisons, or genuine democracy, you've gotten a place on the Parliamentary Council of Nash. Keep the town running smoothly; help your constituents without stepping on their toes, and just maybe they'll vote you back in...or won't, you know, toss you into the moat."
-	enforces = "You serve as the de-facto leader of Nash with your co-Council, if another is awake."
+	description = "Welcome to the show, kid. Through nepotism, Edisons, or genuine democracy, you've gotten a place on the Parliamentary Council of Mankara. Keep the town running smoothly; help your constituents without stepping on their toes, and just maybe they'll vote you back in...or won't, you know, toss you into the moat."
+	enforces = "You serve as the de-facto leader of Mankara with your co-Council, if another is awake."
 	selection_color = "#d7b088"
 	exp_requirements = 0
 
@@ -258,8 +258,8 @@ Mayor
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Mayor"
-	description = "You are the civil enforcer of Nash, keeping the settlement within firm control under the authority of the Mayor. With your loyal patrolmen, you maintain your claim to authority by keeping the peace, managing disputes, and protecting the citizens from threats within and without. Never leave Nash undefended, and don't let its people die out. If this town falls, new conquerors don't tend to look kindly upon the old law."
-	enforces = "You are the stand-in leader of Nash if a Mayor or Secretary does not exist."
+	description = "You are the civil enforcer of Mankara, keeping the settlement within firm control under the authority of the Mayor. With your loyal patrolmen, you maintain your claim to authority by keeping the peace, managing disputes, and protecting the citizens from threats within and without. Never leave Mankara undefended, and don't let its people die out. If this town falls, new conquerors don't tend to look kindly upon the old law."
+	enforces = "You are the stand-in leader of Mankara if a Mayor or Secretary does not exist."
 	selection_color = "#d7b088"
 	exp_requirements = 0
 
@@ -374,8 +374,8 @@ Mayor
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "The Sheriff"
-	description = "You are a loyal protector of Nash, keeping the settlement within firm control under the authority of the Mayor. The sheriff is your direct superior, and you should expect to take your day-to-day orders from them. Maintain your claim to authority by keeping the peace, managing disputes, and protecting the citizens from threats within and without. Never leave Nash undefended, and don't let its people die out."
-	enforces = "You may be elected temporary Sheriff if one does not exist. This may make you the stand-in leader of Nash if a Mayor or Secretary does not exist."
+	description = "You are a loyal protector of Mankara, keeping the settlement within firm control under the authority of the Mayor. The sheriff is your direct superior, and you should expect to take your day-to-day orders from them. Maintain your claim to authority by keeping the peace, managing disputes, and protecting the citizens from threats within and without. Never leave Mankara undefended, and don't let its people die out."
+	enforces = "You may be elected temporary Sheriff if one does not exist. This may make you the stand-in leader of Mankara if a Mayor or Secretary does not exist."
 	selection_color = "#dcba97"
 	exp_type = EXP_TYPE_OASIS
 	exp_requirements = 0
@@ -435,7 +435,7 @@ Mayor
 	//	)
 
 /datum/outfit/loadout/police
-	name = "Nash PD"
+	name = "Mankara PD"
 	uniform = /obj/item/clothing/under/f13/police/officer
 	suit = /obj/item/clothing/suit/armor/heavy/vest/bulletproof
 	head = /obj/item/clothing/head/f13/town/officer
@@ -491,8 +491,8 @@ Mayor
 	department_flag = DEP_OASIS
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = "Nash laws"
-	description = "You are a farmer living in Nash. Treat your town with respect and make sure to follow the laws in place, as your premium status may be revoked if you are considered a danger to the populace."
+	supervisors = "Mankara laws"
+	description = "You are a farmer living in Mankara. Treat your town with respect and make sure to follow the laws in place, as your premium status may be revoked if you are considered a danger to the populace."
 	enforces = "Farming is a public service, and you are under control of local governance - and you are expected to produce food."
 	selection_color = "#dcba97"
 
@@ -575,7 +575,7 @@ Mayor
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "The Mayor"
-	description = "Prospecting is a complicated business. Some call it scrounging or looting, but there is more to it than sifting through rubble - few can boast the valuable skills of mining and scavenging the ruins of fallen empires. The settlement of Nash understands the value of this, and you've found purpose within their mines. Sell the materials you find to the highest bidder - the local store may be particularly interested in metals."
+	description = "Prospecting is a complicated business. Some call it scrounging or looting, but there is more to it than sifting through rubble - few can boast the valuable skills of mining and scavenging the ruins of fallen empires. The settlement of Mankara understands the value of this, and you've found purpose within their mines. Sell the materials you find to the highest bidder - the local store may be particularly interested in metals."
 	enforces = "Mining is a public service, and you are under control of local governance - but by default you are expected to work with private businesses and individual clients."
 	selection_color = "#dcba97"
 
@@ -666,7 +666,7 @@ Mayor
 	total_positions = 0
 	spawn_positions = 0
 	supervisors = "The Mayor"
-	description = "Handy with a scalpel and scanner, your expertise in the practice of medicine makes you an indispensible asset to the settlement of Nash. Just remember that you're no Follower - medicine doesn't come for free, and you aren't here out of the kindness of your heart. Make sure to turn a profit on your services, or the Mayor might reconsider your position!"
+	description = "Handy with a scalpel and scanner, your expertise in the practice of medicine makes you an indispensible asset to the settlement of Mankara. Just remember that you're no Follower - medicine doesn't come for free, and you aren't here out of the kindness of your heart. Make sure to turn a profit on your services, or the Mayor might reconsider your position!"
 	enforces = "Medicine is a public service, and you are under control of local governance - but remember public doesn't equate to free."
 	selection_color = "#dcba97"
 
@@ -773,9 +773,9 @@ Mayor
 	department_flag = DEP_OASIS
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the free market and Nash's Laws"
-	description = "As a proprietor of Heavens Night, you are responsible for ensuring both citizens and travellers in Nash can get some food, drink and rest. Speak to the farmers for fresh produce!"
-	enforces = "Heaven's Night is a private business and you can decide who is welcome there. However, you are still subject to the overarching laws of Nash."
+	supervisors = "the free market and Mankara's Laws"
+	description = "As a proprietor of Heavens Night, you are responsible for ensuring both citizens and travellers in Mankara can get some food, drink and rest. Speak to the farmers for fresh produce!"
+	enforces = "Heaven's Night is a private business and you can decide who is welcome there. However, you are still subject to the overarching laws of Mankara."
 	selection_color = "#dcba97"
 
 	outfit = /datum/outfit/job/den/f13barkeep
@@ -859,8 +859,8 @@ Mayor
 	department_flag = DEP_OASIS
 	total_positions = -1
 	spawn_positions =-1
-	supervisors = "Nash's laws"
-	description = "You are a citizen living in Nash. Treat your town with respect and make sure to follow the laws in place, as your premium status may be revoked if you are considered a danger to the populace. One of the local businesses may have work if you require funds."
+	supervisors = "Mankara's laws"
+	description = "You are a citizen living in Mankara. Treat your town with respect and make sure to follow the laws in place, as your premium status may be revoked if you are considered a danger to the populace. One of the local businesses may have work if you require funds."
 	selection_color = "#dcba97"
 
 	outfit = /datum/outfit/job/den/f13settler
@@ -1082,7 +1082,7 @@ Mayor
 	flag = F13DETECTIVE
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "paying clients and Nash's laws"
+	supervisors = "paying clients and Mankara's laws"
 	selection_color = "#dcba97"
 	outfit = /datum/outfit/job/oasis/f13detective
 
@@ -1138,7 +1138,7 @@ Mayor
 	total_positions = 1
 	spawn_positions = 2
 	supervisors = "The Mayor"
-	description = "No matter the nature of society, fortune and profit are there to be made! It is up to you to make deals, distribute caps and earn interest - an easy first venture might be safekeeping possessions in the strongboxes of your vault within the First Bank of Nash. Ensure you make a profit and retain enough capital for your day-to-day operations. You are under the governance of Nash, but perhaps deal-making will take you into other alliances."
+	description = "No matter the nature of society, fortune and profit are there to be made! It is up to you to make deals, distribute caps and earn interest - an easy first venture might be safekeeping possessions in the strongboxes of your vault within the First Bank of Mankara. Ensure you make a profit and retain enough capital for your day-to-day operations. You are under the governance of Mankara, but perhaps deal-making will take you into other alliances."
 	enforces = "Your bank is a private business and you are not under direct control of local governance, but are subject to their laws."
 	selection_color = "#dcba97"
 	outfit = /datum/outfit/job/den/f13banker
@@ -1211,16 +1211,16 @@ Mayor
 		)
 /*--------------------------------------------------------------*/
 
-//Nash Curator
+//Mankara Curator
 
 /datum/job/oasis/nashcurator
-	title = "Nash Librarian"
+	title = "Mankara Librarian"
 	flag = NASHCURATOR
 	department_flag = DEP_OASIS
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Nash's laws"
-	description = "You are a Curator for the library of Nash. Assist people with writing books, be a journalist, stock the shelves."
+	supervisors = "Mankara's laws"
+	description = "You are a Curator for the library of Mankara. Assist people with writing books, be a journalist, stock the shelves."
 	selection_color = "#dcba97"
 
 	outfit = /datum/outfit/job/den/nashcurator
@@ -1236,7 +1236,7 @@ Mayor
 	)
 
 /datum/outfit/job/den/nashcurator
-	name = "Nash Librarian"
+	name = "Mankara Librarian"
 	jobtype = /datum/job/oasis/nashcurator
 	belt = /obj/item/kit_spawner/townie
 	id = /obj/item/card/id/dogtag/town
@@ -1270,14 +1270,14 @@ Mayor
 
 //The Quartermaster
 /datum/job/oasis/f13quartermaster
-	title = "Texarkana Quartermaster"
+	title = "Mankara Quartermaster"
 	flag = F13QUARTERMASTER
 	department_flag = DEP_OASIS
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the free market and Nash's laws"
+	supervisors = "the free market and Mankara's laws"
 	description = "You are the team leader for your various workers in the shop. Guide them as you see fit towards a profitable future."
-	enforces = "The Nash store is part of your workplace, but it is not your workplace alone. You should try to work with your team in order to turn a profit."
+	enforces = "The Mankara store is part of your workplace, but it is not your workplace alone. You should try to work with your team in order to turn a profit."
 	selection_color = "#dcba97"
 	exp_requirements = 0
 
@@ -1299,7 +1299,7 @@ Mayor
 	)
 
 /datum/outfit/job/den/f13quartermaster
-	name = "Texarkana Quartermaster"
+	name = "Mankara Quartermaster"
 	jobtype = /datum/job/oasis/f13quartermaster
 	id = /obj/item/card/id/dogtag/town
 	ears = /obj/item/radio/headset/headset_town/commerce
@@ -1366,14 +1366,14 @@ Mayor
 
 //The Trade Workers
 /datum/job/oasis/f13shopkeeper
-	title = "Texarkana Trade Worker"
+	title = "Mankara Trade Worker"
 	flag = F13SHOPKEEPER
 	department_flag = DEP_OASIS
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = "the free market and Nash's laws"
-	description = "You are one of the many workers who live in the city of Nash. Working with the town council you have rented out a space in the shop for you to make your living."
-	enforces = "The Nash store is part of your workplace, but it is not your workplace alone. You should try work with the other trade workers to try and turn a profit."
+	supervisors = "the free market and Mankara's laws"
+	description = "You are one of the many workers who live in the city of Mankara. Working with the town council you have rented out a space in the shop for you to make your living."
+	enforces = "The Mankara store is part of your workplace, but it is not your workplace alone. You should try work with the other trade workers to try and turn a profit."
 	selection_color = "#dcba97"
 	exp_requirements = 0
 
@@ -1477,7 +1477,7 @@ Mayor
 	department_flag = DEP_OASIS
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "Nash's laws"
+	supervisors = "Mankara's laws"
 	description = "You are a pilot, hired to fly the town's vertibird. Your job is to provide transport for people and aid in search and rescue. Don't forget to charge a fare."
 	selection_color = "#dcba97"
 

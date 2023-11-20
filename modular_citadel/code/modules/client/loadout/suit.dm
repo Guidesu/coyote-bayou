@@ -1237,7 +1237,7 @@
 	path = /obj/item/clothing/suit/armor/light/duster/town
 	subcategory = LOADOUT_SUBCATEGORY_SUIT_ARMOR
 	cost = 1
-	restricted_desc = "Nash"
+	restricted_desc = "Mankara"
 	restricted_roles = list("High Alderperson",
 							"Councilperson",
 							"Sheriff",
@@ -1256,7 +1256,7 @@
 	path = /obj/item/clothing/suit/armor/medium/vest/oasis
 	subcategory = LOADOUT_SUBCATEGORY_SUIT_ARMOR
 	cost = 2
-	/*restricted_desc = "Nash Police, Nash Officials"
+	/*restricted_desc = "Mankara Police, Mankara Officials"
 	restricted_roles = list("Chief of Police",
 							"Officer",
 							"High Alderperson",

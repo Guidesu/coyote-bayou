@@ -8421,7 +8421,7 @@
 /area/f13/wasteland)
 "erV" = (
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -16582,7 +16582,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/carpet/black,
 /area/f13/building/abandoned)
@@ -21357,7 +21357,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -32826,7 +32826,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/f13/wood,
 /area/f13/building/abandoned)
@@ -35680,7 +35680,7 @@
 "skd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/unpowered/securedoor{
-	name = "First Bank of Nash";
+	name = "First Bank of Mankara";
 	req_one_access_txt = "52"
 	},
 /turf/open/floor/wood_fancy/wood_fancy_light,
@@ -42227,7 +42227,7 @@
 /obj/structure/nest/randomized{
 	randomizer_difficulty = 1;
 	randomizer_kind = "trash mobs";
-	randomizer_tag = "Nash East Road"
+	randomizer_tag = "Mankara East Road"
 	},
 /turf/open/floor/carpet/black,
 /area/f13/building/abandoned)
@@ -44558,7 +44558,7 @@
 "xiv" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/landmark/party{
-	region = "Nash's bar"
+	region = "Mankara's bar"
 	},
 /turf/open/floor/wood_common{
 	color = "#779999"

@@ -771,7 +771,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 /client/proc/admin_call_shuttle()
 	set category = "Admin.Events"
-	set name = "Call Train"
+	set name = "Call Shuttle"
 
 	if(EMERGENCY_AT_LEAST_DOCKED)
 		return
@@ -786,14 +786,14 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	SSshuttle.emergency.request()
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Call Train") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Call Shuttle") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] admin-called the train.")
 	message_admins(span_adminnotice("[key_name_admin(usr)] admin-called the train."))
 	return
 
 /client/proc/admin_cancel_shuttle()
 	set category = "Admin.Events"
-	set name = "Cancel Train"
+	set name = "Cancel Shuttle"
 	if(!check_rights(0))
 		return
 	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes")
@@ -803,7 +803,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	SSshuttle.emergency.cancel()
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Cancel Train") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Cancel Shuttle") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] admin-recalled the train.")
 	message_admins(span_adminnotice("[key_name_admin(usr)] admin-recalled the train."))
 

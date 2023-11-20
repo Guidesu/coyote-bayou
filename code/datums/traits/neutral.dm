@@ -688,7 +688,7 @@
 	desc = "You carry yourself a pen and a personal folder around, you are known to be the one who records everything."
 	value = 0
 	category = "Lifepath Quirks"
-	mechanics = "Yeah, you get a bunch of junk. Cool thing though, alt click the pen and you can rename stuff. See if you can sell someone a deed to Nash, I double dog dare you."
+	mechanics = "Yeah, you get a bunch of junk. Cool thing though, alt click the pen and you can rename stuff. See if you can sell someone a deed to Mankara, I double dog dare you."
 	conflicts = list() // you can be an illiterate journalist
 	mob_trait = TRAIT_JOURNALIST
 	gain_text = span_notice("You feel like you need to harrass politicians.")

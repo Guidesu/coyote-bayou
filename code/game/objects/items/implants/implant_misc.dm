@@ -25,7 +25,7 @@
 
 /obj/item/implant/adrenalin/get_data()
 	var/dat = {"<b>Implant Specifications:</b><BR>
-				<b>Name:</b> Nash Salvage and Research Endogenous Rescue Implant<BR>
+				<b>Name:</b> Mankara Salvage and Research Endogenous Rescue Implant<BR>
 				<b>Life:</b> 48 hours.<BR>
 				<HR>
 				<b>Implant Details:</b> Delivers a dose of rescue drugs to the host upon critial injury.<BR>

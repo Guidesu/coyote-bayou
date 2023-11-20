@@ -1,6 +1,6 @@
 /obj/machinery/vending/artifact
 	name = "\improper Anomaly Hunter Supply"
-	desc = "Vixen Labs FoxEye anomaly detection and retrieval gear, home made in the US of Nash."
+	desc = "Vixen Labs FoxEye anomaly detection and retrieval gear, home made in the US of Mankara."
 	icon_state = "tool"
 	icon_deny = "tool-deny"
 	products = list(/obj/item/pinpointer/validball_finder = 10,

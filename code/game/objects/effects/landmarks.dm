@@ -775,18 +775,18 @@ obj/effect/landmark/start/f13/ncrlogisticsofficer
 	icon_state = "Scribe"
 
 /obj/effect/landmark/start/f13/nashcurator
-	name = "Nash Librarian"
+	name = "Mankara Librarian"
 	icon_state = "Scribe"
 
 /obj/effect/landmark/start/f13/dendoc
 	name = "Doctor"
 
 /obj/effect/landmark/start/f13/quartermaster
-	name = "Texarkana Quartermaster"
+	name = "Mankara Quartermaster"
 	icon_state = "Shopkeeper"
 
 /obj/effect/landmark/start/f13/shopkeeper
-	name = "Texarkana Trade Worker"
+	name = "Mankara Trade Worker"
 	icon_state = "Shopkeeper"
 
 /obj/effect/landmark/start/f13/banker
@@ -930,7 +930,7 @@ obj/effect/landmark/start/f13/ncrlogisticsofficer
 	icon_state = "Medical Doctor"
 
 /obj/effect/landmark/start/f13/followersguard
-	name = "Nash Paramedic"
+	name = "Mankara Paramedic"
 	icon_state = "Security Officer"
 
 /obj/effect/landmark/start/f13/followersvolunteer

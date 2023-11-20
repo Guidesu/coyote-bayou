@@ -676,8 +676,8 @@ GLOBAL_VAR_INIT(vendor_cash, 0)
 		new /datum/data/wasteland_equipment("Lee Enfield (.308)",							/obj/item/gun/ballistic/rifle/enfield,								200),
 		new /datum/data/wasteland_equipment("Hunting Rifle (.30-06)",						/obj/item/gun/ballistic/rifle/hunting,								200),
 		new /datum/data/wasteland_equipment("Hunting Shotgun (12 gauge)",					/obj/item/gun/ballistic/shotgun/hunting,							200),
-		new /datum/data/wasteland_equipment("Surplus Nash Police Rifle (5.56)",				/obj/item/gun/ballistic/automatic/marksman/policerifle,				200),
-		new /datum/data/wasteland_equipment("Surplus Nash Auto Rifle (5mm)",				/obj/item/gun/ballistic/automatic/assault_carbine/policerifle,		300),
+		new /datum/data/wasteland_equipment("Surplus Mankara Police Rifle (5.56)",				/obj/item/gun/ballistic/automatic/marksman/policerifle,				200),
+		new /datum/data/wasteland_equipment("Surplus Mankara Auto Rifle (5mm)",				/obj/item/gun/ballistic/automatic/assault_carbine/policerifle,		300),
 		new /datum/data/wasteland_equipment("Compliance Regulator (SEC)",					/obj/item/gun/energy/laser/complianceregulator,						300),
 		new /datum/data/wasteland_equipment("AEP-7 (SEC)",									/obj/item/gun/energy/laser/pistol,									300),
 		new /datum/data/wasteland_equipment("Pulse Pistol (ECP)",							/obj/item/gun/energy/ionrifle/compact,								300),
@@ -696,8 +696,8 @@ GLOBAL_VAR_INIT(vendor_cash, 0)
 		new /datum/data/wasteland_equipment("Lee Enfield (.308)",							/obj/item/gun/ballistic/rifle/enfield,								200),
 		new /datum/data/wasteland_equipment("Hunting Rifle (.30-06)",						/obj/item/gun/ballistic/rifle/hunting,								200),
 		new /datum/data/wasteland_equipment("Hunting Shotgun (12 gauge)",					/obj/item/gun/ballistic/shotgun/hunting,							200),
-		new /datum/data/wasteland_equipment("Surplus Nash Police Rifle (5.56)",				/obj/item/gun/ballistic/automatic/marksman/policerifle,				200),
-		new /datum/data/wasteland_equipment("Surplus Nash Auto Rifle (5mm)",				/obj/item/gun/ballistic/automatic/assault_carbine/policerifle,		300),
+		new /datum/data/wasteland_equipment("Surplus Mankara Police Rifle (5.56)",				/obj/item/gun/ballistic/automatic/marksman/policerifle,				200),
+		new /datum/data/wasteland_equipment("Surplus Mankara Auto Rifle (5mm)",				/obj/item/gun/ballistic/automatic/assault_carbine/policerifle,		300),
 		new /datum/data/wasteland_equipment("Compliance Regulator (SEC)",					/obj/item/gun/energy/laser/complianceregulator,						300),
 		new /datum/data/wasteland_equipment("AEP-7 (SEC)",									/obj/item/gun/energy/laser/pistol,									300),
 		new /datum/data/wasteland_equipment("Pulse Pistol (ECP)",							/obj/item/gun/energy/ionrifle/compact,								300),
@@ -787,7 +787,7 @@ GLOBAL_VAR_INIT(vendor_cash, 0)
 		new /datum/data/wasteland_equipment("Bottle of E-Z-Nutrient",		/obj/item/reagent_containers/glass/bottle/nutrient/ez,				20),
 		new /datum/data/wasteland_equipment("Craftsmanship Monthly",		/obj/item/book/granter/trait/techno,								150),
 		new /datum/data/wasteland_equipment("Scav! Vol.1",					/obj/item/book/granter/crafting_recipe/scav_one,					250),
-		new /datum/data/wasteland_equipment("Weapons of Texarkana", 		/obj/item/book/granter/crafting_recipe/ODF,							350)
+		new /datum/data/wasteland_equipment("Weapons of Mankara", 		/obj/item/book/granter/crafting_recipe/ODF,							350)
 		)
 	highpop_list = list(
 		new /datum/data/wasteland_equipment("Drinking glass",				/obj/item/reagent_containers/food/drinks/drinkingglass,				5),
@@ -797,7 +797,7 @@ GLOBAL_VAR_INIT(vendor_cash, 0)
 		new /datum/data/wasteland_equipment("Bottle of E-Z-Nutrient",		/obj/item/reagent_containers/glass/bottle/nutrient/ez,				20),
 		new /datum/data/wasteland_equipment("Craftsmanship Monthly",		/obj/item/book/granter/trait/techno,								150),
 		new /datum/data/wasteland_equipment("Scav! Vol.1",					/obj/item/book/granter/crafting_recipe/scav_one,					250),
-		new /datum/data/wasteland_equipment("Weapons of Texarkana", 		/obj/item/book/granter/crafting_recipe/ODF,							350)
+		new /datum/data/wasteland_equipment("Weapons of Mankara", 		/obj/item/book/granter/crafting_recipe/ODF,							350)
 		)
 
 /* These are shit, don't add them.
@@ -855,7 +855,7 @@ GLOBAL_VAR_INIT(vendor_cash, 0)
 		)
 
 /obj/machinery/mineral/wasteland_vendor/special
-	name = "Nash Vending Machine - Money Exchanger"
+	name = "Mankara Vending Machine - Money Exchanger"
 	desc = "An automated machine that exhanges copper coins for more valuable ones. However, it takes a 10% cut."
 	icon_state = "liberationstation_idle"
 	prize_list = list(
