@@ -23283,11 +23283,7 @@
 	},
 /area/f13/building)
 "sqS" = (
-/obj/machinery/door/unpowered/securedoor{
-	name = "Clinic";
-	req_access_txt = null;
-	req_one_access_txt = "124"
-	},
+/obj/structure/simple_door/room,
 /turf/open/floor/plasteel/f13/vault_floor/white,
 /area/f13/wasteland)
 "sqT" = (
